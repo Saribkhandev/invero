@@ -12,228 +12,6 @@
     "slideshow_BYmcUw": {
       "type": "slideshow",
       "blocks": {
-        "slide_fcyTBW": {
-          "type": "_slide",
-          "settings": {
-            "media_type_1": "image",
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "toggle_overlay": true,
-            "overlay_color": "#0000008c",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "group_h6eDHr": {
-              "type": "group",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 25,
-                "width": "custom",
-                "custom_width": 56,
-                "width_mobile": "custom",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "inherit_color_scheme": true,
-                "color_scheme": "scheme-6",
-                "background_media": "none",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 48,
-                "padding-block-end": 48,
-                "padding-inline-start": 48,
-                "padding-inline-end": 48
-              },
-              "blocks": {
-                "group_jNrwyy": {
-                  "type": "group",
-                  "name": "t:names.group",
-                  "settings": {
-                    "content_direction": "row",
-                    "vertical_on_mobile": true,
-                    "horizontal_alignment": "flex-start",
-                    "vertical_alignment": "flex-start",
-                    "align_baseline": false,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center",
-                    "gap": 12,
-                    "width": "fill",
-                    "custom_width": 100,
-                    "width_mobile": "fill",
-                    "custom_width_mobile": 100,
-                    "height": "fit",
-                    "custom_height": 100,
-                    "inherit_color_scheme": true,
-                    "color_scheme": "",
-                    "background_media": "none",
-                    "video_position": "cover",
-                    "background_image_position": "cover",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_radius": 0,
-                    "toggle_overlay": false,
-                    "overlay_color": "#00000026",
-                    "overlay_style": "solid",
-                    "gradient_direction": "to top",
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "placeholder": "",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {
-                    "stars_widget_QcMtHt": {
-                      "type": "stars-widget",
-                      "name": "Stars Widget",
-                      "settings": {
-                        "color": "#794c8d",
-                        "width": 20,
-                        "star_count": 5
-                      },
-                      "blocks": {}
-                    },
-                    "text_8TBWjt": {
-                      "type": "text",
-                      "name": "t:names.text",
-                      "settings": {
-                        "text": "<h5>50,000+ verified 5-star reviews for AG1 products</h5>",
-                        "width": "fit-content",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "stars_widget_QcMtHt",
-                    "text_8TBWjt"
-                  ]
-                },
-                "text_dheaxw": {
-                  "type": "text",
-                  "settings": {
-                    "text": "<h2>Trusted by Dr. Andrew Huberman.</h2>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h2",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_yXG344": {
-                  "type": "text",
-                  "settings": {
-                    "text": "<p>Join thousands of people who have made AG1 part of their daily ritual.</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "custom",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1.125rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 20,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "button_VakYai": {
-                  "type": "button",
-                  "settings": {
-                    "label": "Shop now",
-                    "link": "shopify://collections/all",
-                    "open_in_new_tab": false,
-                    "style_class": "button",
-                    "width": "fit-content",
-                    "custom_width": 100,
-                    "width_mobile": "fit-content",
-                    "custom_width_mobile": 100
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "group_jNrwyy",
-                "text_dheaxw",
-                "text_yXG344",
-                "button_VakYai"
-              ]
-            }
-          },
-          "block_order": [
-            "group_h6eDHr"
-          ]
-        },
         "slide_eBeGP7": {
           "type": "_slide",
           "settings": {
@@ -373,11 +151,151 @@
           "block_order": [
             "group_qC7pRD"
           ]
+        },
+        "slide_N9yH3m": {
+          "type": "_slide",
+          "settings": {
+            "media_type_1": "image",
+            "image_1": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-5",
+            "toggle_overlay": true,
+            "overlay_color": "#00000038",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_mbhiF7": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "custom",
+                "custom_width": 50,
+                "width_mobile": "custom",
+                "custom_width_mobile": 85,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "scheme-6",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 48,
+                "padding-block-end": 48,
+                "padding-inline-start": 48,
+                "padding-inline-end": 48
+              },
+              "blocks": {
+                "text_itYHFw": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h2>Trusted by Dr. Andrew Huberman.</h2>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h2",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_tXjGHB": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Join thousands of people who have made AG1 part of their daily ritual.</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1.25rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 20,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "button_FAj4KB": {
+                  "type": "button",
+                  "settings": {
+                    "label": "Shop now",
+                    "link": "shopify://collections/all",
+                    "open_in_new_tab": false,
+                    "style_class": "button",
+                    "width": "fit-content",
+                    "custom_width": 100,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 100
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_itYHFw",
+                "text_tXjGHB",
+                "button_FAj4KB"
+              ]
+            }
+          },
+          "block_order": [
+            "group_mbhiF7"
+          ]
         }
       },
       "block_order": [
-        "slide_fcyTBW",
-        "slide_eBeGP7"
+        "slide_eBeGP7",
+        "slide_N9yH3m"
       ],
       "name": "t:names.slideshow",
       "settings": {
