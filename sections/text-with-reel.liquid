@@ -298,7 +298,13 @@
         {% endif %}
 
         {% if section.settings.btn_label != blank %}
-          <a href="{{ section.settings.btn_link }}" class="section-btn">{{ section.settings.btn_label }}</a>
+          <a
+            href="{{ section.settings.btn_link }}"
+            class="button button-secondary{% if section.settings.show_icon %} button--has-icon{% endif %}"
+          >
+            {{- section.settings.btn_label -}}
+            {%- if section.settings.show_icon %}<span class="button__icon"></span>{% endif -%}
+          </a>
         {% endif %}
       </div>
 
@@ -506,6 +512,12 @@
       "max": 5,
       "step": 1,
       "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon",
+      "label": "Show arrow icon",
+      "default": false
     },
     {
       "type": "text",

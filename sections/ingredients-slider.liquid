@@ -14,31 +14,41 @@
 >
   <div class="ingredients-slider__container">
     <!-- Header Section -->
-    {% render 'star-svg', width: section.settings.width, star_count: section.settings.star_count, block: section %}
-    <div class="ingredients-slider__header">
-      <h2 class="ingredients-slider__title">
-        {{ section.settings.title | default: '75+ quality ingredients optimized for impact' }}
-      </h2>
-      <div class="ingredients-slider__buttons">
-        {% if section.settings.view_all_link != blank %}
-          <a
-            href="{{ section.settings.view_all_link }}"
-            class="ingredients-slider__button ingredients-slider__button--secondary"
-          >
-            {{ section.settings.view_all_text | default: 'View All Ingredients' }}
-          </a>
-        {% endif %}
-        {% if section.settings.supplement_facts_link != blank %}
-          <a
-            href="{{ section.settings.supplement_facts_link }}"
-            class="ingredients-slider__button ingredients-slider__button--primary"
-          >
-            {{ section.settings.supplement_facts_text | default: 'Supplement Facts' }}
-          </a>
-        {% endif %}
+    <div class="ingredients-slider__wrapper">
+      {% if section.settings.rating_text != blank %}
+        <div class="ingredients-slider__star-component">
+          {% render 'star-svg',
+            width: section.settings.width,
+            star_count: section.settings.star_count,
+            block: section
+          %}
+          <p>{{ section.settings.rating_text }}</p>
+        </div>
+      {% endif %}
+      <div class="ingredients-slider__header">
+        <h2 class="ingredients-slider__title">
+          {{ section.settings.title | default: '75+ quality ingredients optimized for impact' }}
+        </h2>
+        <div class="ingredients-slider__buttons">
+          {% if section.settings.view_all_link != blank %}
+            <a
+              href="{{ section.settings.view_all_link }}"
+              class="ingredients-slider__button ingredients-slider__button--secondary"
+            >
+              {{ section.settings.view_all_text | default: 'View All Ingredients' }}
+            </a>
+          {% endif %}
+          {% if section.settings.supplement_facts_link != blank %}
+            <a
+              href="{{ section.settings.supplement_facts_link }}"
+              class="ingredients-slider__button ingredients-slider__button--primary"
+            >
+              {{ section.settings.supplement_facts_text | default: 'Supplement Facts' }}
+            </a>
+          {% endif %}
+        </div>
       </div>
     </div>
-
     <!-- Slider Section -->
     {% if section.blocks.size > 0 %}
       <div
@@ -74,7 +84,7 @@
     }
 
     const autoplaySpeed = parseInt(sliderElement.getAttribute('data-autoplay-speed')) || 30;
-    const delay = 1000;
+    const delay = 2000;
 
     new Swiper(sliderElement, {
       slidesPerView: 'auto',
@@ -107,12 +117,28 @@
 </script>
 
 {% stylesheet %}
+  .ingredients-slider__wrapper {
+    padding: 3rem 7%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ingredients-slider__star-component {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ingredients-slider__star-component p {
+    margin: 0;
+  }
+
   .ingredients-slider__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    padding: 3rem 7%;
   }
 
   .ingredient-card__subtitle {
@@ -131,7 +157,6 @@
     display: flex;
     gap: 1rem;
     flex-direction: column;
-    margin-bottom: 30px;
   }
 
   .ingredients-slider__button {
@@ -289,6 +314,12 @@
       "step": 1,
       "unit": "px",
       "default": 5
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating Text",
+      "default": "Based on 100+ reviews"
     },
     {
       "type": "color",
