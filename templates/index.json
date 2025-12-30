@@ -301,9 +301,11 @@
       "settings": {
         "icons_style": "chevron",
         "slideshow_controls_style": "dots",
-        "trust_icon_1": "shopify://shop_images/svgviewer-png-output.png",
+        "trust_icon_1": "shopify://shop_images/5806a5fc9187f8b38d2ba9a58503dd51ae71837c-800x200.webp",
         "trust_text_1": "Validated by NSF Certified for Sport®",
+        "trust_icon_2": "shopify://shop_images/3b54996789e9ba7f445cf38589819c30dbb72335-800x200.webp",
         "trust_text_2": "Backed by industry-leading research",
+        "trust_icon_3": "shopify://shop_images/18d88def4459817ab9ae85679f4af34f3b71d6e1-800x200.webp",
         "trust_text_3": "Trusted by leading scientists and athletes",
         "color_scheme": "scheme-5",
         "autoplay": true,
