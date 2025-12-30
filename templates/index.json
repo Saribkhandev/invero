@@ -1516,6 +1516,7 @@
       "settings": {
         "eyebrow": "Nutritional Gaps",
         "title": "<p>AG1 Next Gen is clinically shown to fill common nutrient gaps even in healthy eaters.1–4</p>",
+        "comparison_image": "shopify://shop_images/svgviewer-png-output.png",
         "color_scheme": "scheme-2",
         "note_label": "Why this matters",
         "note_text": "<p>In four randomized, placebo-controlled trials—meeting strict and widely accepted standards for clinical research—AG1 Next Gen demonstrated a statistically significant and positive impact on closing common nutrient gaps. These studies included participants with diverse diets, backgrounds, ages, and activity levels. 1–4</p>",
