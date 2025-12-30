@@ -1504,7 +1504,8 @@
         "button_label": "Get Started",
         "button_link": "#",
         "show_arrow": true,
-        "use_image_grid": true,
+        "use_image_grid": false,
+        "image": "shopify://shop_images/40a9526d64b6f29effdc3e980e499160845fab67-1960x1306.avif",
         "padding-block-start": 52,
         "padding-block-end": 52
       }
