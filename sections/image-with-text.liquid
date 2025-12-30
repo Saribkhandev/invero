@@ -1,0 +1,357 @@
+<style>
+  .image-with-text-custom {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .image-with-text-custom {
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .image-with-text-custom.layout-image-first {
+      direction: rtl;
+    }
+
+    .image-with-text-custom.layout-image-first > * {
+      direction: ltr;
+    }
+  }
+
+  .image-with-text-custom__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-block: 40px;
+  }
+
+  .image-with-text-custom__heading {
+    margin: 0;
+    color: var(--color-foreground-heading);
+  }
+
+  .image-with-text-custom__text {
+    margin: 0;
+  }
+
+  .image-with-text-custom__text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .image-with-text-custom__text ul li {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 12px;
+  }
+
+  .image-with-text-custom__text ul li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+  }
+
+  .image-with-text-custom__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    background-color: var(--color-primary-button-background);
+    color: var(--color-primary-button-text);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--color-primary-button-border);
+    cursor: pointer;
+  }
+
+  .image-with-text-custom__button:hover {
+    background-color: var(--color-primary-button-hover-background);
+    color: var(--color-primary-button-hover-text);
+    border-color: var(--color-primary-button-hover-border);
+    transform: translateY(-2px);
+  }
+
+  .image-with-text-custom__button svg {
+    margin-left: 8px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .image-with-text-custom__image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .image-with-text-custom__image-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+  }
+
+  .image-with-text-custom__image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .image-with-text-custom__single-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .image-with-text-custom__single-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Spacing utility from theme */
+  .spacing-style {
+    padding-top: var(--padding-block-start, 0);
+    padding-bottom: var(--padding-block-end, 0);
+  }
+</style>
+
+{% liquid
+  assign layout_class = ''
+  if section.settings.layout == 'image_first'
+    assign layout_class = 'layout-image-first'
+  endif
+%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<section
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="image-with-text-custom {{ layout_class }}">
+    {%- comment -%} Content Side {%- endcomment -%}
+    <div class="image-with-text-custom__content">
+      {% if section.settings.heading != blank %}
+        <h2 class="image-with-text-custom__heading ">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.text != blank %}
+        <div class="image-with-text-custom__text rte paragraph">
+          {{ section.settings.text }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="image-with-text-custom__button">
+          {{ section.settings.button_label }}
+          {% if section.settings.show_arrow %}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          {% endif %}
+        </a>
+      {% endif %}
+    </div>
+
+    {%- comment -%} Image Side {%- endcomment -%}
+    <div class="image-with-text-custom__media">
+      {% if section.settings.use_image_grid %}
+        <div class="image-with-text-custom__image-grid">
+          {% for block in section.blocks %}
+            {% if block.type == 'image' %}
+              <div class="image-with-text-custom__image-item" {{ block.shopify_attributes }}>
+                {% if block.settings.image != blank %}
+                  {{
+                    block.settings.image
+                    | image_url: width: 600
+                    | image_tag: loading: 'lazy', alt: block.settings.image.alt
+                  }}
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="image-with-text-custom__single-image">
+          {% if section.settings.image != blank %}
+            {{
+              section.settings.image
+              | image_url: width: 1200
+              | image_tag: loading: 'lazy', alt: section.settings.image.alt
+            }}
+          {% else %}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image with Text Custom",
+  "tag": "section",
+  "class": "section-wrapper",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "text_first",
+          "label": "Text First"
+        },
+        {
+          "value": "image_first",
+          "label": "Image First"
+        }
+      ],
+      "default": "text_first"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page Width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full Width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Designed to Support Your Busy Lifestyle"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>We formulated AG1 Next Gen to support your health with advanced nutrition in every scoop.* It's a match if you:</p><ul><li>Want an easy way to support your daily nutrition</li><li>Are juggling a busy life and need nutrition that keeps up</li><li>Care about improving gut health and digestion</li><li>Are getting back into fitness and want to support your energy levels</li><li>Are on GLP-1s and want additional nutritional support</li></ul>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Show Arrow Icon",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Image Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_image_grid",
+      "label": "Use Image Grid (2x2)",
+      "info": "Enable to show a 2x2 grid of images. Disable to show a single image.",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Single Image",
+      "info": "Used when 'Use Image Grid' is disabled"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Grid Image",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Text Custom",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

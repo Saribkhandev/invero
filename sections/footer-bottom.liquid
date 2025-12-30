@@ -1,0 +1,148 @@
+{% stylesheet %}
+  .footer-bottom__inner__left__logo__img {
+    width: max-content;
+  }
+
+  .footer-bottom__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom__center-top-bar {
+    border: 1px solid var(--color-foreground);
+    padding: 10px;
+    margin-bottom: 30px;
+    font-size: var(--font-h6--size);
+  }
+
+  .footer-bottom__center-bottom-bar {
+    font-size: var(--font-h6--size);
+  }
+
+  @media screen and (min-width: 750px) {
+    .footer-bottom__inner {
+      grid-template-columns: 1fr 2fr 1fr;
+    }
+  }
+{% endstylesheet %}
+<style>
+  #footer-bottom-{{ section.id }} .footer-bottom__inner__left__logo__img {
+    height: {{ section.settings.logo_height }}px;
+  }
+</style>
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<footer-bottom
+  id="footer-bottom-{{ section.id }}"
+  class="footer-bottom section section--{{ section.settings.section_width }} spacing-style color-{{ section.settings.color_scheme }}"
+  style="    {% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="footer-bottom__container">
+    <div class="footer-bottom__inner">
+      <div class="footer-bottom__inner__left">
+        <div class="footer-bottom__inner__left__logo">
+          {{
+            section.settings.logo
+            | image_url: width: 500, height: 250
+            | image_tag: class: 'footer-bottom__inner__left__logo__img'
+          }}
+        </div>
+      </div>
+      <div class="footer-bottom__inner__center">
+        <div class="footer-bottom__center-top-bar">
+          {{ section.settings.top_bar }}
+        </div>
+        <div class="footer-bottom__center-bottom-bar">
+          {{ section.settings.bottom_bar }}
+        </div>
+      </div>
+      <div class="footer-bottom__inner__right">
+        <div class="footer-bottom__inner__right__social">
+          {{ section.settings.right_content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer-bottom>
+{% schema %}
+{
+  "name": "Footer Bottom",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        { "value": "page-width", "label": "Page Width" },
+        { "value": "full-width", "label": "Full Width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "label": "Logo Height",
+      "min": 50,
+      "max": 350,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "richtext",
+      "id": "top_bar",
+      "label": "Top Bar"
+    },
+    {
+      "type": "richtext",
+      "id": "bottom_bar",
+      "label": "Bottom Bar"
+    },
+    {
+      "type": "richtext",
+      "id": "right_content",
+      "label": "Right Content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer Bottom"
+    }
+  ]
+}
+{% endschema %}

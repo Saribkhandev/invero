@@ -1,0 +1,263 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding-block-start | times: 0.75 | round: 0 }}px !important;
+    padding-bottom: {{ section.settings.padding-block-end | times: 0.75 | round: 0 }}px !important;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding-block-start }}px !important;
+      padding-bottom: {{ section.settings.padding-block-end }}px !important;
+    }
+  }
+
+  .ingredients-info__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  @media screen and (min-width: 990px) {
+    .ingredients-info__grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 120px;
+    }
+  }
+
+  .ingredients-info__content {
+    position: sticky;
+    top: 40px;
+  }
+
+  .ingredients-info__heading {
+    margin: 0;
+    max-width: 400px;
+  }
+
+  .ingredients-info__text {
+    margin-top: 24px;
+    max-width: 360px;
+    opacity: 0.9;
+  }
+
+  .ingredients-info__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .ingredients-info__item {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .ingredients-info__item-image-wrapper {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f1ede8;
+    aspect-ratio: 1 / 1;
+  }
+
+  .ingredients-info__item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ingredients-info__item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ingredients-info__item-title {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .ingredients-info__item-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.9;
+    max-width: 440px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ingredients-info__content {
+      position: static;
+    }
+
+    .ingredients-info__grid {
+      gap: 60px;
+    }
+    .ingredients-info__item-image-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+    .ingredients-info__item-title {
+        font-size: 20px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="ingredients-info section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="section section--page-width">
+    <div class="ingredients-info__grid">
+      <div class="ingredients-info__content">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ingredients-info__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="ingredients-info__text">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
+
+      <div class="ingredients-info__list">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'ingredient' -%}
+              <div class="ingredients-info__item" {{ block.shopify_attributes }}>
+                <div class="ingredients-info__item-image-wrapper">
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 200
+                      | image_tag: class: 'ingredients-info__item-image', loading: 'lazy'
+                    }}
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+                <div class="ingredients-info__item-content">
+                  {%- if block.settings.title != blank -%}
+                    <h3 class="ingredients-info__item-title">{{ block.settings.title }}</h3>
+                  {%- endif -%}
+                  {%- if block.settings.text != blank -%}
+                    <div class="ingredients-info__item-text">{{ block.settings.text }}</div>
+                  {%- endif -%}
+                </div>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "High-Quality Ingredients",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "High-quality ingredients"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Main Text",
+      "default": "<p>Every scoop of AG1 works to deliver comprehensive daily nutrition with ingredients that are carefully sourced for absorption, potency, and nutrient density.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Color Scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Vitamins & minerals"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>Vitamins and minerals are micronutrients that support energy production for daily function, like B complex and vitamin B12.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "High-Quality Ingredients",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamins & minerals",
+            "text": "<p>Vitamins and minerals are micronutrients that support energy production for daily function, like B complex and vitamin B12.</p>"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Pre & probiotics",
+            "text": "<p>Probiotics and prebiotics, like apple and inulin, work together to promote growth of healthy bacteria and gut microbiome function.</p>"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Stress adaptogens",
+            "text": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

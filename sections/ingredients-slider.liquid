@@ -1,0 +1,415 @@
+<style>
+  .star-component {
+    display: flex;
+  }
+  .star-color__{{ section.id }} svg path {
+    fill: {{ section.settings.color }};
+  }
+</style>
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section section-page-width custom-full-width spacing-style color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-padding', settings: section.settings %}"
+>
+  <div class="ingredients-slider__container">
+    <!-- Header Section -->
+    {% render 'star-svg', width: section.settings.width, star_count: section.settings.star_count, block: section %}
+    <div class="ingredients-slider__header">
+      <h2 class="ingredients-slider__title">
+        {{ section.settings.title | default: '75+ quality ingredients optimized for impact' }}
+      </h2>
+      <div class="ingredients-slider__buttons">
+        {% if section.settings.view_all_link != blank %}
+          <a
+            href="{{ section.settings.view_all_link }}"
+            class="ingredients-slider__button ingredients-slider__button--secondary"
+          >
+            {{ section.settings.view_all_text | default: 'View All Ingredients' }}
+          </a>
+        {% endif %}
+        {% if section.settings.supplement_facts_link != blank %}
+          <a
+            href="{{ section.settings.supplement_facts_link }}"
+            class="ingredients-slider__button ingredients-slider__button--primary"
+          >
+            {{ section.settings.supplement_facts_text | default: 'Supplement Facts' }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Slider Section -->
+    {% if section.blocks.size > 0 %}
+      <div
+        class="swiper ingredients-slider"
+        data-autoplay-speed="{{ section.settings.autoplay_speed | default: 30 }}"
+        id="ingredients-slider-{{ section.id }}"
+      >
+        <div class="swiper-wrapper" id="ingredients-slider-wrapper-{{ section.id }}">
+          {% content_for 'blocks' %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', function () {
+    const sliderElement = document.getElementById('ingredients-slider-{{ section.id }}');
+    if (!sliderElement) return;
+
+    // Wrap each block in swiper-slide
+    const wrapper = document.getElementById('ingredients-slider-wrapper-{{ section.id }}');
+    if (wrapper) {
+      const children = Array.from(wrapper.children);
+      children.forEach(function (child) {
+        if (!child.classList.contains('swiper-slide')) {
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide';
+          child.parentNode.insertBefore(slide, child);
+          slide.appendChild(child);
+        }
+      });
+    }
+
+    const autoplaySpeed = parseInt(sliderElement.getAttribute('data-autoplay-speed')) || 30;
+    const delay = 1000;
+
+    new Swiper(sliderElement, {
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      loop: true,
+      autoplay: {
+        delay: delay,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+        stopOnLastSlide: false,
+      },
+      grabCursor: true,
+      freeMode: {
+        enabled: true,
+        sticky: false,
+        momentum: true,
+        momentumBounce: false,
+      },
+      breakpoints: {
+        0: {
+          spaceBetween: 16,
+        },
+        750: {
+          slidesPerView: 5,
+          spaceBetween: 24,
+        },
+      },
+    });
+  });
+</script>
+
+{% stylesheet %}
+  .ingredients-slider__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 7%;
+  }
+
+  .ingredient-card__subtitle {
+    padding: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .ingredients-slider__title {
+    color: var(--color-foreground);
+    margin: 0;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .ingredients-slider__buttons {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .ingredients-slider__button {
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    border: 2px solid;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .ingredients-slider__button--secondary {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    border-color: var(--color-foreground);
+  }
+
+  .ingredients-slider__button--secondary:hover {
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+  }
+
+  .ingredients-slider__button--primary {
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+    border-color: var(--color-foreground);
+  }
+
+  .ingredients-slider__button--primary:hover {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  .ingredients-slider {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .ingredients-slider .swiper-wrapper {
+    display: flex;
+  }
+
+  .ingredient-card {
+    background-color: var(--color-background);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ingredient-card__image-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    position: relative;
+  }
+
+  .ingredient-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 2/3;
+  }
+
+  .ingredient-card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .ingredient-card__wrapper {
+    padding: 1.5rem;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    bottom: -1px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ingredient-card__name {
+    color: var(--color-foreground);
+    margin: 0;
+  }
+
+  .ingredient-card__name {
+    font-weight: 500;
+  }
+
+  .ingredient-card__description {
+    color: var(--color-foreground);
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ingredients-slider__header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+    }
+
+    .ingredient-card__description {
+      font-size: 14px;
+    }
+
+    .ingredient-card__wrapper,
+    .ingredient-card__subtitle {
+      padding: 1rem;
+    }
+
+    .ingredients-slider__buttons {
+      width: 100%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Ingredients Slider",
+  "tag": "section",
+  "class": "ingredients-slider-section",
+  "blocks": [
+    {
+      "type": "_ingredient-card"
+    }
+  ],
+  "settings": [
+    {
+      "type": "range",
+      "id": "width",
+      "label": "t:settings.custom_width",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "%",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "star_count",
+      "label": "Star Count",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 5
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Stars Color"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "75+ quality ingredients optimized for impact"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Button Text",
+      "default": "View All Ingredients"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View All Button Link"
+    },
+    {
+      "type": "text",
+      "id": "supplement_facts_text",
+      "label": "Supplement Facts Button Text",
+      "default": "Supplement Facts"
+    },
+    {
+      "type": "url",
+      "id": "supplement_facts_link",
+      "label": "Supplement Facts Button Link"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay Speed",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "s",
+      "default": 30,
+      "info": "Time in seconds for one complete scroll cycle"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Slider",
+      "blocks": [
+        {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "LICORICE ROOT",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          }
+        },
+        {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "CITRUS BIOFLAVONOIDS",
+            "description": "<p>Antioxidants, like citrus bioflavonoids, help combat against environmental and oxidative stress.</p>"
+          }
+        },
+        {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "BILBERRY",
+            "description": "<p>Superfoods & mushrooms, like spirulina and reishi, provide a variety of phytonutrients that support the body and gut. *</p>"
+          }
+        },
+        {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "MAGNESIUM",
+            "description": "<p>Vitamins & minerals are micronutrients that support energy production for daily function, like B complex and vitamin B12.*</p>"
+          }
+        },
+        {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "APPLE",
+            "description": "<p>Probiotics and prebiotics, like apple and inulin, work together to promote growth of healthy bacteria and gut microbiome function.*</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

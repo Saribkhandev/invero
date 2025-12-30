@@ -1,0 +1,833 @@
+<div
+  class="promotional-split section section--{{ section.settings.section_width }} spacing-style color-{{ section.settings.color_scheme }}"
+  data-section-id="{{ section.id }}"
+  style="
+    {% render 'spacing-style', settings: section.settings %}
+    --promo-min-height: {{ section.settings.section_height }};
+    --promo-gap: {{ section.settings.gap_size }}px;
+  "
+>
+  <div class="promotional-split__container">
+    {% render 'promo-panel-left', settings: section.settings %}
+    {% render 'promo-panel-right', settings: section.settings %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .promotional-split {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .promotional-split__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--promo-gap, 0);
+    min-height: var(--promo-min-height, 600px);
+    width: 100%;
+
+    @media screen and (min-width: 750px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* LEFT PANEL - Product Details */
+  .promo-panel--left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3rem 2rem;
+    background: rgb(var(--panel-bg-rgb));
+    color: rgb(var(--panel-text-rgb));
+
+    @media screen and (min-width: 750px) {
+      padding: 4rem 3rem;
+    }
+
+    @media screen and (min-width: 990px) {
+      padding: 5rem 4rem;
+    }
+  }
+
+  .promo-panel__heading {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    color: rgb(var(--panel-text-rgb));
+  }
+
+  .promo-panel__subheading {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    color: rgb(var(--panel-text-rgb));
+    opacity: 0.9;
+  }
+
+  .promo-panel__product-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgb(var(--panel-text-rgb));
+    margin-bottom: 0.25rem;
+  }
+
+  .promo-panel__product-description {
+    font-size: 0.75rem;
+    color: rgb(var(--panel-text-rgb));
+    opacity: 0.7;
+    margin-bottom: 1rem;
+  }
+
+  .promo-panel__price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .promo-panel__price--original {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(var(--panel-text-rgb));
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+
+  .promo-panel__price--current {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: rgb(var(--accent-color-rgb));
+  }
+
+  /* Features List */
+  .promo-panel__features {
+    list-style: none;
+    padding: 20px 0 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 3px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.15);
+    gap: 0.5rem;
+  }
+
+  .promo-panel__feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: rgb(var(--panel-text-rgb));
+  }
+
+  .promo-panel__feature-item--header {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+
+  .promo-panel__feature-item--header::before {
+    content: none !important;
+  }
+
+  .promo-panel__feature-item::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background: rgb(var(--accent-color-rgb));
+    color: white;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .promo-panel__upper-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Total */
+  .promo-panel__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    font-weight: 500;
+  }
+
+  .promo-panel__total-label {
+    color: rgb(var(--panel-text-rgb));
+  }
+
+  .promo-panel__total-value {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .promo-panel__total-amount--original {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgb(var(--panel-text-rgb));
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+
+  .promo-panel__total-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(var(--accent-color-rgb));
+  }
+
+  /* Button */
+  .promo-panel__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background: rgb(var(--button-bg-rgb));
+    color: rgb(var(--button-text-rgb));
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    max-width: 100%;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .promo-panel__button-icon {
+    display: inline-flex;
+    transition: transform 0.2s ease;
+  }
+
+  /* Guarantees */
+  .promo-panel__guarantees {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .promo-panel__guarantee {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: rgb(var(--panel-text-rgb));
+    opacity: 0.8;
+  }
+
+  .promo-panel__guarantee::before {
+    content: '✓';
+    color: rgb(var(--panel-text-rgb));
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  /* RIGHT PANEL - Image */
+  .promo-panel--right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(var(--panel-bg-rgb));
+    overflow: hidden;
+    min-height: 400px;
+
+    @media screen and (min-width: 750px) {
+      min-height: 600px;
+    }
+  }
+
+  .promo-panel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: var(--panel-image-opacity, 1);
+  }
+
+  .promo-panel__image-badge {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 749px) {
+    .promotional-split__container {
+      min-height: auto;
+    }
+
+    .promo-panel--left,
+    .promo-panel--right {
+      min-height: 500px;
+    }
+
+    .promo-panel__guarantees {
+      gap: 1rem;
+      font-size: 0.7rem;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .promo-panel__content {
+      width: 85%;
+      margin: 0 auto;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  class PromotionalSplit extends HTMLElement {
+    constructor() {
+      super();
+      this.init();
+    }
+
+    init() {
+      this.setupIntersectionObserver();
+      this.setupCountdown();
+    }
+
+    setupIntersectionObserver() {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, options);
+
+      this.querySelectorAll('.promo-panel').forEach((panel) => {
+        observer.observe(panel);
+      });
+    }
+
+    setupCountdown() {
+      const countdownElements = this.querySelectorAll('[data-countdown]');
+
+      countdownElements.forEach((element) => {
+        const endDate = new Date(element.dataset.countdown).getTime();
+
+        const updateCountdown = () => {
+          const now = new Date().getTime();
+          const distance = endDate - now;
+
+          if (distance < 0) {
+            element.textContent = 'Offer Expired';
+            return;
+          }
+
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          element.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        };
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      });
+    }
+  }
+
+  customElements.define('promotional-split', PromotionalSplit);
+
+  // Auto-initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.promotional-split').forEach((section) => {
+      if (!section.tagName.includes('-')) {
+        const wrapper = document.createElement('promotional-split');
+        section.parentNode.insertBefore(wrapper, section);
+        wrapper.appendChild(section);
+      }
+    });
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Promotional Split",
+  "tag": "section",
+  "class": "promotional-split-wrapper section-wrapper",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        { "value": "page-width", "label": "Page Width" },
+        { "value": "full-width", "label": "Full Width" }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "Section Height",
+      "options": [
+        { "value": "auto", "label": "Auto" },
+        { "value": "500px", "label": "Small (500px)" },
+        { "value": "700px", "label": "Medium (700px)" },
+        { "value": "900px", "label": "Large (900px)" },
+        { "value": "100vh", "label": "Full Screen" }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "range",
+      "id": "gap_size",
+      "label": "Gap Between Panels",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "LEFT PANEL"
+    },
+    {
+      "type": "paragraph",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "left_bg_color",
+      "label": "Background Color",
+      "default": "#0F3D3E"
+    },
+    {
+      "type": "color",
+      "id": "left_text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "left_accent_color",
+      "label": "Accent Color",
+      "default": "#2A6F97"
+    },
+    {
+      "type": "range",
+      "id": "left_padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "left_padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "left_padding_left",
+      "label": "Padding Left",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "left_padding_right",
+      "label": "Padding Right",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "select",
+      "id": "left_vertical_alignment",
+      "label": "Vertical Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "left_horizontal_alignment",
+      "label": "Horizontal Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "paragraph",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "left_heading",
+      "label": "Heading",
+      "default": "December Sale"
+    },
+    {
+      "type": "range",
+      "id": "left_heading_size",
+      "label": "Heading Size",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "text",
+      "id": "left_subheading",
+      "label": "Subheading",
+      "default": "AG1's Lowest Price Ever - For A Limited Time Only!**"
+    },
+    {
+      "type": "paragraph",
+      "content": "Product Information"
+    },
+    {
+      "type": "text",
+      "id": "left_product_name",
+      "label": "Product Name",
+      "default": "AG1 Pouch (30 Servings)"
+    },
+    {
+      "type": "text",
+      "id": "left_product_description",
+      "label": "Product Description",
+      "default": "2.30 €/serving"
+    },
+    {
+      "type": "text",
+      "id": "left_product_price",
+      "label": "Product Price",
+      "default": "69€"
+    },
+    {
+      "type": "text",
+      "id": "left_product_price_original",
+      "label": "Original Price",
+      "default": "87€"
+    },
+    {
+      "type": "paragraph",
+      "content": "Features"
+    },
+    {
+      "type": "text",
+      "id": "left_feature_1",
+      "label": "Feature 1",
+      "default": "FIRST TIME PURCHASE INCLUDES:"
+    },
+    {
+      "type": "text",
+      "id": "left_feature_2",
+      "label": "Feature 2",
+      "default": "Welcome Kit"
+    },
+    {
+      "type": "text",
+      "id": "left_feature_3",
+      "label": "Feature 3",
+      "default": "AG1 Shaker, Scoop, and Canister"
+    },
+    {
+      "type": "paragraph",
+      "content": "Total"
+    },
+    {
+      "type": "text",
+      "id": "left_total_label",
+      "label": "Total Label",
+      "default": "Total"
+    },
+    {
+      "type": "text",
+      "id": "left_total_amount",
+      "label": "Total Amount",
+      "default": "69€"
+    },
+    {
+      "type": "text",
+      "id": "left_total_amount_original",
+      "label": "Original Total",
+      "default": "87€"
+    },
+    {
+      "type": "paragraph",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "left_button_text",
+      "label": "Button Text",
+      "default": "Try AG1 Now"
+    },
+    {
+      "type": "url",
+      "id": "left_button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "left_button_bg_color",
+      "label": "Button Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "left_button_text_color",
+      "label": "Button Text Color",
+      "default": "#0F3D3E"
+    },
+    {
+      "type": "paragraph",
+      "content": "Guarantees"
+    },
+    {
+      "type": "text",
+      "id": "left_guarantee_1",
+      "label": "Guarantee 1",
+      "default": "Update or cancel anytime"
+    },
+    {
+      "type": "text",
+      "id": "left_guarantee_2",
+      "label": "Guarantee 2",
+      "default": "30 days money-back guarantee"
+    },
+    {
+      "type": "header",
+      "content": "RIGHT PANEL"
+    },
+    {
+      "type": "paragraph",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "right_bg_color",
+      "label": "Background Color",
+      "default": "#F5F1E8"
+    },
+    {
+      "type": "color",
+      "id": "right_text_color",
+      "label": "Text Color",
+      "default": "#0F3D3E"
+    },
+    {
+      "type": "color",
+      "id": "right_accent_color",
+      "label": "Accent Color",
+      "default": "#E63946"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "right_image_opacity",
+      "label": "Background Image Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "checkbox",
+      "id": "right_enable_overlay",
+      "label": "Enable Gradient Overlay",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "right_overlay_start_color",
+      "label": "Overlay Start Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "right_overlay_start_opacity",
+      "label": "Overlay Start Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "right_overlay_end_color",
+      "label": "Overlay End Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "right_overlay_end_opacity",
+      "label": "Overlay End Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "right_vertical_alignment",
+      "label": "Vertical Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "right_horizontal_alignment",
+      "label": "Horizontal Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "paragraph",
+      "content": "Product Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_product_image",
+      "label": "Product Image"
+    },
+    {
+      "type": "text",
+      "id": "right_price_strike",
+      "label": "Strikethrough Price",
+      "default": "87€"
+    },
+    {
+      "type": "text",
+      "id": "right_price_current",
+      "label": "Current Price",
+      "default": "69€"
+    },
+    {
+      "type": "text",
+      "id": "right_price_label",
+      "label": "Price Badge Label",
+      "default": "FIRST TIME EVER. LIMITED TIME ONLY."
+    },
+    {
+      "type": "select",
+      "id": "right_text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promotional Split"
+    }
+  ]
+}
+{% endschema %}

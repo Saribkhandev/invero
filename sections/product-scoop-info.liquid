@@ -1,0 +1,372 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding-block-start | times: 0.75 | round: 0 }}px !important;
+    padding-bottom: {{ section.settings.padding-block-end | times: 0.75 | round: 0 }}px !important;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding-block-start }}px !important;
+      padding-bottom: {{ section.settings.padding-block-end }}px !important;
+    }
+  }
+
+  .product-scoop-info__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  @media screen and (min-width: 990px) {
+    .product-scoop-info__grid {
+      grid-template-columns: 1.1fr 1fr;
+      gap: 120px;
+    }
+  }
+
+  .product-scoop-info__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .product-scoop-info__heading {
+    margin: 0;
+    font-size: 56px;
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    max-width: 700px;
+  }
+
+  .product-scoop-info__table {
+    margin-top: 32px;
+    border-top: 1px solid rgba(var(--color-foreground), 0.3);
+  }
+
+  .product-scoop-info__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 1px solid lightgrey;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  .product-scoop-info__label {
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-right: 20px;
+  }
+
+  .product-scoop-info__value {
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .product-scoop-info__button-wrapper {
+    margin-top: 15px;
+  }
+
+  .product-scoop-info__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .product-scoop-info__button:hover {
+    filter: brightness(0.9);
+    {% if section.settings.button_border_color == blank %}
+      border-color: rgba(var(--color-foreground), 1);
+    {% endif %}
+  }
+
+  .product-scoop-info__button svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .product-scoop-info__image-wrapper {
+    width: 100%;
+    background-color: #f1ede8;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .product-scoop-info__image {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+  }
+
+  @media screen and (max-width: 989px) {
+    .product-scoop-info__heading {
+      font-size: 40px;
+    }
+
+    .product-scoop-info__grid {
+      gap: 60px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="product-scoop-info section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="section section--page-width">
+    <div class="product-scoop-info__grid">
+      <div class="product-scoop-info__content">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="product-scoop-info__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="product-scoop-info__text">{{ section.settings.text }}</div>
+        {%- endif -%}
+
+        <div class="product-scoop-info__table">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'stat_row' -%}
+                <div class="product-scoop-info__row" {{ block.shopify_attributes }}>
+                  <span class="product-scoop-info__label">{{ block.settings.label }}</span>
+                  <span class="product-scoop-info__value">{{ block.settings.value }}</span>
+                </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if section.settings.button_label != blank -%}
+          <div class="product-scoop-info__button-wrapper">
+            <a
+              href="{{ section.settings.button_link | default: '#' }}"
+              class="product-scoop-info__button {{ section.settings.button_style | default: 'button' }}"
+              style="
+                {% if section.settings.button_text_color != blank %}--color-button-text: {{ section.settings.button_text_color }};{% endif %}
+                {% if section.settings.button_bg_color != blank %}--color-button: {{ section.settings.button_bg_color }};{% endif %}
+                {% if section.settings.button_border_color != blank %}border-color: {{ section.settings.button_border_color }};{% endif %}
+              "
+            >
+              <span>{{ section.settings.button_label }}</span>
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="product-scoop-info__image-wrapper">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1200
+            | image_tag: class: 'product-scoop-info__image', loading: 'lazy'
+          }}
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Scoop Info",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "In One Scoop of AG1 Next Gen"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>AG1 complements a healthy diet. It's easy to incorporate into any lifestyle or health regimen without overdoing it. Eat your macros, then take AG1.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "View Supplement Facts"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "value": "button",
+          "label": "Primary"
+        },
+        {
+          "value": "button-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "button"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button Border Color"
+    },
+    {
+      "type": "header",
+      "content": "Color Scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat_row",
+      "name": "Stat Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "CALORIES"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "40"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Scoop Info",
+      "blocks": [
+        {
+          "type": "stat_row",
+          "settings": {
+            "label": "CALORIES",
+            "value": "40"
+          }
+        },
+        {
+          "type": "stat_row",
+          "settings": {
+            "label": "CARBOHYDRATES",
+            "value": "6g"
+          }
+        },
+        {
+          "type": "stat_row",
+          "settings": {
+            "label": "FIBER",
+            "value": "2g"
+          }
+        },
+        {
+          "type": "stat_row",
+          "settings": {
+            "label": "NATURALLY OCCURRING SUGAR",
+            "value": "<1g"
+          }
+        },
+        {
+          "type": "stat_row",
+          "settings": {
+            "label": "PROTEIN",
+            "value": "2g"
+          }
+        },
+        {
+          "type": "stat_row",
+          "settings": {
+            "label": "SUPERFOODS AND PREBIOTICS",
+            "value": "7.5g"
+          }
+        },
+        {
+          "type": "stat_row",
+          "settings": {
+            "label": "DAILY PHYTONUTRIENTS",
+            "value": "1.5g"
+          }
+        },
+        {
+          "type": "stat_row",
+          "settings": {
+            "label": "PROBIOTICS",
+            "value": "10 BILLION CFU"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

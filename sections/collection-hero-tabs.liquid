@@ -1,0 +1,324 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_block_start | times: 0.75 | round: 0 }}px !important;
+    padding-bottom: {{ section.settings.padding_block_end | times: 0.75 | round: 0 }}px !important;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_block_start }}px !important;
+      padding-bottom: {{ section.settings.padding_block_end }}px !important;
+    }
+  }
+
+  .collection-hero {
+    text-align: {{ section.settings.alignment }};
+  }
+
+  .collection-hero__eyebrow {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+    color: rgba(var(--color-foreground), 0.8);
+  }
+
+  .collection-hero__title {
+    margin: 0 0 24px 0;
+    font-size: clamp(48px, 8vw, 100px);
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    font-family: inherit;
+  }
+
+  .collection-hero__description {
+    max-width: 800px;
+    color: rgba(var(--color-foreground), 0.9);
+  }
+
+  .collection-hero__tabs-wrapper {
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .collection-hero__title {
+    font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+  }
+
+  .collection-hero {
+    {% if section.settings.alignment == 'center' %}
+      .collection-hero__description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    {% endif %}
+  }
+
+  .collection-hero__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    {% if section.settings.alignment == 'center' %}
+      justify-content: center;
+    {% endif %}
+  }
+
+  .collection-hero__tab {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    border: 1px solid {{ section.settings.tab_border_color | default: 'rgba(var(--color-foreground), 0.2)' }};
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: {{ section.settings.tab_text_color | default: 'rgb(var(--color-foreground))' }};
+    transition: all 0.3s ease;
+    background-color: {{ section.settings.tab_bg_color | default: 'transparent' }};
+  }
+
+  .collection-hero__tab:hover {
+    background-color: {{ section.settings.tab_active_bg_color | default: 'transparent' }};
+    color: {{ section.settings.tab_active_text_color | default: 'rgb(var(--color-foreground))' }};
+    border-color: {{ section.settings.tab_active_bg_color | default: 'transparent' }};
+  }
+
+  .collection-hero__tab--active {
+    background-color: {{ section.settings.tab_active_bg_color | default: '#7d6a52' }};
+    color: {{ section.settings.tab_active_text_color | default: '#ffffff' }};
+    border-color: {{ section.settings.tab_active_bg_color | default: '#7d6a52' }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .collection-hero__title {
+      font-size: 48px;
+    }
+    .collection-hero__description {
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+    .collection-hero__tabs {
+      gap: 8px;
+    }
+    .collection-hero__tab {
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="collection-hero section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="section section--page-width">
+    <div class="collection-hero__container">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="collection-hero__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+
+      <h1 class="collection-hero__title">
+        {%- if section.settings.heading != blank -%}
+          {{ section.settings.heading }}
+        {%- elsif collection.title != blank -%}
+          {{ collection.title }}
+        {%- else -%}
+          All Products
+        {%- endif -%}
+      </h1>
+
+      {%- assign description = section.settings.description | default: collection.description -%}
+      {%- if description != blank -%}
+        <div class="collection-hero__description">
+          {{ description }}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+<div class="collection-hero__tabs-wrapper">
+  <div class="section section--page-width">
+    <div class="collection-hero__tabs">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'collection_tab' -%}
+          {%- liquid
+            assign tab_label = block.settings.label
+            if tab_label == blank and block.settings.collection != blank
+              assign tab_label = block.settings.collection.title
+            endif
+
+            assign tab_url = block.settings.collection.url | default: '#'
+            assign is_active = false
+
+            if request.path == tab_url
+              assign is_active = true
+            elsif template.name == 'collection' and collection.id == block.settings.collection.id
+              assign is_active = true
+            endif
+          %}
+          <a
+            href="{{ tab_url }}"
+            class="collection-hero__tab {% if is_active %}collection-hero__tab--active{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {{ tab_label }}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Collection Hero Tabs",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "SHOP"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Leave blank to use Collection Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "info": "Leave blank to use Collection Description"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Tab Colors"
+    },
+    {
+      "type": "color",
+      "id": "tab_active_bg_color",
+      "label": "Active Tab Background",
+      "default": "#7d6a52"
+    },
+    {
+      "type": "color",
+      "id": "tab_active_text_color",
+      "label": "Active Tab Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "tab_bg_color",
+      "label": "Inactive Tab Background",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "tab_text_color",
+      "label": "Inactive Tab Text"
+    },
+    {
+      "type": "color",
+      "id": "tab_border_color",
+      "label": "Inactive Tab Border"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_block_start",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_block_end",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_tab",
+      "name": "Collection Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Tab Label",
+          "info": "Leave blank to use Collection Title"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Hero Tabs",
+      "blocks": [
+        {
+          "type": "collection_tab",
+          "settings": {
+            "label": "All"
+          }
+        },
+        {
+          "type": "collection_tab",
+          "settings": {
+            "label": "Bundles"
+          }
+        },
+        {
+          "type": "collection_tab",
+          "settings": {
+            "label": "Daily Health"
+          }
+        },
+        {
+          "type": "collection_tab",
+          "settings": {
+            "label": "Sleep Support"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

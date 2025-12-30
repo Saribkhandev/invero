@@ -1,0 +1,437 @@
+<style>
+  .cost-comparison {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .cost-comparison {
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 60px;
+    }
+    .cost-comparison > * {
+      flex: 1;
+      width: 50%;
+    }
+  }
+
+  .cost-comparison__media {
+    display: flex;
+    justify-content: center;
+    padding: 0 clamp(40px, 8vw, 80px);
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  .cost-comparison__check-circle polyline {
+    stroke: #000;
+  }
+
+  .cost-comparison__media img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    mix-blend-mode: multiply;
+  }
+
+  .cost-comparison__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .cost-comparison__subheading {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #333;
+    max-width: 480px;
+  }
+
+  .cost-comparison__table {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cost-comparison__table-header {
+    display: grid;
+    grid-template-columns: 2fr 0.7fr 0.7fr;
+    padding-bottom: 8px;
+    border-bottom: 1px solid;
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    align-items: end;
+    text-transform: none;
+    letter-spacing: 0.05em;
+  }
+
+  .cost-comparison__heading {
+    margin-bottom: 30px;
+  }
+
+  .cost-comparison__header-label.ag1-label {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .cost-comparison__header-label.cost-label {
+    text-align: right;
+    line-height: 1.2;
+    padding-bottom: 4px;
+    font-size: 11px;
+  }
+
+  .cost-comparison__row {
+    display: grid;
+    grid-template-columns: 2fr 0.7fr 0.7fr;
+    padding: 18px 0;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .cost-comparison__row-label {
+    font-weight: 600;
+  }
+
+  .cost-comparison__row-check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cost-comparison__check-circle {
+    width: 22px;
+    height: 22px;
+    background-color: #37cc5c;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  .cost-comparison__check-circle svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .cost-comparison__row-cost {
+    text-align: right;
+    font-weight: 400;
+  }
+
+  .cost-comparison__footer {
+    display: grid;
+    grid-template-columns: 2fr 0.7fr 0.7fr;
+    padding: 15px 0;
+    align-items: center;
+    font-size: 18px;
+    border-bottom: none;
+    border-top: 1px solid;
+  }
+
+  .cost-comparison__total-label span {
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-weight: 700;
+    display: inline-block;
+  }
+
+  .cost-comparison__total-ag1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+  }
+
+  .cost-comparison__total-competitor {
+    text-align: right;
+    font-size: 18px;
+  }
+
+  .cost-comparison__note {
+    margin-top: 0;
+    font-size: 11px;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cost-comparison__media {
+      padding: 0;
+    }
+
+    .cost-comparison__table-header {
+      font-size: 10px;
+    }
+    .cost-comparison__header-label.ag1-label {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<section
+  class="spacing-style section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="cost-comparison">
+    {%- comment -%} Media Side (Image First on Mobile) {%- endcomment -%}
+    <div class="cost-comparison__media">
+      {% if section.settings.image != blank %}
+        {{
+          section.settings.image
+          | image_url: width: 1200
+          | image_tag: loading: 'lazy', alt: section.settings.image.alt
+        }}
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+
+    {%- comment -%} Content Side {%- endcomment -%}
+    <div class="cost-comparison__content">
+      <div class="cost-comparison__header-group">
+        {% if section.settings.heading != blank %}
+          <h2 class="cost-comparison__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.subheading != blank %}
+          <div class="cost-comparison__subheading rte">
+            {{ section.settings.subheading }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="cost-comparison__table">
+        <div class="cost-comparison__table-header">
+          <div class="cost-comparison__header-label"></div>
+          <div class="cost-comparison__header-label ag1-label">{{ section.settings.ag1_label }}</div>
+          <div class="cost-comparison__header-label cost-label">{{ section.settings.cost_label }}</div>
+        </div>
+
+        <div class="cost-comparison__rows">
+          {% for block in section.blocks %}
+            {% if block.type == 'row' %}
+              <div class="cost-comparison__row" {{ block.shopify_attributes }}>
+                <div class="cost-comparison__row-label">{{ block.settings.label }}</div>
+                <div class="cost-comparison__row-check">
+                  {% if block.settings.included %}
+                    <div class="cost-comparison__check-circle">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </div>
+                  {% endif %}
+                </div>
+                <div class="cost-comparison__row-cost">{{ block.settings.cost }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="cost-comparison__footer">
+          <div class="cost-comparison__total-label">
+            <span>{{ section.settings.total_label }}</span>
+          </div>
+          <div class="cost-comparison__total-ag1">{{ section.settings.ag1_total_price }}</div>
+          <div class="cost-comparison__total-competitor">{{ section.settings.competitor_total_price }}</div>
+        </div>
+      </div>
+
+      {% if section.settings.note != blank %}
+        <div class="cost-comparison__note">
+          {{ section.settings.note }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cost Comparison",
+  "tag": "section",
+  "class": "section-wrapper",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page Width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full Width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Smarter Way to Invest in Your Health"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>One scoop a day covers your bases at a fraction of the cost of buying supplements separately.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Table Settings"
+    },
+    {
+      "type": "text",
+      "id": "ag1_label",
+      "label": "Our Product Label",
+      "default": "AG1"
+    },
+    {
+      "type": "text",
+      "id": "cost_label",
+      "label": "Cost Label",
+      "default": "Cost per month"
+    },
+    {
+      "type": "text",
+      "id": "total_label",
+      "label": "Total Label",
+      "default": "Total per month"
+    },
+    {
+      "type": "text",
+      "id": "ag1_total_price",
+      "label": "Our Total Price",
+      "default": "$79 USD"
+    },
+    {
+      "type": "text",
+      "id": "competitor_total_price",
+      "label": "Competitor Total Price",
+      "default": "$225 USD"
+    },
+    {
+      "type": "textarea",
+      "id": "note",
+      "label": "Note",
+      "default": "*Based on current available data for average industry prices of premium supplements"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Comparison Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Row Label",
+          "default": "Multivitamin & mineral"
+        },
+        {
+          "type": "checkbox",
+          "id": "included",
+          "label": "Included in AG1?",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "cost",
+          "label": "Monthly Cost",
+          "default": "$45 USD"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cost Comparison",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": { "label": "Multivitamin & mineral", "cost": "$45 USD" }
+        },
+        {
+          "type": "row",
+          "settings": { "label": "Pre & Probiotic", "cost": "$30 USD" }
+        },
+        {
+          "type": "row",
+          "settings": { "label": "Greens Superfood", "cost": "$50 USD" }
+        },
+        {
+          "type": "row",
+          "settings": { "label": "Stress Adaptogen", "cost": "$30 USD" }
+        },
+        {
+          "type": "row",
+          "settings": { "label": "Immune Support", "cost": "$40 USD" }
+        },
+        {
+          "type": "row",
+          "settings": { "label": "Cognitive Support", "cost": "$30 USD" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

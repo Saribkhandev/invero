@@ -1,0 +1,628 @@
+<style>
+  .text-width-video-section {
+    padding-top: var(--padding-block-start, 64px);
+    padding-bottom: var(--padding-block-end, 64px);
+  }
+
+  .text-with-reel__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 991px) {
+    .text-with-reel__grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  .text-content-column {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    min-width: 0;
+  }
+
+  .star-rating {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 24px;
+    color: #4caf50;
+  }
+
+  .star-icons {
+    display: flex;
+    gap: 2px;
+  }
+
+  .star-icons svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+
+  .trust-text {
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+
+  .text-content-column {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .text-content-column h2 {
+    margin: 0 0 40px 0;
+  }
+
+  .section-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 500;
+    width: fit-content;
+    transition: all 0.3s ease;
+    font-size: 15px;
+  }
+
+  .section-btn:hover {
+    background: #1a1a1a;
+    color: #fff;
+  }
+
+  .video-column {
+    position: relative;
+    min-width: 0;
+  }
+
+  .video-card {
+    background: transparent;
+    position: relative;
+  }
+
+  .video-preview-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1.6;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #f4f4f4;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .video-preview-wrapper .preview-video,
+  .video-preview-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .play-button-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .video-card__play-button {
+    width: 72px;
+    height: 72px;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .play-button-overlay svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+  }
+
+  .video-info {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .video-category {
+    font-size: 13px;
+    color: #1a1a1a;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .video-divider {
+    width: 32px;
+    height: 3px;
+    background: #d0d0d0;
+    margin-bottom: 12px;
+    border-radius: 2px;
+  }
+
+  .video-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 6px 0;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+  }
+
+  .video-author {
+    font-size: 12px;
+    font-weight: 600;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .video-disclaimer {
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+    margin-top: 32px;
+    line-height: 1.5;
+  }
+
+  .video-swiper {
+    padding-bottom: 40px;
+  }
+
+  .video-swiper .swiper-slide {
+    height: auto;
+  }
+
+  .video-dialog {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(10px);
+  }
+
+  .video-dialog-content {
+    width: 90%;
+    max-width: 1000px;
+    position: relative;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 767px) {
+    .video-dialog-content {
+      aspect-ratio: 9/16;
+      max-width: 320px;
+    }
+  }
+
+  .close-dialog {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 767px) {
+    .close-dialog {
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .close-dialog:hover {
+    transform: scale(1.1);
+  }
+
+  #video-frame,
+  #local-video {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-preview-wrapper .deferred-media__poster-icon.icon-play {
+    display: none;
+  }
+</style>
+
+<section
+  class="text-width-video-section section section--page-width spacing-style color-{{ section.settings.color_scheme }} gradient"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="page-width">
+    <div class="text-with-reel">
+      {% if section.settings.stars > 0 %}
+        <div class="star-rating">
+          <div class="star-icons">
+            {% for i in (1..section.settings.stars) %}
+              <svg viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+            {% endfor %}
+          </div>
+          {% if section.settings.trust_text != blank %}
+            <span class="trust-text">{{ section.settings.trust_text }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="text-with-reel__grid">
+      <div class="text-content-column">
+        {% if section.settings.title != blank %}
+          <h2>{{ section.settings.title }}</h2>
+        {% endif %}
+
+        {% if section.settings.btn_label != blank %}
+          <a href="{{ section.settings.btn_link }}" class="section-btn">{{ section.settings.btn_label }}</a>
+        {% endif %}
+      </div>
+
+      <div class="video-column">
+        <div class="video-grid swiper video-swiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% liquid
+                assign video_hosted = block.settings.video
+                assign video_external = block.settings.video_url
+                assign video_poster = block.settings.video_poster
+
+                if video_poster == blank and video_hosted != blank
+                  assign video_poster = video_hosted.preview_image
+                endif
+
+                assign poster_url = video_poster | image_url: width: 800
+                if video_poster == blank and video_external != blank and video_external.type == 'youtube'
+                  assign poster_url = 'https://img.youtube.com/vi/' | append: video_external.id | append: '/maxresdefault.jpg'
+                endif
+              %}
+              <div class="swiper-slide">
+                <div class="video-card">
+                  <div class="video-preview-wrapper">
+                    {% if video_hosted != blank %}
+                      {% render 'video',
+                        video: video_hosted,
+                        video_autoplay: false,
+                        video_loop: true,
+                        section_id: section.id,
+                        video_class: 'preview-video',
+                        video_preview_image: video_poster,
+                        disable_controls: true
+                      %}
+                    {% elsif video_external != blank %}
+                      {% render 'video',
+                        video: video_external.id,
+                        video_type: video_external.type,
+                        video_from_url: true,
+                        video_autoplay: false,
+                        video_loop: true,
+                        section_id: section.id,
+                        video_class: 'preview-video',
+                        video_preview_image: video_poster,
+                        disable_controls: true
+                      %}
+                    {% elsif block.settings.video_raw_url != blank %}
+                      <video
+                        class="preview-video"
+                        muted
+                        playsinline
+                        loop
+                        {% if poster_url != blank %}
+                          poster="{{ poster_url }}"
+                        {% endif %}
+                      >
+                        <source src="{{ block.settings.video_raw_url }}" type="video/mp4">
+                      </video>
+                    {% endif %}
+
+                    {% comment %} Play button for dialog {% endcomment %}
+                    {% liquid
+                      assign data_url = ''
+                      assign is_yt = 'false'
+                      if video_hosted != blank
+                        assign data_url = video_hosted.sources[0].url
+                      elsif video_external != blank
+                        if video_external.type == 'youtube'
+                          assign is_yt = 'true'
+                          assign data_url = 'https://www.youtube.com/embed/' | append: video_external.id
+                        else
+                          assign data_url = 'https://player.vimeo.com/video/' | append: video_external.id
+                        endif
+                      else
+                        assign data_url = block.settings.video_raw_url
+                      endif
+                    %}
+                    <div
+                      class="play-button-overlay play-button"
+                      data-video-url="{{ data_url }}"
+                      data-is-youtube="{{ is_yt }}"
+                    >
+                      <div class="video-card__play-button">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M18.8906 12.846L8.27161 19.129C7.70461 19.464 7 19.056 7 18.283V5.717C7 4.944 7.70461 4.536 8.27161 4.871L18.8906 11.154C19.4676 11.496 19.4676 12.504 18.8906 12.846Z" fill="white"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="video-info">
+                    {% if block.settings.category != blank %}
+                      <span class="video-category">{{ block.settings.category }}</span>
+                    {% endif %}
+                    <div class="video-divider"></div>
+                    {% if block.settings.video_title != blank %}
+                      <h3 class="video-title">{{ block.settings.video_title }}</h3>
+                    {% endif %}
+                    {% if block.settings.author != blank %}
+                      <span class="video-author">{{ block.settings.author }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% if section.settings.disclaimer != blank %}
+          <div class="video-disclaimer">
+            {{ section.settings.disclaimer }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('.video-swiper', {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: false,
+      breakpoints: {
+        0: { slidesPerView: 1.25, spaceBetween: 20 },
+        768: { slidesPerView: 2.5, spaceBetween: 25 },
+        1024: { slidesPerView: 3, spaceBetween: 30 },
+      },
+    });
+  });
+</script>
+
+<div class="video-dialog" id="video-dialog">
+  <button class="close-dialog">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 6L6 18M6 6L18 18" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="video-dialog-content">
+    <iframe id="video-frame" src="" frameborder="0" allowfullscreen style="display:none;"></iframe>
+    <video id="local-video" controls playsinline style="display:none;">
+      <source id="video-source" src="" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const playButtons = document.querySelectorAll('.play-button');
+    const dialog = document.getElementById('video-dialog');
+    const iframe = document.getElementById('video-frame');
+    const videoPlayer = document.getElementById('local-video');
+    const videoSource = document.getElementById('video-source');
+
+    playButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const videoUrl = button.dataset.videoUrl;
+        const isYouTube = button.dataset.isYoutube === 'true';
+
+        iframe.style.display = 'none';
+        videoPlayer.style.display = 'none';
+        videoSource.src = '';
+
+        dialog.style.display = 'flex';
+
+        if (isYouTube) {
+          iframe.src = videoUrl + '?autoplay=1';
+          iframe.style.display = 'block';
+        } else {
+          videoSource.src = videoUrl;
+          videoPlayer.load();
+          videoPlayer.play();
+          videoPlayer.style.display = 'block';
+        }
+      });
+    });
+
+    document.querySelector('.close-dialog').addEventListener('click', closeDialog);
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) closeDialog();
+    });
+
+    function closeDialog() {
+      dialog.style.display = 'none';
+      iframe.src = '';
+      videoPlayer.pause();
+      videoPlayer.currentTime = 0;
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Text with Video Reels",
+  "settings": [
+    {
+      "type": "range",
+      "id": "stars",
+      "label": "Star Rating",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "text",
+      "id": "trust_text",
+      "label": "Trust Text",
+      "default": "50,000+ verified 5-star reviews for AG1 products"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Over 50,000 Satisfied Customers and Counting"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "See All Reviews"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Disclaimer Text",
+      "default": "AG1 underwent a research-backed update in January of 2025. Reviews prior to that month reflect an earlier formulation."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video_block",
+      "name": "Video Block",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Shopify-hosted video"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Video URL (YouTube or Vimeo)",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "text",
+          "id": "video_raw_url",
+          "label": "Direct Video Link (MP4)"
+        },
+        {
+          "type": "image_picker",
+          "id": "video_poster",
+          "label": "Video Poster"
+        },
+        {
+          "type": "header",
+          "content": "Video Info"
+        },
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category",
+          "default": "Foundational Nutrition"
+        },
+        {
+          "type": "text",
+          "id": "video_title",
+          "label": "Quote/Title",
+          "default": "Easy & convenient"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "STEPHANIE C."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text with Video Reels",
+      "blocks": [{ "type": "video_block" }, { "type": "video_block" }, { "type": "video_block" }]
+    }
+  ]
+}
+{% endschema %}

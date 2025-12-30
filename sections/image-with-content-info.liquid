@@ -1,0 +1,259 @@
+{% comment %}
+  invero Nutritional Gaps – Image Comparison Section (BEM)
+{% endcomment %}
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="invero-gaps spacing-style color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="section section--page-width">
+    <div class="invero-gaps__container">
+      <div class="invero-gaps__content">
+        <h5 class="invero-gaps__eyebrow">{{ section.settings.eyebrow }}</h5>
+        <h3 class="invero-gaps__title">
+          {{ section.settings.title }}
+        </h3>
+      </div>
+
+      <div class="invero-gaps__visual">
+        {% if section.settings.comparison_image != blank %}
+          {{
+            section.settings.comparison_image
+            | image_url: width: 900
+            | image_tag: class: 'invero-gaps__image', alt: 'invero nutrient gap comparison'
+          }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'invero-gaps__image' }}
+        {% endif %}
+        <div
+          class="invero-gaps__note"
+          style="background-color: {{ section.settings.note_bg_color }}; color: {{ section.settings.note_text_color }};"
+        >
+          <div class="invero-gaps__note-icon">
+            {{ 'search-ingredients.svg' | inline_asset_content }}
+          </div>
+          <div class="invero-gaps__note-inner" style="color: {{ section.settings.note_text_color }};">
+            <span class="invero-gaps__note-label">{{ section.settings.note_label }}</span>
+            <div class="invero-gaps__note-text">
+              {{ section.settings.note_text }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Block */
+  .invero-gaps {
+    padding-top: var(--padding-block-start, 80px);
+    padding-bottom: var(--padding-block-end, 80px);
+  }
+
+  .invero-gaps__title {
+    max-width: 480px;
+  }
+
+  /* Container */
+  .invero-gaps__container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    position: relative;
+  }
+
+  /* Left content */
+  .invero-gaps__eyebrow {
+    display: block;
+    text-transform: uppercase;
+  }
+
+  /* Right visual */
+  .invero-gaps__visual {
+    width: 100%;
+  }
+
+  .invero-gaps__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .invero-gaps__note {
+    margin-top: 80px;
+    padding: 24px;
+    display: flex;
+    align-items: start;
+    gap: 15px;
+  }
+
+  .invero-gaps__note-inner {
+    margin: 0 auto;
+  }
+
+  .invero-gaps__note-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .invero-gaps__note-text {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .invero-gaps__note svg {
+    height: auto;
+    min-width: 50px;
+  }
+
+  .invero-gaps__note-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: {{ section.settings.note_bg_color_icon }};
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+
+  .invero-gaps__note-icon svg {
+    height: 30px;
+    min-width: 50px;
+    width: auto;
+  }
+
+  .invero-gaps__note-icon svg * {
+    stroke: {{ section.settings.note_bg_color }};
+  }
+  /* Responsive */
+  @media (max-width: 900px) {
+    .invero-gaps__container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .invero-gaps__note-icon {
+      margin-right: 0;
+    }
+
+    .invero-gaps__note-text {
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .invero-gaps__content {
+      position: sticky;
+      height: max-content;
+      top: 90px;
+      flex: 1 1 42%;
+    }
+
+    .invero-gaps__visual {
+      flex: 1 1 58%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Nutritional Gaps",
+  "tag": "section",
+  "class": "invero-gaps-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Nutritional Gaps"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Main heading",
+      "default": "<p>invero Next Gen is clinically shown to fill common nutrient gaps even in healthy eaters.1–4</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "comparison_image",
+      "label": "Right side comparison image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Note Settings"
+    },
+    {
+      "type": "text",
+      "id": "note_label",
+      "label": "Bottom note label",
+      "default": "Why this matters"
+    },
+    {
+      "type": "richtext",
+      "id": "note_text",
+      "label": "Bottom note text",
+      "default": "<p>In four randomized, placebo-controlled trials—meeting strict and widely accepted standards for clinical research—invero Next Gen demonstrated a statistically significant and positive impact on closing common nutrient gaps. These studies included participants with diverse diets, backgrounds, ages, and activity levels.1–4</p>"
+    },
+    {
+      "type": "color",
+      "id": "note_bg_color",
+      "label": "Note background color",
+      "default": "#0f3d3e"
+    },
+    {
+      "type": "color",
+      "id": "note_bg_color_icon",
+      "label": "Note background Icon",
+      "default": "#0f3d3e"
+    },
+    {
+      "type": "color",
+      "id": "note_text_color",
+      "label": "Note text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Padding top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Nutritional Gaps"
+    }
+  ]
+}
+{% endschema %}

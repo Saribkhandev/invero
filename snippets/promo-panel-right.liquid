@@ -1,0 +1,26 @@
+{% liquid
+  assign bg_rgb = settings.right_bg_color | color_to_rgb | remove: 'rgb(' | remove: ')'
+%}
+
+<div
+  class="promo-panel promo-panel--right"
+  style="
+    --panel-bg-rgb: {{ bg_rgb }};
+    --panel-image-opacity: {{ settings.right_image_opacity | divided_by: 100.0 }};
+  "
+>
+  {% if settings.right_product_image != blank %}
+    {{
+      settings.right_product_image
+      | image_url: width: 2000
+      | image_tag: class: 'promo-panel__image', loading: 'lazy', alt: settings.right_product_image.alt
+      | default: 'Product'
+    }}
+  {% endif %}
+
+  {% if settings.right_badge_text != blank %}
+    <div class="promo-panel__image-badge">
+      {{ settings.right_badge_text }}
+    </div>
+  {% endif %}
+</div>

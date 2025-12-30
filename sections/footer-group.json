@@ -1,0 +1,405 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer_m9NzUG": {
+      "type": "footer",
+      "blocks": {
+        "group_TX8Yaq": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "menu_Hi9QLk": {
+              "type": "menu",
+              "name": "t:names.menu",
+              "settings": {
+                "menu": "main-menu",
+                "heading": "Shop",
+                "menu_spacing": 12,
+                "show_as_accordion": true,
+                "accordion_icon": "plus",
+                "accordion_dividers": false,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "heading_preset": "h5",
+                "link_preset": "h6",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "menu_Hi9QLk"
+          ]
+        },
+        "group_tL9yAq": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "menu_WBBfCt": {
+              "type": "menu",
+              "name": "t:names.menu",
+              "settings": {
+                "menu": "main-menu",
+                "heading": "Shop",
+                "menu_spacing": 12,
+                "show_as_accordion": true,
+                "accordion_icon": "plus",
+                "accordion_dividers": false,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "heading_preset": "h5",
+                "link_preset": "h6",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "menu_WBBfCt"
+          ]
+        },
+        "group_g7em37": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "menu_rPM48d": {
+              "type": "menu",
+              "name": "t:names.menu",
+              "settings": {
+                "menu": "main-menu",
+                "heading": "Shop",
+                "menu_spacing": 12,
+                "show_as_accordion": true,
+                "accordion_icon": "plus",
+                "accordion_dividers": false,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "heading_preset": "h5",
+                "link_preset": "h6",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "menu_rPM48d"
+          ]
+        },
+        "group_NhYhg4": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 0,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_yEGpgK": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h2>Connect</h2>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h5",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 12,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "email_signup_fDTeLT": {
+              "type": "email-signup",
+              "settings": {
+                "width": "fill",
+                "custom_width": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "heading": "Join Our Newsletter",
+                "heading_preset": "paragraph",
+                "border_style": "all",
+                "border_width": 1,
+                "border_radius": 100,
+                "input_type_preset": "h6",
+                "style_class": "button-unstyled",
+                "display_type": "arrow",
+                "label": "Sign up",
+                "integrated_button": true,
+                "button_type_preset": "paragraph",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_yEGpgK",
+            "email_signup_fDTeLT"
+          ]
+        }
+      },
+      "block_order": [
+        "group_TX8Yaq",
+        "group_tL9yAq",
+        "group_g7em37",
+        "group_NhYhg4"
+      ],
+      "name": "t:names.footer",
+      "settings": {
+        "section_width": "page-width",
+        "gap": 20,
+        "color_scheme": "scheme-0f0926b7-68c2-4bbd-8595-b1090a5c641b",
+        "padding-block-start": 30,
+        "padding-block-end": 30
+      }
+    },
+    "footer_bottom_QPjpdh": {
+      "type": "footer-bottom",
+      "name": "Footer Bottom",
+      "settings": {
+        "color_scheme": "scheme-0f0926b7-68c2-4bbd-8595-b1090a5c641b",
+        "section_width": "page-width",
+        "padding-block-start": 50,
+        "padding-block-end": 50,
+        "logo": "shopify://shop_images/4fd79e4f-a036-4573-82b0-4aa904660040_1.png",
+        "logo_height": 60,
+        "top_bar": "<p>Food supplements are not a substitute for a balanced and varied diet and a healthy lifestyle. Do not exceed the indicated daily intake. Keep out of reach of children. Please inform and consult your doctor before consuming this product. Not suitable for children and adolescents under 18 years, pregnant or breastfeeding women. Refrain from taking other food supplements containing zinc. Persons taking anticoagulant medication should seek medical advice before consuming vitamin K-containing supplements.</p>",
+        "bottom_bar": "<p>* Genuine reviews from customers who received a review link after purchase.<br/><br/>** Discount applies to the first month when subscribing. Thereafter, monthly subscription will cost full price. Offer only for new subscribers, for limited time only. Free Shipping does not apply to customers in Switzerland and Norway.<br/><br/>º Food Supplement. In combination with a healthy diet and exercise.<br/><br/>⟡ Survey on the awareness of multi-nutrient powders with 211 consumers aged 18 to 49 in Germany, 09/24.<br/><br/>↡ Survey of 527 AG1 customers after 12+ days of use, 2024. The survey was conducted on a previous version of AG1’s continually evolving formulation. The survey results can be transferred to the current version of the formula due to no or scientifically negligible changes in supporting nutrients. Vitamins C, B6, B12, riboflavin, niacin, pantothenic acid, and folate help reduce tiredness and fatigue. Pantothenic acid supports mental performance. Calcium supports normal digestive enzyme function, while biotin maintains normal mucous membranes, such as the gut lining.</p><p>◊ Comparison (2025) with individual supplements in comparable amounts that are typically sold at retail: vitamin B complex, vitamin A, vitamin C, vitamin E, bacterial cultures, zinc, magnesium, calcium, selenium, chromium, manganese, molybdenum, coenzyme Q10, greens powders (from sea algae such as spirulina, barley leaf, wheatgrass, dandelion, spinach powder, etc.), mushroom supplements (reishi, shiitake).</p><p>⬥AG1 monthly price for single subscription (89€) calculated down to 30 daily portions. The comparison prices are the average prices per daily portion of three individual products (where available) available online in September 2025 (sample selection) for each compared category, each with identical ingredients. To ensure a fair basis for comparison, where the comparison products have different dosages, the prices were mathematically adjusted to correspond to the dosage contained in AG1. The amounts for the B complex may vary slightly. For the greens powders and the mushroom complex, the prices were compared per daily dose, quantities and ingredients vary and are not 100% identical.</p><p>‡ Survey of 144 verified customers from 12 European countries who have been taking AG1 for an average of 9 days.</p><p><br/>Research Studies<br/>a. In a triple-blind, randomised, placebo-controlled parallel-designed clinical trial evaluating nutrient biomarkers and microbiome shifts in 105 healthy adults ages 20-59 over the course of 12 weeks.<br/>b. In a double-blind, randomised, placebo-controlled 2-week cross-over clinical trial assessing microbiome shifts in 20 active adults ages 19-37.<br/>c. In a double-blind, randomised, placebo-controlled 2-week cross-over clinical trial assessing microbiome shifts of 24 healthy adults with occasional GI distress ages 26-59.<br/>d. In a double-blind, randomised, placebo-controlled cross-over clinical trial assessing bioavailability in 16 healthy adults ages 18-42 over the course of 8 hours.<br/>The studies were conducted on a similar version of AG1's continually evolving formulation. The transferability of the study results is ensured because of comparable ingredients and amounts.<br/><br/><strong>Immune System</strong><br/><br/>1: With vitamins A, C, B6 and B12 as well as folate, zinc, copper and selenium, AG1 contributes to the normal function of the immune system. Vitamin C contributes to maintain the normal function of the immune system during and after intense physical exercise.<br/><br/><strong>Energy; Metabolism</strong><br/><br/>2: Vitamins C, B6, B12, riboflavin, niacin, pantothenic acid and magnesium contribute to normal energy-yielding metabolism and to the reduction of tiredness and fatigue. With vitamins C, B6, B12, as well as thiamine, riboflavin, niacin, biotin, pantothenic acid, calcium, phosphorus, copper and manganese, AG1 contributes to normal energy-yielding metabolism. Magnesium contributes to electrolyte balance. Biotin, zinc and chromium contribute to normal macronutrient metabolism.<br/><br/><strong>Cell Protection</strong><br/><br/>3: With vitamins E and C as well as riboflavin, zinc, copper and selenium, AG1 contributes to the protection of cells from oxidative stress. Phosphorus contributes to normal function of cell membranes. Folate, Vitamin B6 and B12 contribute to normal homocysteine metabolism.<br/><br/><strong>Mental Performance; Psychological Function; Nervous System</strong><br/><br/>4: With pantothenic acid, AG1 contributes to normal mental performance. Zinc contributes to normal cognitive function. With vitamins C, B6, B12, B1, B3 and B7 AG1 contributes to normal psychological function and to normal functioning of the nervous system. Calcium contributes to normal neurotransmission.<br/><br/><strong>Skin, Hair & Nails</strong><br/><br/>5: With vitamins A, as well as riboflavin, niacin, biotin and zinc, AG1 contributes to the maintenance of normal skin. Vitamin C contributes to normal collagen formation for the normal function of skin. Copper contributes to normal connective tissue. Vitamin B7, zinc and selenium contribute to the maintenance of normal hair. Zinc and selenium contribute to the maintenance of normal nails.<br/><br/><strong>Hormonal System</strong><br/><br/>6: With vitamin B6, AG1 contributes to the regulation of hormonal activity. Zinc contributes to the maintenance of normal testosterone levels in the blood. Selenium contributes to the normal thyroid function. With chromium, AG1 contributes to the maintenance of normal blood glucose levels.<br/><br/><strong>Digestion</strong><br/><br/>7: Calcium contributes to the normal function of digestive enzymes. With vitamin A, biotin, riboflavin and niacin, AG1 contributes to the maintenance of normal mucous membranes (e.g. intestinal mucosa).<br/><br/><strong>Muscles</strong><br/><br/>8: With calcium and magnesium, AG1 contributes to normal muscle function.</p><p>Your privacy is our priority. Learn more:  </p>",
+        "right_content": ""
+      }
+    },
+    "footer_utilities_jLGE8U": {
+      "type": "footer-utilities",
+      "blocks": {
+        "footer_copyright_jweRK8": {
+          "type": "footer-copyright",
+          "settings": {
+            "show_powered_by": true,
+            "font_size": "0.75rem",
+            "case": "none"
+          },
+          "blocks": {}
+        },
+        "footer_policy_list_VCdnpa": {
+          "type": "footer-policy-list",
+          "settings": {
+            "font_size": "0.75rem",
+            "case": "none"
+          },
+          "blocks": {}
+        },
+        "social_links_Ew63Kq": {
+          "type": "social-links",
+          "settings": {
+            "facebook_url": "https://www.facebook.com/",
+            "instagram_url": "https://www.instagram.com/",
+            "youtube_url": "https://www.youtube.com/",
+            "tiktok_url": "https://www.tiktok.com/",
+            "twitter_url": "https://x.com/",
+            "threads_url": "",
+            "linkedin_url": "",
+            "bluesky_url": "",
+            "snapchat_url": "",
+            "pinterest_url": "",
+            "tumblr_url": "",
+            "vimeo_url": "",
+            "custom_url": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "footer_copyright_jweRK8",
+        "footer_policy_list_VCdnpa",
+        "social_links_Ew63Kq"
+      ],
+      "disabled": true,
+      "name": "t:names.utilities",
+      "settings": {
+        "section_width": "page-width",
+        "gap": 24,
+        "divider_thickness": 0,
+        "color_scheme": "",
+        "padding-block-start": 20,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "footer_m9NzUG",
+    "footer_bottom_QPjpdh",
+    "footer_utilities_jLGE8U"
+  ]
+}

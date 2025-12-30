@@ -1,0 +1,49 @@
+{% render 'star-svg', width: block.settings.width, star_count: block.settings.star_count, block: block %}
+
+<style>
+  .star-component {
+    display: flex;
+  }
+  .star-color__{{ block.id }} svg path {
+    fill: {{ block.settings.color }};
+  }
+</style>
+{% schema %}
+{
+  "name": "Stars Widget",
+  "tag": null,
+  "settings": [
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Stars Color"
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "label": "t:settings.custom_width",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "%",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "star_count",
+      "label": "Star Count",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 5
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stars Widget",
+      "category": "t:categories.basic"
+    }
+  ]
+}
+{% endschema %}

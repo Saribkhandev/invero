@@ -1,0 +1,442 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding-block-start | times: 0.75 | round: 0 }}px !important;
+    padding-bottom: {{ section.settings.padding-block-end | times: 0.75 | round: 0 }}px !important;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding-block-start }}px !important;
+      padding-bottom: {{ section.settings.padding-block-end }}px !important;
+    }
+  }
+
+  .clinical-results__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 990px) {
+    .clinical-results__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 120px;
+    }
+
+    .clinical-results__grid--reverse {
+      direction: rtl;
+    }
+
+    .clinical-results__grid--reverse > * {
+      direction: ltr;
+    }
+  }
+
+  .clinical-results__image-wrapper {
+    width: 100%;
+    background-color: #f1ede8;
+    aspect-ratio: 1 / 1.1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .clinical-results__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .clinical-results__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .clinical-results__heading {
+    margin: 0;
+    font-size: 56px;
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .clinical-results__description {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 18px;
+    max-width: 520px;
+    opacity: 0.9;
+  }
+
+  .clinical-results__groups {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .clinical-results__group {
+    border-top: 1px solid rgba(var(--color-foreground), 0.3);
+    padding-top: 15px;
+  }
+
+  .clinical-results__group-label {
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    font-family: monospace;
+  }
+
+  .clinical-results__items {
+    display: grid;
+    gap: 30px;
+  }
+
+  .clinical-results__items--two-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .clinical-results__item-number {
+    display: block;
+    font-size: 96px;
+    line-height: 0.9;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: -0.04em;
+  }
+
+  .clinical-results__item-text {
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 600;
+    max-width: 180px;
+  }
+
+  .clinical-results__button-wrapper {
+    margin-top: 20px;
+  }
+
+  .clinical-results__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 34px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .clinical-results__footnote {
+    margin-top: 40px;
+    font-size: 11px;
+    line-height: 1.4;
+    font-style: italic;
+    opacity: 0.5;
+    max-width: 500px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .clinical-results__heading {
+      font-size: 44px;
+    }
+    .clinical-results__grid {
+      gap: 60px;
+    }
+    .clinical-results__item-number {
+      font-size: 72px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="clinical-results section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="section section--page-width">
+    <div class="clinical-results__grid {% if section.settings.layout == 'image_right' %}clinical-results__grid--reverse{% endif %}">
+      <div class="clinical-results__image-column">
+        <div class="clinical-results__image-wrapper" style="background-color: {{ section.settings.image_bg_color }};">
+          {%- if section.settings.image != blank -%}
+            {{
+              section.settings.image
+              | image_url: width: 1200
+              | image_tag: class: 'clinical-results__image', loading: 'lazy'
+            }}
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="clinical-results__content">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="clinical-results__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="clinical-results__description">{{ section.settings.text }}</div>
+        {%- endif -%}
+
+        <div class="clinical-results__groups">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'result_group' -%}
+                <div class="clinical-results__group" {{ block.shopify_attributes }}>
+                  {%- if block.settings.label != blank -%}
+                    <span class="clinical-results__group-label">{{ block.settings.label }}</span>
+                  {%- endif -%}
+
+                  <div class="clinical-results__items {% if block.settings.number_2 != blank %}clinical-results__items--two-cols{% endif %}">
+                    <div class="clinical-results__item">
+                      <span class="clinical-results__item-number">{{ block.settings.number_1 }}</span>
+                      <div class="clinical-results__item-text">{{ block.settings.text_1 }}</div>
+                    </div>
+                    {%- if block.settings.number_2 != blank -%}
+                      <div class="clinical-results__item">
+                        <span class="clinical-results__item-number">{{ block.settings.number_2 }}</span>
+                        <div class="clinical-results__item-text">{{ block.settings.text_2 }}</div>
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if section.settings.button_label != blank -%}
+          <div class="clinical-results__button-wrapper">
+            <a
+              href="{{ section.settings.button_link | default: '#' }}"
+              class="clinical-results__button {{ section.settings.button_style | default: 'button' }}"
+              style="
+                {% if section.settings.button_text_color != blank %}--color-button-text: {{ section.settings.button_text_color }};{% endif %}
+                {% if section.settings.button_bg_color != blank %}--color-button: {{ section.settings.button_bg_color }};{% endif %}
+                {% if section.settings.button_border_color != blank %}border-color: {{ section.settings.button_border_color }};{% endif %}
+              "
+            >
+              {{ section.settings.button_label }}
+            </a>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.footnote != blank -%}
+          <div class="clinical-results__footnote">{{ section.settings.footnote }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Clinical Results",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Desktop Image Placement",
+      "options": [
+        {
+          "value": "image_left",
+          "label": "Image Left"
+        },
+        {
+          "value": "image_right",
+          "label": "Image Right"
+        }
+      ],
+      "default": "image_left"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Section Image"
+    },
+    {
+      "type": "color",
+      "id": "image_bg_color",
+      "label": "Image Background Color",
+      "default": "#f1ede8"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Formulated for your body. Clinically backed."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Main Text",
+      "default": "<p>Our doctors, scientists, and researchers worked with third-party experts to study the AG1 Next Gen formula. Here is what they found:</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "See Our Studies"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "value": "button",
+          "label": "Primary"
+        },
+        {
+          "value": "button-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "button"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button Border Color"
+    },
+    {
+      "type": "header",
+      "content": "Footer Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "footnote",
+      "label": "Footnote Text",
+      "default": "<p>†Based on clinical studies in healthy adults ages 18–59, evaluating nutrient biomarkers, microbiome shifts, and bioavailability. Study designs and durations varied. Please see drinkag1.com/science for additional information.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Color Scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "result_group",
+      "name": "Result Group",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Group Label",
+          "default": "IMPROVES KEY NUTRIENT LEVELS WITHIN 3 MONTHS†"
+        },
+        {
+          "type": "header",
+          "content": "Result Item 1"
+        },
+        {
+          "type": "text",
+          "id": "number_1",
+          "label": "Number/Value",
+          "default": "70%"
+        },
+        {
+          "type": "richtext",
+          "id": "text_1",
+          "label": "Description",
+          "default": "<p>of subjects had an increase in RBC folate level†</p>"
+        },
+        {
+          "type": "header",
+          "content": "Result Item 2 (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "number_2",
+          "label": "Number/Value",
+          "default": "73%"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2",
+          "label": "Description",
+          "default": "<p>of subjects saw an increase in vitamin C levels¹</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clinical Results",
+      "blocks": [
+        {
+          "type": "result_group",
+          "settings": {
+            "label": "IMPROVES KEY NUTRIENT LEVELS WITHIN 3 MONTHS†",
+            "number_1": "70%",
+            "text_1": "<p>of subjects had an increase in RBC folate level†</p>",
+            "number_2": "73%",
+            "text_2": "<p>of subjects saw an increase in vitamin C levels¹</p>"
+          }
+        },
+        {
+          "type": "result_group",
+          "settings": {
+            "label": "CLINICALLY SHOWN TO ENRICH THE GUT MICROBIOME†",
+            "number_1": "10x",
+            "text_1": "<p>increase in healthy bacteria in the gut†</p>",
+            "number_2": "",
+            "text_2": ""
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,144 @@
+{% liquid
+  assign bg_rgb = settings.left_bg_color | color_to_rgb | remove: 'rgb(' | remove: ')'
+  assign text_rgb = settings.left_text_color | color_to_rgb | remove: 'rgb(' | remove: ')'
+  assign accent_rgb = settings.left_accent_color | color_to_rgb | remove: 'rgb(' | remove: ')'
+  assign button_bg_rgb = settings.left_button_bg_color | color_to_rgb | remove: 'rgb(' | remove: ')'
+  assign button_text_rgb = settings.left_button_text_color | color_to_rgb | remove: 'rgb(' | remove: ')'
+%}
+
+<div
+  class="promo-panel promo-panel--left"
+  style="
+    --panel-bg-rgb: {{ bg_rgb }};
+    --panel-text-rgb: {{ text_rgb }};
+    --accent-color-rgb: {{ accent_rgb }};
+    --button-bg-rgb: {{ button_bg_rgb }};
+    --button-text-rgb: {{ button_text_rgb }};
+  "
+>
+  <div class="promo-panel__content">
+    {% if settings.left_heading != blank %}
+      <h2 class="promo-panel__heading">
+        {{ settings.left_heading }}
+      </h2>
+    {% endif %}
+
+    {% if settings.left_subheading != blank %}
+      <p class="promo-panel__subheading">
+        {{ settings.left_subheading }}
+      </p>
+    {% endif %}
+
+    <div class="promo-panel__product-card">
+      <div class="promo-panel__upper-content">
+        <div class="promo-panel__product-info">
+          {% if settings.left_product_name != blank %}
+            <div class="promo-panel__product-name">
+              {{ settings.left_product_name }}
+            </div>
+          {% endif %}
+
+          {% if settings.left_product_description != blank %}
+            <div class="promo-panel__product-description">
+              {{ settings.left_product_description }}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if settings.left_product_price != blank or settings.left_product_price_original != blank %}
+          <div class="promo-panel__price-row">
+            {% if settings.left_product_price_original != blank %}
+              <span class="promo-panel__price promo-panel__price--original">
+                {{ settings.left_product_price_original }}
+              </span>
+            {% endif %}
+            <span class="promo-panel__price promo-panel__price--current">
+              {{ settings.left_product_price }}
+            </span>
+          </div>
+        {% endif %}
+      </div>
+      {% if settings.left_feature_1 != blank or settings.left_feature_2 != blank or settings.left_feature_3 != blank %}
+        <ul class="promo-panel__features">
+          {% if settings.left_feature_1 != blank %}
+            <li class="promo-panel__feature-item promo-panel__feature-item--header">
+              {{ settings.left_feature_1 }}
+            </li>
+          {% endif %}
+
+          <li>
+            <div class="promo-panel__upper-content">
+              <div class="promo-panel__product-info">
+                {% if settings.left_product_name != blank %}
+                  <div class="promo-panel__product-name">
+                    {{ settings.left_product_name }}
+                  </div>
+                {% endif %}
+
+                {% if settings.left_product_description != blank %}
+                  <div class="promo-panel__product-description">
+                    {{ settings.left_product_description }}
+                  </div>
+                {% endif %}
+              </div>
+
+              {% if settings.left_product_price != blank or settings.left_product_price_original != blank %}
+                <div class="promo-panel__price-row">
+                  {% if settings.left_product_price_original != blank %}
+                    <span class="promo-panel__price promo-panel__price--original">
+                      {{ settings.left_product_price_original }}
+                    </span>
+                  {% endif %}
+                  <span class="promo-panel__price promo-panel__price--current">
+                    {{ settings.left_product_price }}
+                  </span>
+                </div>
+              {% endif %}
+            </div>
+          </li>
+        </ul>
+      {% endif %}
+
+      {% if settings.left_total_label != blank and settings.left_total_amount != blank %}
+        <div class="promo-panel__total">
+          <span class="promo-panel__total-label">{{ settings.left_total_label }}</span>
+          <span class="promo-panel__total-value">
+            {% if settings.left_total_amount_original != blank %}
+              <span class="promo-panel__total-amount--original">
+                {{ settings.left_total_amount_original }}
+              </span>
+            {% endif %}
+            <span class="promo-panel__total-amount">
+              {{ settings.left_total_amount }}
+            </span>
+          </span>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if settings.left_button_text != blank %}
+      <a
+        href="{{ settings.left_button_link | default: '#' }}"
+        class="promo-panel__button"
+      >
+        {{ settings.left_button_text }}
+        <span class="promo-panel__button-icon">→</span>
+      </a>
+    {% endif %}
+
+    {% if settings.left_guarantee_1 != blank or settings.left_guarantee_2 != blank %}
+      <div class="promo-panel__guarantees">
+        {% if settings.left_guarantee_1 != blank %}
+          <div class="promo-panel__guarantee">
+            {{ settings.left_guarantee_1 }}
+          </div>
+        {% endif %}
+        {% if settings.left_guarantee_2 != blank %}
+          <div class="promo-panel__guarantee">
+            {{ settings.left_guarantee_2 }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
