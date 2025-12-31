@@ -47,7 +47,7 @@
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
+                "gap": 20,
                 "width": "custom",
                 "custom_width": 50,
                 "width_mobile": "custom",
@@ -70,10 +70,10 @@
                 "link": "",
                 "open_in_new_tab": false,
                 "placeholder": "",
-                "padding-block-start": 48,
-                "padding-block-end": 48,
-                "padding-inline-start": 48,
-                "padding-inline-end": 48
+                "padding-block-start": 92,
+                "padding-block-end": 92,
+                "padding-inline-start": 92,
+                "padding-inline-end": 92
               },
               "blocks": {
                 "text_VTnXWt": {
