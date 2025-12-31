@@ -2166,6 +2166,7 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/837dcf382cb7e2a8a7bc8062a3826b6c12e4d646-800x1120.webp",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2175,6 +2176,7 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2184,6 +2186,7 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/837dcf382cb7e2a8a7bc8062a3826b6c12e4d646-800x1120.webp",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2193,6 +2196,17 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
+        },
+        "ingredient_card_JxFbcP": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/837dcf382cb7e2a8a7bc8062a3826b6c12e4d646-800x1120.webp",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2202,15 +2216,17 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
         },
-        "ingredient_card_gb9neD": {
+        "ingredient_card_7aWXDJ": {
           "type": "_ingredient-card",
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/837dcf382cb7e2a8a7bc8062a3826b6c12e4d646-800x1120.webp",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2220,6 +2236,7 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "Bilberry",
+            "image": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2230,8 +2247,9 @@
         "ingredient_card_7rJgnm",
         "ingredient_card_zgbkyf",
         "ingredient_card_Wj3bpH",
+        "ingredient_card_JxFbcP",
         "ingredient_card_rrnYd8",
-        "ingredient_card_gb9neD",
+        "ingredient_card_7aWXDJ",
         "ingredient_card_6fkHbP"
       ],
       "name": "Ingredients Slider",
