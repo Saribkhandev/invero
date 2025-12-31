@@ -314,7 +314,7 @@
         "autoplay": true,
         "autoplay_speed": 5,
         "section_width": "full-width",
-        "slide_height": "medium",
+        "slide_height": "large",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
