@@ -157,7 +157,7 @@
           "type": "_slide",
           "settings": {
             "media_type_1": "image",
-            "image_1": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
+            "image_1": "shopify://shop_images/landing-hero-2.jpg",
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -168,7 +168,7 @@
             "gap": 12,
             "inherit_color_scheme": false,
             "color_scheme": "scheme-5",
-            "toggle_overlay": true,
+            "toggle_overlay": false,
             "overlay_color": "#00000038",
             "overlay_style": "solid",
             "gradient_direction": "to top",
