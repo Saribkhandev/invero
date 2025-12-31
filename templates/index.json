@@ -12,235 +12,11 @@
     "slideshow_BYmcUw": {
       "type": "slideshow",
       "blocks": {
-        "slide_fcyTBW": {
-          "type": "_slide",
-          "settings": {
-            "media_type_1": "image",
-            "image_1": "shopify://shop_images/7765e51156a5c63b561eae6c2d1909edd0def488-768x400_1.webp",
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "toggle_overlay": true,
-            "overlay_color": "#0000008c",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "group_h6eDHr": {
-              "type": "group",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 25,
-                "width": "custom",
-                "custom_width": 56,
-                "width_mobile": "custom",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "inherit_color_scheme": true,
-                "color_scheme": "scheme-6",
-                "background_media": "none",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 48,
-                "padding-block-end": 48,
-                "padding-inline-start": 48,
-                "padding-inline-end": 48
-              },
-              "blocks": {
-                "group_jNrwyy": {
-                  "type": "group",
-                  "name": "t:names.group",
-                  "settings": {
-                    "content_direction": "row",
-                    "vertical_on_mobile": true,
-                    "horizontal_alignment": "flex-start",
-                    "vertical_alignment": "flex-start",
-                    "align_baseline": false,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center",
-                    "gap": 12,
-                    "width": "fill",
-                    "custom_width": 100,
-                    "width_mobile": "fill",
-                    "custom_width_mobile": 100,
-                    "height": "fit",
-                    "custom_height": 100,
-                    "inherit_color_scheme": true,
-                    "color_scheme": "",
-                    "background_media": "none",
-                    "video_position": "cover",
-                    "background_image_position": "cover",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_radius": 0,
-                    "toggle_overlay": false,
-                    "overlay_color": "#00000026",
-                    "overlay_style": "solid",
-                    "gradient_direction": "to top",
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "placeholder": "",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {
-                    "stars_widget_QcMtHt": {
-                      "type": "stars-widget",
-                      "name": "Stars Widget",
-                      "settings": {
-                        "color": "#794c8d",
-                        "width": 20,
-                        "star_count": 5
-                      },
-                      "blocks": {}
-                    },
-                    "text_8TBWjt": {
-                      "type": "text",
-                      "name": "t:names.text",
-                      "settings": {
-                        "text": "<h5>50,000+ verified 5-star reviews for AG1 products</h5>",
-                        "width": "fit-content",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "stars_widget_QcMtHt",
-                    "text_8TBWjt"
-                  ]
-                },
-                "text_dheaxw": {
-                  "type": "text",
-                  "settings": {
-                    "text": "<h2>Trusted by Dr. Andrew Huberman.</h2>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h2",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_yXG344": {
-                  "type": "text",
-                  "settings": {
-                    "text": "<p>Join thousands of people who have made AG1 part of their daily ritual.</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "custom",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1.125rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 20,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "button_VakYai": {
-                  "type": "button",
-                  "settings": {
-                    "label": "Shop now",
-                    "link": "shopify://collections/all",
-                    "open_in_new_tab": false,
-                    "show_icon": true,
-                    "style_class": "button",
-                    "width": "fit-content",
-                    "custom_width": 100,
-                    "width_mobile": "fit-content",
-                    "custom_width_mobile": 100
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "group_jNrwyy",
-                "text_dheaxw",
-                "text_yXG344",
-                "button_VakYai"
-              ]
-            }
-          },
-          "block_order": [
-            "group_h6eDHr"
-          ]
-        },
         "slide_eBeGP7": {
           "type": "_slide",
           "settings": {
             "media_type_1": "image",
-            "image_1": "shopify://shop_images/7cc2de3999f05172eadcd90c9128b9f6dfc9a8f9-460x307.webp",
+            "image_1": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -356,7 +132,6 @@
                     "label": "Shop now",
                     "link": "shopify://collections/all",
                     "open_in_new_tab": false,
-                    "show_icon": true,
                     "style_class": "button",
                     "width": "fit-content",
                     "custom_width": 100,
@@ -376,21 +151,161 @@
           "block_order": [
             "group_qC7pRD"
           ]
+        },
+        "slide_N9yH3m": {
+          "type": "_slide",
+          "settings": {
+            "media_type_1": "image",
+            "image_1": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-5",
+            "toggle_overlay": true,
+            "overlay_color": "#00000038",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_mbhiF7": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "custom",
+                "custom_width": 50,
+                "width_mobile": "custom",
+                "custom_width_mobile": 85,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "scheme-6",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 48,
+                "padding-block-end": 48,
+                "padding-inline-start": 48,
+                "padding-inline-end": 48
+              },
+              "blocks": {
+                "text_itYHFw": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h2>Trusted by Dr. Andrew Huberman.</h2>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h2",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_tXjGHB": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Join thousands of people who have made AG1 part of their daily ritual.</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1.25rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 20,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "button_FAj4KB": {
+                  "type": "button",
+                  "settings": {
+                    "label": "Shop now",
+                    "link": "shopify://collections/all",
+                    "open_in_new_tab": false,
+                    "style_class": "button",
+                    "width": "fit-content",
+                    "custom_width": 100,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 100
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_itYHFw",
+                "text_tXjGHB",
+                "button_FAj4KB"
+              ]
+            }
+          },
+          "block_order": [
+            "group_mbhiF7"
+          ]
         }
       },
       "block_order": [
-        "slide_fcyTBW",
-        "slide_eBeGP7"
+        "slide_eBeGP7",
+        "slide_N9yH3m"
       ],
       "name": "t:names.slideshow",
       "settings": {
         "icons_style": "chevron",
         "slideshow_controls_style": "dots",
-        "trust_icon_1": "shopify://shop_images/svgviewer-png-output.png",
+        "trust_icon_1": "shopify://shop_images/5806a5fc9187f8b38d2ba9a58503dd51ae71837c-800x200.webp",
         "trust_text_1": "Validated by NSF Certified for Sport®",
-        "trust_icon_2": "shopify://shop_images/svgviewer-png-output_2.png",
+        "trust_icon_2": "shopify://shop_images/3b54996789e9ba7f445cf38589819c30dbb72335-800x200.webp",
         "trust_text_2": "Backed by industry-leading research",
-        "trust_icon_3": "shopify://shop_images/svgviewer-png-output_3.png",
+        "trust_icon_3": "shopify://shop_images/18d88def4459817ab9ae85679f4af34f3b71d6e1-800x200.webp",
         "trust_text_3": "Trusted by leading scientists and athletes",
         "color_scheme": "scheme-5",
         "autoplay": true,
@@ -720,7 +635,7 @@
           "settings": {
             "video_url": "https://youtu.be/W6HZeOfvwJg",
             "video_raw_url": "",
-            "video_poster": "shopify://shop_images/7cc2de3999f05172eadcd90c9128b9f6dfc9a8f9-460x307.webp",
+            "video_poster": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
             "category": "Foundational Nutrition",
             "video_title": "Easy & convenient",
             "author": "STEPHANIE C."
@@ -731,7 +646,7 @@
           "settings": {
             "video_url": "https://youtu.be/mUknjpd5nNU",
             "video_raw_url": "",
-            "video_poster": "shopify://shop_images/0a4e1b39aa11c8e99e27cd24a6f129884a4360c5_1.png",
+            "video_poster": "shopify://shop_images/2d368fd49db46d28423d8a1ab804939e73e679fb-420x746.webp",
             "category": "Foundational Nutrition",
             "video_title": "Easy & convenient",
             "author": "STEPHANIE C."
@@ -742,6 +657,7 @@
           "settings": {
             "video_url": "https://youtu.be/W6HZeOfvwJg",
             "video_raw_url": "",
+            "video_poster": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
             "category": "Foundational Nutrition",
             "video_title": "Easy & convenient",
             "author": "STEPHANIE C."
@@ -756,7 +672,6 @@
       "name": "Text with Video Reels",
       "settings": {
         "stars": 5,
-        "show_icon": true,
         "trust_text": "50,000+ verified 5-star reviews for AG1 products",
         "title": "Over 50,000 Satisfied Customers and Counting",
         "btn_label": "See All Reviews",
@@ -965,7 +880,6 @@
                     "label": "Shop now",
                     "link": "shopify://collections/all",
                     "open_in_new_tab": false,
-                    "show_icon": false,
                     "style_class": "button-secondary",
                     "width": "fit-content",
                     "custom_width": 100,
@@ -1068,7 +982,6 @@
                         "video_url": "https://youtu.be/W6HZeOfvwJg",
                         "video_autoplay": false,
                         "video_loop": true,
-                        "cover_image": "shopify://shop_images/image.png",
                         "alt": "",
                         "custom_width": 100,
                         "custom_width_mobile": 100,
@@ -1231,7 +1144,6 @@
                         "video_url": "https://youtu.be/W6HZeOfvwJg",
                         "video_autoplay": false,
                         "video_loop": true,
-                        "cover_image": "shopify://shop_images/image.png",
                         "alt": "",
                         "custom_width": 100,
                         "custom_width_mobile": 100,
@@ -1394,7 +1306,6 @@
                         "video_url": "https://youtu.be/W6HZeOfvwJg",
                         "video_autoplay": false,
                         "video_loop": true,
-                        "cover_image": "shopify://shop_images/image.png",
                         "alt": "",
                         "custom_width": 100,
                         "custom_width_mobile": 100,
@@ -1562,27 +1473,19 @@
       "blocks": {
         "image_RCPjtm": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/19974ce0e7e447abfcdb78df1f809ea9e789486d.png"
-          }
+          "settings": {}
         },
         "image_NcjQxV": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/4d87042ec7e1dd52e39cf6b484cfc83683038889.png"
-          }
+          "settings": {}
         },
         "image_bgqjR3": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/f913e074c872a87bda88b74b6dc7bb0a365781d2.png"
-          }
+          "settings": {}
         },
         "image_zCjcDe": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2fcf745ca0d4e6486674de8d137ae8bd93b56018.png"
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -1601,7 +1504,8 @@
         "button_label": "Get Started",
         "button_link": "#",
         "show_arrow": true,
-        "use_image_grid": true,
+        "use_image_grid": false,
+        "image": "shopify://shop_images/40a9526d64b6f29effdc3e980e499160845fab67-1960x1306.avif",
         "padding-block-start": 52,
         "padding-block-end": 52
       }
@@ -1612,7 +1516,7 @@
       "settings": {
         "eyebrow": "Nutritional Gaps",
         "title": "<p>AG1 Next Gen is clinically shown to fill common nutrient gaps even in healthy eaters.1–4</p>",
-        "comparison_image": "shopify://shop_images/svgviewer-output.svg",
+        "comparison_image": "shopify://shop_images/svgviewer-png-output.png",
         "color_scheme": "scheme-2",
         "note_label": "Why this matters",
         "note_text": "<p>In four randomized, placebo-controlled trials—meeting strict and widely accepted standards for clinical research—AG1 Next Gen demonstrated a statistically significant and positive impact on closing common nutrient gaps. These studies included participants with diverse diets, backgrounds, ages, and activity levels. 1–4</p>",
@@ -1631,7 +1535,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
-            "image": "shopify://shop_images/4d87042ec7e1dd52e39cf6b484cfc83683038889.png",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -1641,7 +1544,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
-            "image": "shopify://shop_images/f7c6e70abf4d4c2a89129811e9980f0e0460fc4b_2.png",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -1651,7 +1553,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
-            "image": "shopify://shop_images/2fcf745ca0d4e6486674de8d137ae8bd93b56018.png",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -1661,7 +1562,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
-            "image": "shopify://shop_images/4d87042ec7e1dd52e39cf6b484cfc83683038889.png",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -1671,7 +1571,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "Bilberry",
-            "image": "shopify://shop_images/80950fffe8afb566b33001b75cab9d795fdc1cc1.png",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -1681,7 +1580,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
-            "image": "shopify://shop_images/f7c6e70abf4d4c2a89129811e9980f0e0460fc4b_2.png",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -1699,14 +1597,13 @@
       "settings": {
         "width": 20,
         "star_count": 5,
-        "rating_text": "",
         "color": "#ffffff",
         "title": "",
         "view_all_text": "View All Ingredients",
         "view_all_link": "#",
         "supplement_facts_text": "Supplement Facts",
         "supplement_facts_link": "#",
-        "autoplay_speed": 100,
+        "autoplay_speed": 30,
         "color_scheme": "scheme-0f0926b7-68c2-4bbd-8595-b1090a5c641b",
         "padding-block-start": 50,
         "padding-block-end": 50
@@ -1788,7 +1685,6 @@
                 "label": "Shop now",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
-                "show_icon": true,
                 "style_class": "button-secondary",
                 "width": "fit-content",
                 "custom_width": 100,
@@ -1887,7 +1783,6 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
-                    "image": "shopify://shop_images/7765e51156a5c63b561eae6c2d1909edd0def488-768x400_1.webp",
                     "link": "",
                     "image_ratio": "landscape",
                     "width": "fill",
@@ -2009,7 +1904,6 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
-                    "image": "shopify://shop_images/7cc2de3999f05172eadcd90c9128b9f6dfc9a8f9-460x307.webp",
                     "link": "",
                     "image_ratio": "landscape",
                     "width": "fill",
@@ -2131,7 +2025,6 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
-                    "image": "shopify://shop_images/bfd79e9cdbe46393a4c889a25b0598312dc28ff1-456x296.webp",
                     "link": "",
                     "image_ratio": "landscape",
                     "width": "fill",
@@ -2258,7 +2151,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
-            "image": "shopify://shop_images/3f50475e5101da46a5f7b5514d189cd53f26e2c4-800x1120.webp",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2268,7 +2160,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
-            "image": "shopify://shop_images/19974ce0e7e447abfcdb78df1f809ea9e789486d.png",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2278,7 +2169,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
-            "image": "shopify://shop_images/3f50475e5101da46a5f7b5514d189cd53f26e2c4-800x1120.webp",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2288,7 +2178,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
-            "image": "shopify://shop_images/19974ce0e7e447abfcdb78df1f809ea9e789486d.png",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2298,7 +2187,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
-            "image": "shopify://shop_images/3f50475e5101da46a5f7b5514d189cd53f26e2c4-800x1120.webp",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2308,7 +2196,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "BILBERRY",
-            "image": "shopify://shop_images/19974ce0e7e447abfcdb78df1f809ea9e789486d.png",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2318,7 +2205,6 @@
           "settings": {
             "name": "Pre & probiotics",
             "subtitle": "Bilberry",
-            "image": "shopify://shop_images/3f50475e5101da46a5f7b5514d189cd53f26e2c4-800x1120.webp",
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
@@ -2337,7 +2223,6 @@
       "settings": {
         "width": 30,
         "star_count": 5,
-        "rating_text": "Based on 100+ reviews",
         "color": "#794c8d",
         "title": "Trusted by the world’s top athletes and experts",
         "view_all_text": "Read More Reviews",
@@ -2416,7 +2301,6 @@
         "color_scheme": "",
         "heading": "The Smarter Way to Invest in Your Health",
         "subheading": "<p>One scoop a day covers your bases at a fraction of the cost of buying supplements separately.</p>",
-        "image": "shopify://shop_images/0a4e1b39aa11c8e99e27cd24a6f129884a4360c5.png",
         "ag1_label": "AG1",
         "cost_label": "Cost per month",
         "total_label": "Total per month",
@@ -2529,7 +2413,6 @@
         "right_overlay_end_opacity": 20,
         "right_vertical_alignment": "center",
         "right_horizontal_alignment": "center",
-        "right_product_image": "shopify://shop_images/4e551014739878f7e55ac5338f132e605cde3204-3240x3240_1.png",
         "right_price_strike": "87€",
         "right_price_current": "69€",
         "right_price_label": "FIRST TIME EVER. LIMITED TIME ONLY.",
@@ -2664,7 +2547,6 @@
                 "label": "Shop now",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
-                "show_icon": true,
                 "style_class": "button",
                 "width": "fit-content",
                 "custom_width": 100,
