@@ -2448,6 +2448,7 @@
         "right_overlay_end_opacity": 20,
         "right_vertical_alignment": "center",
         "right_horizontal_alignment": "center",
+        "right_product_image": "shopify://shop_images/3ad4c64cd41f09d7d0d1accfdc398005287b2d31-1368x913.webp",
         "right_price_strike": "87€",
         "right_price_current": "69€",
         "right_price_label": "FIRST TIME EVER. LIMITED TIME ONLY.",
@@ -3547,7 +3548,7 @@
                 "alignment": "left",
                 "show_alignment": false,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 10,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -3572,6 +3573,7 @@
             "blog-post-description": {
               "type": "_blog-post-description",
               "name": "t:names.excerpt",
+              "disabled": true,
               "static": true,
               "settings": {
                 "type_preset": "rte",
