@@ -21,6 +21,7 @@
     size-style
     {{ block_settings.style_class }}
     {{ block_settings.style_class }}--{{ block.id }}
+    {% if block_settings.show_icon %}button--has-icon{% endif %}
   "
   style="{% render 'size-style', settings: block_settings %}"
   {%- if block_settings.open_in_new_tab -%}
@@ -30,9 +31,12 @@
   {{ block.shopify_attributes }}
 >
   {{ block_settings.label }}
+  {%- if block_settings.show_icon -%}
+    <span class="button__icon"></span>
+  {%- endif -%}
 </a>
 
-{% stylesheet %}
+<style>
   .link {
     text-decoration: none;
     text-decoration-color: currentcolor;
@@ -42,4 +46,27 @@
       text-decoration-color: transparent;
     }
   }
-{% endstylesheet %}
+
+  .button--has-icon {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .button__icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: currentColor;
+    -webkit-mask-image: url('{{ "icon-arrow-next.svg" | asset_url }}');
+    mask-image: url('{{ "icon-arrow-next.svg" | asset_url }}');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    line-height: 0;
+  }
+</style>
