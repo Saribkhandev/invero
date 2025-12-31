@@ -132,6 +132,7 @@
                     "label": "Shop now",
                     "link": "shopify://collections/all",
                     "open_in_new_tab": false,
+                    "show_icon": false,
                     "style_class": "button",
                     "width": "fit-content",
                     "custom_width": 100,
@@ -272,6 +273,7 @@
                     "label": "Shop now",
                     "link": "shopify://collections/all",
                     "open_in_new_tab": false,
+                    "show_icon": false,
                     "style_class": "button",
                     "width": "fit-content",
                     "custom_width": 100,
@@ -672,6 +674,7 @@
       "name": "Text with Video Reels",
       "settings": {
         "stars": 5,
+        "show_icon": false,
         "trust_text": "50,000+ verified 5-star reviews for AG1 products",
         "title": "Over 50,000 Satisfied Customers and Counting",
         "btn_label": "See All Reviews",
@@ -880,6 +883,7 @@
                     "label": "Shop now",
                     "link": "shopify://collections/all",
                     "open_in_new_tab": false,
+                    "show_icon": false,
                     "style_class": "button-secondary",
                     "width": "fit-content",
                     "custom_width": 100,
@@ -1597,6 +1601,7 @@
       "settings": {
         "width": 20,
         "star_count": 5,
+        "rating_text": "Based on 100+ reviews",
         "color": "#ffffff",
         "title": "",
         "view_all_text": "View All Ingredients",
@@ -1685,6 +1690,7 @@
                 "label": "Shop now",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
+                "show_icon": false,
                 "style_class": "button-secondary",
                 "width": "fit-content",
                 "custom_width": 100,
@@ -1783,6 +1789,7 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
+                    "image": "shopify://shop_images/c7264615687d30d84f41f0e4a3625a31794eaffd-1368x913.webp",
                     "link": "",
                     "image_ratio": "landscape",
                     "width": "fill",
@@ -1904,6 +1911,7 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
+                    "image": "shopify://shop_images/f0b98ef920df796f48d1ffcabe8b92f5ef957766-1368x913.webp",
                     "link": "",
                     "image_ratio": "landscape",
                     "width": "fill",
@@ -2025,6 +2033,7 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
+                    "image": "shopify://shop_images/c7264615687d30d84f41f0e4a3625a31794eaffd-1368x913.webp",
                     "link": "",
                     "image_ratio": "landscape",
                     "width": "fill",
@@ -2223,6 +2232,7 @@
       "settings": {
         "width": 30,
         "star_count": 5,
+        "rating_text": "Based on 100+ reviews",
         "color": "#794c8d",
         "title": "Trusted by the world’s top athletes and experts",
         "view_all_text": "Read More Reviews",
@@ -2547,6 +2557,7 @@
                 "label": "Shop now",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
+                "show_icon": false,
                 "style_class": "button",
                 "width": "fit-content",
                 "custom_width": 100,
