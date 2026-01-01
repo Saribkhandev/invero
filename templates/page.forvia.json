@@ -648,10 +648,113 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "comparison_table_Q6Lzb7": {
+      "type": "comparison-table",
+      "blocks": {
+        "row_zUJrMt": {
+          "type": "row",
+          "settings": {
+            "label": "Vitamins",
+            "col_1_status": "tick",
+            "col_2_status": "tick",
+            "col_3_status": "cross",
+            "col_4_status": "cross"
+          }
+        },
+        "row_eJPMqT": {
+          "type": "row",
+          "settings": {
+            "label": "Minerals",
+            "col_1_status": "tick",
+            "col_2_status": "tick",
+            "col_3_status": "cross",
+            "col_4_status": "cross"
+          }
+        },
+        "row_CHqQ4P": {
+          "type": "row",
+          "settings": {
+            "label": "Prebiotics",
+            "col_1_status": "tick",
+            "col_2_status": "cross",
+            "col_3_status": "cross",
+            "col_4_status": "cross"
+          }
+        },
+        "row_YL4A84": {
+          "type": "row",
+          "settings": {
+            "label": "Probiotics",
+            "col_1_status": "tick",
+            "col_2_status": "cross",
+            "col_3_status": "tick",
+            "col_4_status": "cross"
+          }
+        },
+        "row_XHMiHP": {
+          "type": "row",
+          "settings": {
+            "label": "Greens & Superfoods",
+            "col_1_status": "tick",
+            "col_2_status": "cross",
+            "col_3_status": "cross",
+            "col_4_status": "tick"
+          }
+        },
+        "row_fPN6fL": {
+          "type": "row",
+          "settings": {
+            "label": "Antioxidants",
+            "col_1_status": "tick",
+            "col_2_status": "cross",
+            "col_3_status": "cross",
+            "col_4_status": "tick"
+          }
+        },
+        "row_V7qqaz": {
+          "type": "row",
+          "settings": {
+            "label": "Digestive Enzymes",
+            "col_1_status": "tick",
+            "col_2_status": "cross",
+            "col_3_status": "cross",
+            "col_4_status": "cross"
+          }
+        }
+      },
+      "block_order": [
+        "row_zUJrMt",
+        "row_eJPMqT",
+        "row_CHqQ4P",
+        "row_YL4A84",
+        "row_XHMiHP",
+        "row_fPN6fL",
+        "row_V7qqaz"
+      ],
+      "name": "Comparison Table PDP",
+      "settings": {
+        "title": "AG1 is a more-in-one solution",
+        "header_1": "Category",
+        "header_2": "AG1",
+        "header_3": "Multivitamins",
+        "header_4": "Probiotics",
+        "header_5": "Greens",
+        "footer_text": "*Based on current available data for mass market dietary supplements.",
+        "title_color": "#000000",
+        "text_color": "#000000",
+        "highlight_bg_color": "#003b30",
+        "highlight_text_color": "#ffffff",
+        "tick_circle_color": "#46de46",
+        "tick_mark_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
     "main",
-    "slideshow_TXyXRE"
+    "slideshow_TXyXRE",
+    "comparison_table_Q6Lzb7"
   ]
 }
