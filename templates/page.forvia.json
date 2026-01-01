@@ -750,11 +750,101 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "ingredients_slider_CnDGQK": {
+      "type": "ingredients-slider",
+      "blocks": {
+        "ingredient_card_N9BG4H": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
+        },
+        "ingredient_card_QA3h9p": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/3f50475e5101da46a5f7b5514d189cd53f26e2c4-800x1120_1.webp",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
+        },
+        "ingredient_card_TfrEPF": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
+        },
+        "ingredient_card_wDdXKr": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/3f50475e5101da46a5f7b5514d189cd53f26e2c4-800x1120_1.webp",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
+        },
+        "ingredient_card_gQ6aPN": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "Bilberry",
+            "image": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
+        },
+        "ingredient_card_kikmtz": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/837dcf382cb7e2a8a7bc8062a3826b6c12e4d646-800x1120.webp",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ingredient_card_N9BG4H",
+        "ingredient_card_QA3h9p",
+        "ingredient_card_TfrEPF",
+        "ingredient_card_wDdXKr",
+        "ingredient_card_gQ6aPN",
+        "ingredient_card_kikmtz"
+      ],
+      "name": "Ingredients Slider",
+      "settings": {
+        "width": 0,
+        "star_count": 5,
+        "rating_text": "Based on 100+ reviews",
+        "color": "#ffffff",
+        "title": "",
+        "view_all_text": "View All Ingredients",
+        "view_all_link": "#",
+        "supplement_facts_text": "Supplement Facts",
+        "supplement_facts_link": "#",
+        "autoplay_speed": 30,
+        "color_scheme": "scheme-0f0926b7-68c2-4bbd-8595-b1090a5c641b",
+        "padding-block-start": 50,
+        "padding-block-end": 50
+      }
     }
   },
   "order": [
     "main",
     "slideshow_TXyXRE",
-    "comparison_table_Q6Lzb7"
+    "comparison_table_Q6Lzb7",
+    "ingredients_slider_CnDGQK"
   ]
 }
