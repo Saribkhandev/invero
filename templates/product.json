@@ -312,6 +312,7 @@
                 "label": "Shop now",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
+                "show_icon": false,
                 "style_class": "button-secondary",
                 "width": "custom",
                 "custom_width": 100,
@@ -486,6 +487,109 @@
         "padding-block-end": 0
       }
     },
+    "comparison_table_8q36Ky": {
+      "type": "comparison-table",
+      "blocks": {
+        "row_tgcDYi": {
+          "type": "row",
+          "settings": {
+            "label": "Vitamins",
+            "col_1_status": "tick",
+            "col_2_status": "tick",
+            "col_3_status": "cross",
+            "col_4_status": "cross"
+          }
+        },
+        "row_jRike7": {
+          "type": "row",
+          "settings": {
+            "label": "Minerals",
+            "col_1_status": "tick",
+            "col_2_status": "tick",
+            "col_3_status": "cross",
+            "col_4_status": "cross"
+          }
+        },
+        "row_bgQMTG": {
+          "type": "row",
+          "settings": {
+            "label": "Prebiotics",
+            "col_1_status": "tick",
+            "col_2_status": "cross",
+            "col_3_status": "cross",
+            "col_4_status": "cross"
+          }
+        },
+        "row_XxdggP": {
+          "type": "row",
+          "settings": {
+            "label": "Probiotics",
+            "col_1_status": "tick",
+            "col_2_status": "cross",
+            "col_3_status": "tick",
+            "col_4_status": "cross"
+          }
+        },
+        "row_dcemCH": {
+          "type": "row",
+          "settings": {
+            "label": "Greens & Superfoods",
+            "col_1_status": "tick",
+            "col_2_status": "cross",
+            "col_3_status": "cross",
+            "col_4_status": "tick"
+          }
+        },
+        "row_44HFKf": {
+          "type": "row",
+          "settings": {
+            "label": "Antioxidants",
+            "col_1_status": "tick",
+            "col_2_status": "cross",
+            "col_3_status": "cross",
+            "col_4_status": "tick"
+          }
+        },
+        "row_tbe7yk": {
+          "type": "row",
+          "settings": {
+            "label": "Digestive Enzymes",
+            "col_1_status": "tick",
+            "col_2_status": "cross",
+            "col_3_status": "cross",
+            "col_4_status": "cross"
+          }
+        }
+      },
+      "block_order": [
+        "row_tgcDYi",
+        "row_jRike7",
+        "row_bgQMTG",
+        "row_XxdggP",
+        "row_dcemCH",
+        "row_44HFKf",
+        "row_tbe7yk"
+      ],
+      "name": "Comparison Table PDP",
+      "settings": {
+        "title": "AG1 is a more-in-one solution",
+        "header_1": "Category",
+        "highlight_logo": "shopify://shop_images/Artboard_1.png",
+        "header_2": "AG1",
+        "header_3": "Multivitamins",
+        "header_4": "Probiotics",
+        "header_5": "Greens",
+        "footer_text": "*Based on current available data for mass market dietary supplements.",
+        "title_color": "#000000",
+        "text_color": "#000000",
+        "highlight_bg_color": "#003b30",
+        "highlight_text_color": "#ffffff",
+        "tick_circle_color": "#46de46",
+        "tick_mark_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "product_scoop_info_Yeh9Vq": {
       "type": "product-scoop-info",
       "blocks": {
@@ -560,7 +664,6 @@
       "settings": {
         "heading": "In One Scoop of AG1 Next Gen",
         "text": "<p>AG1 complements a healthy diet. It's easy to incorporate into any lifestyle or health regimen without overdoing it. Eat your macros, then take AG1.</p>",
-        "image": "shopify://shop_images/f576e64a2d019ed21a2385235a1c2fd94ce1b901-1055x1055.webp",
         "button_label": "View Supplement Facts",
         "button_link": "",
         "button_style": "button",
@@ -603,7 +706,6 @@
       "name": "Clinical Results",
       "settings": {
         "layout": "image_left",
-        "image": "shopify://shop_images/f28c5066b359d72590059dd45168ebf6e7598849-1404x1755.webp",
         "image_bg_color": "#f1ede8",
         "heading": "Formulated for your body. Clinically backed.",
         "text": "<p>Our doctors, scientists, and researchers worked with third-party experts to study the AG1 Next Gen formula. Here is what they found:</p>",
@@ -625,7 +727,6 @@
         "ingredient_NEGUVw": {
           "type": "ingredient",
           "settings": {
-            "image": "shopify://shop_images/458e9571d3335de372982e3687157cf12ddf06f1-1406x1406.avif",
             "title": "Vitamins & minerals",
             "text": "<p>Vitamins and minerals are micronutrients that support energy production for daily function, like B complex and vitamin B12.</p>"
           }
@@ -803,6 +904,7 @@
   },
   "order": [
     "main",
+    "comparison_table_8q36Ky",
     "product_scoop_info_Yeh9Vq",
     "clinical_results_ypgjB6",
     "high_quality_ingredients_QbD6zE",
