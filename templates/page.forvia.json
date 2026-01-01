@@ -291,8 +291,8 @@
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
                 "gap": 12,
-                "width": "fill",
-                "custom_width": 100,
+                "width": "custom",
+                "custom_width": 80,
                 "width_mobile": "fill",
                 "custom_width_mobile": 100,
                 "height": "fit",
@@ -415,7 +415,7 @@
                           "type": "text",
                           "name": "t:names.text",
                           "settings": {
-                            "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                            "text": "<p>Backed by 4 clinical trials1-4</p>",
                             "width": "fit-content",
                             "max_width": "normal",
                             "alignment": "left",
@@ -488,6 +488,7 @@
                           "name": "t:names.icon",
                           "settings": {
                             "icon": "price_tag",
+                            "image_upload": "shopify://shop_images/5893ae5f778bf7c2d3a9b2b0ad5792eb966786f6-40x40.svg",
                             "width": 24,
                             "link": "",
                             "open_in_new_tab": false
@@ -498,7 +499,7 @@
                           "type": "text",
                           "name": "t:names.text",
                           "settings": {
-                            "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                            "text": "<p>NSF Certified for Sport®</p>",
                             "width": "fit-content",
                             "max_width": "normal",
                             "alignment": "left",
@@ -571,6 +572,7 @@
                           "name": "t:names.icon",
                           "settings": {
                             "icon": "price_tag",
+                            "image_upload": "shopify://shop_images/50e2cb1846ff12260c368b534f507c06e4b91dde-40x40.svg",
                             "width": 24,
                             "link": "",
                             "open_in_new_tab": false
@@ -581,7 +583,7 @@
                           "type": "text",
                           "name": "t:names.text",
                           "settings": {
-                            "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                            "text": "<p>Trusted by leading scientists and athletes</p>",
                             "width": "fit-content",
                             "max_width": "normal",
                             "alignment": "left",
