@@ -130,7 +130,7 @@
                   "settings": {
                     "content_direction": "row",
                     "vertical_on_mobile": true,
-                    "horizontal_alignment": "flex-start",
+                    "horizontal_alignment": "center",
                     "vertical_alignment": "flex-start",
                     "align_baseline": false,
                     "horizontal_alignment_flex_direction_column": "flex-start",
@@ -169,7 +169,7 @@
                       "name": "Stars Widget",
                       "settings": {
                         "color": "#ffffff",
-                        "width": 25,
+                        "width": 20,
                         "star_count": 5
                       },
                       "blocks": {}
@@ -178,7 +178,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                        "text": "<p>50,000+ verified 5-star reviews for AG1 products</p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
