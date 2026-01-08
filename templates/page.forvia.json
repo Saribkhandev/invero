@@ -748,7 +748,85 @@
         "tick_circle_color": "#46de46",
         "tick_mark_color": "#ffffff",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 68
+      }
+    },
+    "ingredients_slider_CnDGQK": {
+      "type": "ingredients-slider",
+      "blocks": {
+        "ingredient_card_N9BG4H": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
+        },
+        "ingredient_card_QA3h9p": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/3f50475e5101da46a5f7b5514d189cd53f26e2c4-800x1120_1.webp",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
+        },
+        "ingredient_card_TfrEPF": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
+        },
+        "ingredient_card_kikmtz": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/837dcf382cb7e2a8a7bc8062a3826b6c12e4d646-800x1120.webp",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
+        },
+        "ingredient_card_N6VFiM": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ingredient_card_N9BG4H",
+        "ingredient_card_QA3h9p",
+        "ingredient_card_TfrEPF",
+        "ingredient_card_kikmtz",
+        "ingredient_card_N6VFiM"
+      ],
+      "name": "Ingredients Slider",
+      "settings": {
+        "width": 0,
+        "star_count": 5,
+        "rating_text": "",
+        "color": "#ffffff",
+        "title": "Stay one scoop ahead this season",
+        "view_all_text": "Learn More",
+        "view_all_link": "#",
+        "supplement_facts_text": "Supplement Facts",
+        "supplement_facts_link": "",
+        "autoplay_speed": 30,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 50,
+        "padding-block-end": 50
       }
     },
     "section_MhGFAe": {
@@ -787,7 +865,7 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "",
-            "padding-block-start": 30,
+            "padding-block-start": 40,
             "padding-block-end": 0,
             "padding-inline-start": 70,
             "padding-inline-end": 0
@@ -1007,6 +1085,52 @@
         "padding-block-end": 0
       }
     },
+    "clinical_results_slider_JwwAWM": {
+      "type": "clinical-results-slider",
+      "blocks": {
+        "slide_bAXtKN": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "IMPROVES KEY NUTRIENT LEVELS WITHIN 3 MONTHS¹",
+            "value": "73%",
+            "description": "of subjects saw an increase in vitamin C levels"
+          }
+        },
+        "slide_6rajpr": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "IMPROVES KEY NUTRIENT LEVELS WITHIN 3 MONTHS¹",
+            "value": "73%",
+            "description": "of subjects saw an increase in vitamin C levels"
+          }
+        },
+        "slide_GAmnie": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "CLINICALLY SHOWN TO ENRICH THE GUT MICROBIOME†",
+            "value": "10x",
+            "description": "increase in healthy bacteria in the gut†"
+          }
+        }
+      },
+      "block_order": [
+        "slide_bAXtKN",
+        "slide_6rajpr",
+        "slide_GAmnie"
+      ],
+      "name": "Clinical Results Slider",
+      "settings": {
+        "heading": "4x clinically-backed. Trusted and verified.",
+        "text": "<p>Most supplements aren’t clinically studied—but AG1 Next Gen is different. With an ongoing commitment to discovery research, we’re committed to ensuring the benefits of our products aren’t just experienced, they’re measurable.</p>",
+        "image": "shopify://shop_images/7a3684233352ee964901165337f7fd4afaa40edf-5760x3240_1.webp",
+        "button_label": "View All Ingredients",
+        "button_link": "",
+        "autoplay_speed": 3,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
     "flavor_showcase_aQ7Ywt": {
       "type": "flavor-showcase",
       "blocks": {
@@ -1065,10 +1189,10 @@
         "padding_bottom": 0
       }
     },
-    "ingredients_slider_CnDGQK": {
+    "ingredients_slider_nNaW3N": {
       "type": "ingredients-slider",
       "blocks": {
-        "ingredient_card_N9BG4H": {
+        "ingredient_card_Re4LfH": {
           "type": "_ingredient-card",
           "settings": {
             "name": "Pre & probiotics",
@@ -1078,7 +1202,7 @@
           },
           "blocks": {}
         },
-        "ingredient_card_QA3h9p": {
+        "ingredient_card_gjytVV": {
           "type": "_ingredient-card",
           "settings": {
             "name": "Pre & probiotics",
@@ -1088,7 +1212,7 @@
           },
           "blocks": {}
         },
-        "ingredient_card_TfrEPF": {
+        "ingredient_card_NGPkba": {
           "type": "_ingredient-card",
           "settings": {
             "name": "Pre & probiotics",
@@ -1098,27 +1222,7 @@
           },
           "blocks": {}
         },
-        "ingredient_card_wDdXKr": {
-          "type": "_ingredient-card",
-          "settings": {
-            "name": "Pre & probiotics",
-            "subtitle": "BILBERRY",
-            "image": "shopify://shop_images/3f50475e5101da46a5f7b5514d189cd53f26e2c4-800x1120_1.webp",
-            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
-          },
-          "blocks": {}
-        },
-        "ingredient_card_gQ6aPN": {
-          "type": "_ingredient-card",
-          "settings": {
-            "name": "Pre & probiotics",
-            "subtitle": "Bilberry",
-            "image": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
-            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
-          },
-          "blocks": {}
-        },
-        "ingredient_card_kikmtz": {
+        "ingredient_card_QAX7Fn": {
           "type": "_ingredient-card",
           "settings": {
             "name": "Pre & probiotics",
@@ -1127,27 +1231,36 @@
             "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
           },
           "blocks": {}
+        },
+        "ingredient_card_GnciEn": {
+          "type": "_ingredient-card",
+          "settings": {
+            "name": "Pre & probiotics",
+            "subtitle": "BILBERRY",
+            "image": "shopify://shop_images/a-papaya-is-surrounded-by-fruit-on-yellow-background.jpg",
+            "description": "<p>Stress adaptogens, like rhodiola, are not normally consumed in a regular diet and are known to help the body manage stress to support energy and vitality. *</p>"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "ingredient_card_N9BG4H",
-        "ingredient_card_QA3h9p",
-        "ingredient_card_TfrEPF",
-        "ingredient_card_wDdXKr",
-        "ingredient_card_gQ6aPN",
-        "ingredient_card_kikmtz"
+        "ingredient_card_Re4LfH",
+        "ingredient_card_gjytVV",
+        "ingredient_card_NGPkba",
+        "ingredient_card_QAX7Fn",
+        "ingredient_card_GnciEn"
       ],
       "name": "Ingredients Slider",
       "settings": {
         "width": 0,
         "star_count": 5,
-        "rating_text": "Based on 100+ reviews",
+        "rating_text": "",
         "color": "#ffffff",
-        "title": "",
-        "view_all_text": "View All Ingredients",
+        "title": "Stay one scoop ahead this season",
+        "view_all_text": "Learn More",
         "view_all_link": "#",
         "supplement_facts_text": "Supplement Facts",
-        "supplement_facts_link": "#",
+        "supplement_facts_link": "",
         "autoplay_speed": 30,
         "color_scheme": "scheme-0f0926b7-68c2-4bbd-8595-b1090a5c641b",
         "padding-block-start": 50,
@@ -1855,161 +1968,19 @@
         "padding-block-start": 50,
         "padding-block-end": 70
       }
-    },
-    "featured_blog_posts_4nW6Mk": {
-      "type": "featured-blog-posts",
-      "blocks": {
-        "static-blog-title": {
-          "type": "_featured-blog-posts-title",
-          "name": "t:names.title",
-          "static": true,
-          "settings": {
-            "text": "<h3>{{ closest.blog.title }}</h3>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "static-blog-post-card": {
-          "type": "_featured-blog-posts-card",
-          "name": "t:names.blog_card",
-          "static": true,
-          "settings": {
-            "alignment": "left",
-            "gap": 8,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "image": {
-              "type": "_featured-blog-posts-image",
-              "static": true,
-              "settings": {
-                "image_ratio": "square",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0
-              },
-              "blocks": {}
-            },
-            "title": {
-              "type": "_heading",
-              "name": "t:names.title",
-              "static": true,
-              "settings": {
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "text": "<h4>{{ closest.article.title }}</h4>",
-                "read_only": false,
-                "alignment": "left",
-                "show_alignment": false,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "blog-post-info-text": {
-              "type": "_blog-post-info-text",
-              "name": "t:names.details",
-              "disabled": true,
-              "static": true,
-              "settings": {
-                "show_date": true,
-                "show_author": true,
-                "type_preset": "",
-                "alignment": "left",
-                "show_alignment": false,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
-            "blog-post-description": {
-              "type": "_blog-post-description",
-              "name": "t:names.excerpt",
-              "static": true,
-              "settings": {
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 8,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
-        }
-      },
-      "name": "t:names.blog_posts_carousel",
-      "settings": {
-        "blog": "news",
-        "layout_type": "carousel",
-        "carousel_on_mobile": true,
-        "post_limit": 5,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 16,
-        "icons_style": "arrow",
-        "icons_shape": "circle",
-        "section_width": "page-width",
-        "gap": 12,
-        "color_scheme": "",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
     }
   },
   "order": [
     "main",
     "slideshow_TXyXRE",
     "comparison_table_Q6Lzb7",
-    "section_MhGFAe",
-    "flavor_showcase_aQ7Ywt",
     "ingredients_slider_CnDGQK",
+    "section_MhGFAe",
+    "clinical_results_slider_JwwAWM",
+    "flavor_showcase_aQ7Ywt",
+    "ingredients_slider_nNaW3N",
     "section_yLqBhj",
     "testimonials_grid_6EVBeg",
-    "section_adTA39",
-    "featured_blog_posts_4nW6Mk"
+    "section_adTA39"
   ]
 }

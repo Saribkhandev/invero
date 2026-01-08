@@ -1,0 +1,282 @@
+{%- style -%}
+  .research-lifecycle {
+    padding: 100px 0;
+    background-color: #ffffff;
+    font-family: var(--font-body-family);
+  }
+
+  .research-lifecycle__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    gap: 80px;
+  }
+
+  @media screen and (max-width: 990px) {
+    .research-lifecycle__container {
+      flex-direction: column;
+      padding: 0 40px;
+      gap: 40px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .research-lifecycle {
+      padding: 60px 0;
+    }
+    .research-lifecycle__container {
+      padding: 0 20px;
+    }
+  }
+
+  .research-lifecycle__content {
+    flex: 0 0 45%;
+  }
+
+  .research-lifecycle__heading {
+    font-size: 56px;
+    line-height: 1;
+    font-weight: 500;
+    margin: 0 0 32px 0;
+    color: #000;
+    letter-spacing: -0.02em;
+    font-family: var(--font-heading-family);
+  }
+
+  @media screen and (max-width: 750px) {
+    .research-lifecycle__heading {
+      font-size: 32px;
+    }
+  }
+
+  .research-lifecycle__description {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000;
+  }
+
+  .research-lifecycle__description p {
+    margin: 0 0 24px 0;
+  }
+
+  .research-lifecycle__accordion-wrapper {
+    flex: 1;
+  }
+
+  .lifecycle-accordion {
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .lifecycle-accordion__item {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .lifecycle-accordion__header {
+    width: 100%;
+    padding: 24px 0;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    outline: none;
+  }
+
+  .lifecycle-accordion__title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+  }
+
+  .lifecycle-accordion__icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .lifecycle-accordion__icon::before,
+  .lifecycle-accordion__icon::after {
+    content: '';
+    position: absolute;
+    background-color: #000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* Horizontal bar */
+  .lifecycle-accordion__icon::before {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  /* Vertical bar */
+  .lifecycle-accordion__icon::after {
+    width: 1px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  .lifecycle-accordion__item.is-active .lifecycle-accordion__icon::after {
+    opacity: 0;
+    transform: translateX(-50%) rotate(90deg);
+  }
+
+  .lifecycle-accordion__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .lifecycle-accordion__inner {
+    padding-bottom: 32px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #000;
+  }
+
+  .lifecycle-accordion__inner ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .lifecycle-accordion__inner li {
+    margin-bottom: 16px;
+  }
+
+  .lifecycle-accordion__inner li:last-child {
+    margin-bottom: 0;
+  }
+{%- endstyle -%}
+
+<section class="research-lifecycle">
+  <div class="research-lifecycle__container">
+    <div class="research-lifecycle__content">
+      <h2 class="research-lifecycle__heading">{{ section.settings.heading }}</h2>
+      <div class="research-lifecycle__description">
+        {{ section.settings.description }}
+      </div>
+    </div>
+
+    <div class="research-lifecycle__accordion-wrapper">
+      <div class="lifecycle-accordion">
+        {%- for block in section.blocks -%}
+          <div class="lifecycle-accordion__item" {{ block.shopify_attributes }}>
+            <button class="lifecycle-accordion__header" aria-expanded="false">
+              <span class="lifecycle-accordion__title">{{ block.settings.title }}</span>
+              <span class="lifecycle-accordion__icon"></span>
+            </button>
+            <div class="lifecycle-accordion__content">
+              <div class="lifecycle-accordion__inner">
+                {{ block.settings.content }}
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.lifecycle-accordion__header').forEach((header) => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const content = item.querySelector('.lifecycle-accordion__content');
+      const isActive = item.classList.contains('is-active');
+
+      // Close other items
+      document.querySelectorAll('.lifecycle-accordion__item').forEach((otherItem) => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('is-active');
+          otherItem.querySelector('.lifecycle-accordion__content').style.maxHeight = null;
+          otherItem.querySelector('.lifecycle-accordion__header').setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current item
+      if (isActive) {
+        item.classList.remove('is-active');
+        content.style.maxHeight = null;
+        header.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('is-active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        header.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Research Lifecycle",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The clinical research lifecycle"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>We're proud to share that four clinical studies – rigorously designed, randomized, placebo-controlled trials – on the AG1 Next Gen formula have been completed. This is a major milestone in our scientific journey and one that underscores our long-standing commitment to evidence-based innovation.</p><p>Just like the trials themselves, the clinical research lifecycle is also rigorous, and it can be lengthy. Here's a bit more about what we've done and where we stand.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_item",
+      "name": "Accordion Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Research Lifecycle",
+      "blocks": [
+        {
+          "type": "accordion_item",
+          "settings": {
+            "title": "How the trials were conducted",
+            "content": "<ul><li>AG1's diverse team of clinicians, researchers, and PhDs work together to build initial studies.</li><li>The team conducted pre-clinical trials to inform the clinical trials. Pre-clinical studies were intentionally conducted to better understand the biological activity and mechanisms of AG1 Next Gen — an approach that's both common and foundational in the development of nutrition research. These early insights help inform the design of human clinical trials, enhancing scientific rigor and ensuring that future studies are strategically and effectively guided. Pre-clinical trials and their results can take upwards of 8-10 months to design, implement and analyze the results.</li><li>We then partnered with independent contract research organizations (CROs) and academic institutions to ensure data collection and analysis were objective and professionally managed.</li><li>To ensure scientific integrity and ethical compliance, each human study protocol was submitted for review and approval by an independent Institutional Review Board (IRB) prior to participant recruitment. IRB approval is a critical regulatory step that ensures the rights, safety, and well-being of study participants are protected, and that the research is conducted according to Good Clinical Practice (GCP) and applicable regulations. No human study began without formal IRB approval.</li><li>We then created detailed protocols with third-party scientists (also known as principal scientists) outlining specific criteria including the study population, endpoints, duration, measurements, and statistical plan. The research partners then recruited participants according to inclusion and exclusion criteria outlined in each of the individual study designs to ensure the most objective outcome for each study. Participants and the third-party researchers in the trials were \"blinded,\" meaning they did not know whether they were receiving AG1 Next Gen or the placebo. Blinded studies reduce bias and are the gold standard for high-quality clinical research.</li></ul>"
+          }
+        },
+        {
+          "type": "accordion_item",
+          "settings": {
+            "title": "After the trials were completed",
+            "content": "<ul><li>Once all data was collected, the data was then \"unblinded\" for researchers and statistical analysis was performed. Analysis can take 4–6 months to complete.</li><li>Abstracts summarizing the key findings were then submitted to leading scientific conferences to share the data with the academic community.</li><li>Findings were shared with the AG1 community and published here on our website.</li></ul>"
+          }
+        },
+        {
+          "type": "accordion_item",
+          "settings": {
+            "title": "What happens next",
+            "content": "<ul><li>Full study manuscripts are being developed to be submitted to peer-reviewed scientific journals. The peer-review process ensures that independent scientists in the field have thoroughly reviewed and validated the study's design, methodology, and conclusions. This is a vital step in maintaining the highest standards of scientific integrity and transparency and can take 6–12 months or longer.</li><li>Once published in a peer-reviewed journal, we will share the full results and links to the publications.</li></ul>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

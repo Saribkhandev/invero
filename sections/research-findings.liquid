@@ -1,0 +1,650 @@
+{%- style -%}
+  .research-findings {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    overflow: hidden;
+  }
+
+  .research-findings__container {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    align-items: flex-start;
+  }
+
+  @media screen and (max-width: 989px) {
+    .research-findings__container {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  .research-findings__left {
+    flex: 0 0 42%;
+    position: sticky;
+    top: 40px;
+    z-index: 2;
+  }
+
+  @media screen and (max-width: 989px) {
+    .research-findings__left {
+      flex: 1 1 auto;
+      position: relative;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  .research-findings__eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .research-findings__title {
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 500;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+    max-width: 420px;
+  }
+
+  .finding__drawer-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    border: 1px solid currentColor;
+    border-radius: 100px;
+    background: transparent;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .finding__drawer-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .finding__drawer-btn span {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* Drawer Styles */
+  .research-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 600px;
+    height: 100vh;
+    background: #fff;
+    z-index: 2000;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    color: #000;
+  }
+
+  .research-drawer.is-active {
+    right: 0;
+  }
+
+  .research-drawer__header {
+    padding: 24px 40px;
+    border-bottom: 1px solid #efefef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fcfcfc;
+  }
+
+  .research-drawer__header span {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #000;
+  }
+
+  .research-drawer__close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+  }
+
+  .research-drawer__content {
+    padding: 60px 40px;
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  .research-drawer__title {
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: #000;
+  }
+
+  .research-drawer__body {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .research-drawer__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(2px);
+  }
+
+  .research-drawer__overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .research-findings__right {
+    flex: 1 1 58%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+  }
+
+  /* Block Styles */
+  .finding-block--image {
+    width: 100%;
+  }
+
+  .finding-block__image-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f9f9f9;
+  }
+
+  .finding-block__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .finding-block__svg svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .finding-block--content {
+    background-color: var(--content-bg, #002b28);
+    color: var(--content-text, #ffffff);
+    padding: 32px;
+    border-radius: 4px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .finding-block__icon {
+    flex: 0 0 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--icon-bg, rgba(255, 255, 255, 0.1));
+    border-radius: 50%;
+  }
+
+  .finding-block__icon svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
+
+  .finding-block__inner-content {
+    flex: 1;
+  }
+
+  .finding-block__label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+    opacity: 0.7;
+  }
+
+  .finding-block__text {
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  .finding-block__text p {
+    margin: 0;
+  }
+
+  .finding-block__text p + p {
+    margin-top: 1em;
+  }
+
+  /* Header Block Styles */
+  .finding-block--header {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 24px;
+    margin-bottom: -20px;
+  }
+
+  .finding-block__header-title {
+    font-size: 72px;
+    line-height: 1;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+    color: #000;
+    letter-spacing: -0.02em;
+  }
+
+  .finding-block__header-subtext {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000;
+    max-width: 600px;
+  }
+
+  .finding-block__header-subtext p {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    .finding-block__header-title {
+      font-size: 48px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="research-findings color-{{ section.settings.color_scheme }} gradient">
+  <div class="section--page-width">
+    <div class="research-findings__container">
+      <!-- Left Column: Section Content -->
+      <div class="research-findings__left">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="research-findings__eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+
+        <h2 class="research-findings__title">
+          {{ section.settings.title }}
+        </h2>
+
+        {%- if section.settings.drawer_content != blank -%}
+          <button class="finding__drawer-btn" type="button" data-drawer-open="{{ section.id }}">
+            {{ section.settings.drawer_btn_label | default: 'What This Means' }}
+            <span>+</span>
+          </button>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <div style="margin-top: 24px;">
+            <a href="{{ section.settings.button_link }}" class="button button--secondary">
+              {{ section.settings.button_label }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Right Column: Dynamic Blocks -->
+      <div class="research-findings__right">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'image_block' -%}
+              <div class="finding-block finding-block--image" {{ block.shopify_attributes }}>
+                <div class="finding-block__image-container">
+                  {%- if block.settings.custom_svg != blank -%}
+                    <div class="finding-block__svg">
+                      {{ block.settings.custom_svg }}
+                    </div>
+                  {%- elsif block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 1200
+                      | image_tag:
+                        loading: 'lazy',
+                        width: block.settings.image.width,
+                        height: block.settings.image.height,
+                        class: 'finding-block__img',
+                        alt: block.settings.image.alt
+                      | default: section.settings.title
+                    }}
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+              </div>
+
+            {%- when 'content_block' -%}
+              <div
+                class="finding-block finding-block--content"
+                style="--content-bg: {{ block.settings.bg_color }}; --content-text: {{ block.settings.text_color }}; --icon-bg: {{ block.settings.icon_bg_color }};"
+                {{ block.shopify_attributes }}
+              >
+                <div class="finding-block__icon">
+                  {%- if block.settings.icon_svg != blank -%}
+                    {{ block.settings.icon_svg }}
+                  {%- else -%}
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                      <line x1="16" y1="16" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  {%- endif -%}
+                </div>
+
+                <div class="finding-block__inner-content">
+                  {%- if block.settings.label != blank -%}
+                    <span class="finding-block__label">{{ block.settings.label }}</span>
+                  {%- endif -%}
+                  <div class="finding-block__text rte">
+                    {{ block.settings.text }}
+                  </div>
+                </div>
+              </div>
+            {%- when 'finding_header' -%}
+              <div class="finding-block finding-block--header" {{ block.shopify_attributes }}>
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="finding-block__header-title">{{ block.settings.heading }}</h3>
+                {%- endif -%}
+                {%- if block.settings.subtext != blank -%}
+                  <div class="finding-block__header-subtext rte">
+                    {{ block.settings.subtext }}
+                  </div>
+                {%- endif -%}
+              </div>
+
+            {%- when 'text_block' -%}
+              <div class="finding-block finding-block--text" {{ block.shopify_attributes }}>
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="finding-block__header-title">{{ block.settings.heading }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="finding-block__header-subtext rte">
+                    {{ block.settings.text }}
+                  </div>
+                {%- endif -%}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Drawer Markup -->
+<div class="research-drawer__overlay" id="DrawerOverlay-{{ section.id }}"></div>
+<div class="research-drawer" id="ResearchDrawer-{{ section.id }}">
+  <div class="research-drawer__header">
+    <span>ADDITIONAL INFO</span>
+    <button class="research-drawer__close" data-drawer-close="{{ section.id }}" aria-label="Close drawer">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="research-drawer__content">
+    <h3 class="research-drawer__title">{{ section.settings.drawer_title | default: 'What this means' }}</h3>
+    <div class="research-drawer__body rte">
+      {{ section.settings.drawer_content }}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const sectionId = '{{ section.id }}';
+    const openBtn = document.querySelector(`[data-drawer-open="${sectionId}"]`);
+    const closeBtn = document.querySelector(`[data-drawer-close="${sectionId}"]`);
+    const drawer = document.getElementById(`ResearchDrawer-${sectionId}`);
+    const overlay = document.getElementById(`DrawerOverlay-${sectionId}`);
+
+    if (openBtn && drawer && overlay) {
+      openBtn.addEventListener('click', () => {
+        drawer.classList.add('is-active');
+        overlay.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      const closeDrawer = () => {
+        drawer.classList.remove('is-active');
+        overlay.classList.remove('is-active');
+        document.body.style.overflow = '';
+      };
+
+      closeBtn.addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Research Findings",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "RESEARCH FINDINGS"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Scientific research results shown in detail."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Secondary Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Drawer Settings"
+    },
+    {
+      "type": "text",
+      "id": "drawer_btn_label",
+      "label": "Drawer Button Label",
+      "default": "What This Means"
+    },
+    {
+      "type": "text",
+      "id": "drawer_title",
+      "label": "Drawer Title",
+      "default": "What this means"
+    },
+    {
+      "type": "richtext",
+      "id": "drawer_content",
+      "label": "Drawer Content",
+      "default": "<p>We believe in taking a food-first approach to nutrition, but even healthy eaters have gaps in their diets. Nutrient requirements are based on estimates of what most people need and they don't account for specific genetics, gut health, or the bioavailability of nutrients.</p>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_block",
+      "name": "Image or SVG",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "html",
+          "id": "custom_svg",
+          "label": "Custom SVG Code",
+          "info": "Paste SVG code here to override the image picker."
+        }
+      ]
+    },
+    {
+      "type": "content_block",
+      "name": "Content Box",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "WHY THIS MATTERS"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Content Text",
+          "default": "<p>Explain the importance of the finding here.</p>"
+        },
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Custom Icon SVG"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#002b28"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "icon_bg_color",
+          "label": "Icon Background Color",
+          "default": "rgba(255, 255, 255, 0.1)"
+        }
+      ]
+    },
+    {
+      "type": "finding_header",
+      "name": "Right side Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "7 in 10"
+        },
+        {
+          "type": "richtext",
+          "id": "subtext",
+          "label": "Subtext",
+          "default": "<p>subjects drinking AG1 Next Gen had an increase in RBC folate.</p>"
+        }
+      ]
+    },
+    {
+      "type": "text_block",
+      "name": "Stat & Description",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading / Stat",
+          "default": "7 in 10"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>Add your descriptive text here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Research Findings",
+      "blocks": [
+        {
+          "type": "finding_header"
+        },
+        {
+          "type": "text_block"
+        },
+        {
+          "type": "image_block"
+        },
+        {
+          "type": "content_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

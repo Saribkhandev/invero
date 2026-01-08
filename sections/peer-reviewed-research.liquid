@@ -1,0 +1,240 @@
+{%- style -%}
+  .peer-reviewed-research {
+    padding: 120px 0;
+    background-color: #f7f7f7;
+    font-family: var(--font-body-family);
+  }
+
+  .peer-reviewed-research__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    gap: 100px;
+  }
+
+  @media screen and (max-width: 990px) {
+    .peer-reviewed-research__container {
+      flex-direction: column;
+      padding: 0 40px;
+      gap: 60px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .peer-reviewed-research {
+      padding: 80px 0;
+    }
+    .peer-reviewed-research__container {
+      padding: 0 20px;
+    }
+  }
+
+  .peer-reviewed-research__intro {
+    flex: 0 0 40%;
+  }
+
+  .peer-reviewed-research__heading {
+    font-size: 56px;
+    line-height: 1.1;
+    font-weight: 500;
+    margin: 0 0 32px 0;
+    color: #000;
+    font-family: var(--font-heading-family);
+    letter-spacing: -0.02em;
+  }
+
+  @media screen and (max-width: 750px) {
+    .peer-reviewed-research__heading {
+      font-size: 36px;
+    }
+  }
+
+  .peer-reviewed-research__description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #000;
+  }
+
+  .peer-reviewed-research__description p {
+    margin: 0 0 24px 0;
+  }
+
+  .peer-reviewed-research__list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .research-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+
+  .research-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .research-item__journal {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .research-item__title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #000;
+    margin: 0 0 16px 0;
+  }
+
+  .research-item__abstract {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .research-item__link {
+    display: inline-flex;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+  }
+
+  .research-item__link svg {
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+  }
+
+  .research-item__link:hover svg {
+    transform: translateX(5px);
+  }
+{%- endstyle -%}
+
+<section class="peer-reviewed-research">
+  <div class="peer-reviewed-research__container">
+    <div class="peer-reviewed-research__intro">
+      <h2 class="peer-reviewed-research__heading">{{ section.settings.heading }}</h2>
+      <div class="peer-reviewed-research__description">
+        {{ section.settings.description }}
+      </div>
+    </div>
+
+    <div class="peer-reviewed-research__list">
+      {%- for block in section.blocks -%}
+        <div class="research-item" {{ block.shopify_attributes }}>
+          {%- if block.settings.journal != blank -%}
+            <span class="research-item__journal">{{ block.settings.journal }}</span>
+          {%- endif -%}
+          <h3 class="research-item__title">{{ block.settings.title }}</h3>
+          <div class="research-item__abstract">
+            {{ block.settings.abstract | strip_html }}
+          </div>
+          {%- if block.settings.link_url != blank -%}
+            <a href="{{ block.settings.link_url }}" class="research-item__link" target="_blank">
+              {{ section.settings.link_text | default: 'Read paper' }}
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Peer-reviewed Research",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Peer-reviewed research"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>At AG1, science is at the heart of everything we do. Our commitment to research goes beyond any single formulation - we invest in rigorous, ongoing clinical studies to explore the role of foundational nutrition in overall health.</p><p>Beyond sharing our findings, we work with leading researchers to prepare and submit study manuscripts to peer-reviewed scientific journals—contributing to the broader scientific dialogue on the vital role of nutrition and the microbiome in overall health.</p>"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text",
+      "default": "Read paper"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "research_paper",
+      "name": "Research Paper",
+      "settings": [
+        {
+          "type": "text",
+          "id": "journal",
+          "label": "Journal Name"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Paper Title"
+        },
+        {
+          "type": "richtext",
+          "id": "abstract",
+          "label": "Abstract/Summary"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Peer-reviewed Research",
+      "blocks": [
+        {
+          "type": "research_paper",
+          "settings": {
+            "journal": "JOURNAL OF THE INTERNATIONAL SOCIETY OF SPORTS NUTRITION",
+            "title": "The effects of AG1® supplementation on the gut microbiome of healthy adults: a randomized, double-blind, placebo-controlled clinical trial",
+            "abstract": "<p>This study investigated the effects of AG1® supplementation on the gut microbiome, GI tolerability, and clinical safety markers in healthy adults. After four weeks, AG1® enriched beneficial probiotic taxa, showed a potential improvement in digestive quality of life, and did not negatively impact stool consistency, bowel frequency, or clinical safety markers, demonstrating its safety for daily use.</p>",
+            "link_url": "https://example.com"
+          }
+        },
+        {
+          "type": "research_paper",
+          "settings": {
+            "journal": "NUTRIENTS",
+            "title": "Foundational Nutrition: Implications for Human Health",
+            "abstract": "<p>Human nutrition, and what can be considered \"ideal\" nutrition, is a complex, multi-faceted topic which many researchers and practitioners deliberate. While some attest that basic human nutrition is relatively understood, it is undeniable that a global nutritional problem persists.</p>",
+            "link_url": "https://example.com"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

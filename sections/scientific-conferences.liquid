@@ -1,0 +1,259 @@
+{%- style -%}
+  .scientific-conferences {
+    padding: 100px 0;
+    background-color: #ffffff;
+    font-family: var(--font-body-family);
+  }
+
+  .scientific-conferences__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+  }
+
+  @media screen and (max-width: 750px) {
+    .scientific-conferences {
+      padding: 60px 0;
+    }
+    .scientific-conferences__container {
+      padding: 0 20px;
+    }
+  }
+
+  .scientific-conferences__header {
+    margin-bottom: 48px;
+  }
+
+  .scientific-conferences__heading {
+    font-size: 48px;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+    color: #000;
+    letter-spacing: -0.02em;
+    font-family: var(--font-heading-family);
+  }
+
+  .scientific-conferences__subtext {
+    font-size: 16px;
+    color: #000;
+    opacity: 0.8;
+  }
+
+  @media screen and (max-width: 750px) {
+    .scientific-conferences__heading {
+      font-size: 32px;
+    }
+  }
+
+  .conferences-table-wrapper {
+    overflow-x: auto;
+    border: 1px solid #e5e5e5;
+  }
+
+  .conferences-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+  }
+
+  .conferences-table th {
+    background-color: #002b28;
+    color: #ffffff;
+    text-align: left;
+    padding: 20px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+  }
+
+  .conferences-table td {
+    padding: 32px 24px;
+    vertical-align: top;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .conferences-table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+  }
+
+  .conferences-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .conferences-table__title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    line-height: 1.4;
+    max-width: 500px;
+  }
+
+  .conferences-table__info {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000;
+  }
+
+  .conferences-table__info-header {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .conferences-table__info-detail {
+    display: block;
+    color: #666;
+    margin-bottom: 12px;
+  }
+
+  .conferences-table__link {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .conferences-table__link:hover {
+    opacity: 0.7;
+  }
+{%- endstyle -%}
+
+<section class="scientific-conferences">
+  <div class="scientific-conferences__container">
+    <div class="scientific-conferences__header">
+      <h2 class="scientific-conferences__heading">{{ section.settings.heading }}</h2>
+      <p class="scientific-conferences__subtext">{{ section.settings.subtext }}</p>
+    </div>
+
+    <div class="conferences-table-wrapper">
+      <table class="conferences-table">
+        <thead>
+          <tr>
+            <th style="width: 50%;">{{ section.settings.col1_label }}</th>
+            <th style="width: 50%;">{{ section.settings.col2_label }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for block in section.blocks -%}
+            <tr>
+              <td>
+                <div class="conferences-table__title">{{ block.settings.title }}</div>
+              </td>
+              <td>
+                <div class="conferences-table__info">
+                  <span class="conferences-table__info-header">{{ block.settings.conference }}</span>
+                  <span class="conferences-table__info-detail">{{ block.settings.details }}</span>
+                  {%- if block.settings.link_url != blank -%}
+                    <a href="{{ block.settings.link_url }}" class="conferences-table__link" target="_blank">
+                      {{- block.settings.link_text | default: 'HERE' -}}
+                    </a>
+                  {%- endif -%}
+                </div>
+              </td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Scientific Conferences",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "AG1 at scientific conferences"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "The following abstracts have been accepted and are being presented."
+    },
+    {
+      "type": "text",
+      "id": "col1_label",
+      "label": "Column 1 Label",
+      "default": "Title"
+    },
+    {
+      "type": "text",
+      "id": "col2_label",
+      "label": "Column 2 Label",
+      "default": "Conference, Date, & Location"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "conference_row",
+      "name": "Conference Row",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title of Abstract"
+        },
+        {
+          "type": "text",
+          "id": "conference",
+          "label": "Conference Name"
+        },
+        {
+          "type": "textarea",
+          "id": "details",
+          "label": "Details (Date, Location, Publication)"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "HERE"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scientific Conferences",
+      "blocks": [
+        {
+          "type": "conference_row",
+          "settings": {
+            "title": "The Synbiotic AG1 Outcompetes A Comparative Multi-strain Probiotic In The SHIME Model",
+            "conference": "2025 American Physiology Society (APS) Summit",
+            "details": "Presented: April 24th–27th in Baltimore, MA\nAbstract published in May issue of The Journal of Physiology, one of the peer-reviewed journals of the American Physiological Society."
+          }
+        },
+        {
+          "type": "conference_row",
+          "settings": {
+            "title": "AG1®, a foundational nutrition supplement, closes nutrient gaps in healthy adults: A randomized controlled trial",
+            "conference": "2025 American Society of Nutrition (ASN)",
+            "details": "May 31st – June 3rd in Orlando, FL\nAbstract published in Current Developments in Nutrition (CDN), a peer-reviewed journal of the American Society for Nutrition."
+          }
+        },
+        {
+          "type": "conference_row",
+          "settings": {
+            "title": "AG1® improves biomarkers of nutrient status: A randomized controlled trial",
+            "conference": "2025 American Society of Nutrition (ASN)",
+            "details": "May 31st – June 3rd in Orlando, FL\nAbstract published in Current Developments in Nutrition (CDN), a peer-reviewed journal of the American Society for Nutrition."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
