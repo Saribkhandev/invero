@@ -1,0 +1,1827 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "ingredients_optimized_aEyWQ4": {
+      "type": "ingredients-optimized",
+      "blocks": {
+        "ingredient_category_info_6HYC9p": {
+          "type": "_ingredient-category-info",
+          "name": "Category Info",
+          "settings": {
+            "category_name": "View All",
+            "heading": "<p>AG1 has the <strong>vitamins & minerals</strong> you need...</p>",
+            "description": "",
+            "benefits_list": "<ul><li>Energy production</li><li>Immune defense</li></ul>"
+          },
+          "blocks": {}
+        },
+        "ingredient_category_info_YCEjde": {
+          "type": "_ingredient-category-info",
+          "settings": {
+            "category_name": "Vitamins & Minerals",
+            "heading": "<p>AG1 has the <strong>vitamins & minerals</strong> you need...</p>",
+            "description": "",
+            "benefits_list": "<ul><li>Energy production</li><li>Immune defense</li></ul>"
+          },
+          "blocks": {}
+        },
+        "ingredient_category_info_bTnCtj": {
+          "type": "_ingredient-category-info",
+          "settings": {
+            "category_name": "Digestive Support",
+            "heading": "<p>Many supplements can be tough on the gut and hard for the body to digest. AG1 combines enzymes, demulcents, and digestive herbs to help break down whole foods and release more of their nutrients while providing <strong>digestive comfort.*</strong></p>",
+            "description": "",
+            "benefits_list": "<ul><li>Improved digestion</li><li>Soothed gut lining</li><li>Calm stomach</li><li>Nutrient absorption</li></ul>"
+          },
+          "blocks": {}
+        },
+        "ingredient_optimized_card_c33LQb": {
+          "type": "_ingredient-optimized-card",
+          "settings": {
+            "category": "Vitamins & Minerals",
+            "title": "Vitamin E",
+            "image": "shopify://shop_images/a492f89bbfd8966b52e1a87727f7338efa7ea00a-840x1120_3ac8befc-305c-4162-a9ce-ebb6c3853bb8.webp",
+            "what_it_is": "<p>Bioflavonoids are a group of plant compounds that are found in the rinds of citrus fruits.</p>",
+            "benefits": "<ul><li>Supports a healthy stress response</li><li>Promotes mood balance</li></ul>"
+          },
+          "blocks": {}
+        },
+        "ingredient_optimized_card_wmkEEc": {
+          "type": "_ingredient-optimized-card",
+          "settings": {
+            "category": "Digestive Support",
+            "title": "Bromelain",
+            "image": "shopify://shop_images/3dda6176d05a038bcbd2506ae396ca3b9e45ca19-840x1120.webp",
+            "what_it_is": "<p>Bioflavonoids are a group of plant compounds that are found in the rinds of citrus fruits.</p>",
+            "benefits": "<ul><li>Supports a healthy stress response</li><li>Promotes mood balance</li></ul>"
+          },
+          "blocks": {}
+        },
+        "ingredient_optimized_card_6RM7Mh": {
+          "type": "_ingredient-optimized-card",
+          "settings": {
+            "category": "Digestive Support",
+            "title": "Inulin",
+            "image": "shopify://shop_images/50ddf8711b3e4e426ec23492a3e1b3644907f664-840x1120.webp",
+            "what_it_is": "<p>Bioflavonoids are a group of plant compounds that are found in the rinds of citrus fruits.</p>",
+            "benefits": "<ul><li>Supports a healthy stress response</li><li>Promotes mood balance</li></ul>"
+          },
+          "blocks": {}
+        },
+        "ingredient_optimized_card_7Nqf7M": {
+          "type": "_ingredient-optimized-card",
+          "settings": {
+            "category": "Vitamins & Minerals",
+            "title": "Zinc",
+            "image": "shopify://shop_images/07306ef2bee0a4fff26d047ecbb29c6cb52672e4-840x1120.webp",
+            "what_it_is": "<p>Bioflavonoids are a group of plant compounds that are found in the rinds of citrus fruits.</p>",
+            "benefits": "<ul><li>Supports a healthy stress response</li><li>Promotes mood balance</li></ul>"
+          },
+          "blocks": {}
+        },
+        "ingredient_optimized_card_wV84cQ": {
+          "type": "_ingredient-optimized-card",
+          "name": "Ingredient Card",
+          "settings": {
+            "category": "Digestive Support",
+            "title": "Citrus Bioflavonoids",
+            "image": "shopify://shop_images/54eeac3cc697d5d3edabafa4b2c6d4d51dd01c6b-840x1120.webp",
+            "what_it_is": "<p>Bioflavonoids are a group of plant compounds that are found in the rinds of citrus fruits.</p>",
+            "benefits": "<ul><li>Supports a healthy stress response</li><li>Promotes mood balance</li></ul>"
+          },
+          "blocks": {}
+        },
+        "ingredient_optimized_card_tYQ7Ue": {
+          "type": "_ingredient-optimized-card",
+          "name": "Ingredient Card",
+          "settings": {
+            "category": "Vitamins & Minerals",
+            "title": "Citrus Bioflavonoids",
+            "image": "shopify://shop_images/049c48226bd367dfc32df37f3a5cdd8daba564ed-840x1120.webp",
+            "what_it_is": "<p>Bioflavonoids are a group of plant compounds that are found in the rinds of citrus fruits.</p>",
+            "benefits": "<ul><li>Supports a healthy stress response</li><li>Promotes mood balance</li></ul>"
+          },
+          "blocks": {}
+        },
+        "ingredient_optimized_card_L3N6pq": {
+          "type": "_ingredient-optimized-card",
+          "name": "Ingredient Card",
+          "settings": {
+            "category": "Vitamins & Minerals",
+            "title": "Citrus Bioflavonoids",
+            "image": "shopify://shop_images/cce7adc04d40a5688c2b968b3901904b8c23db9c-840x1120_74d6d704-6b34-4633-8fb5-055c903bc4f4.webp",
+            "what_it_is": "<p>Bioflavonoids are a group of plant compounds that are found in the rinds of citrus fruits.</p>",
+            "benefits": "<ul><li>Supports a healthy stress response</li><li>Promotes mood balance</li></ul>"
+          },
+          "blocks": {}
+        },
+        "ingredient_optimized_card_3mGARN": {
+          "type": "_ingredient-optimized-card",
+          "name": "Ingredient Card",
+          "settings": {
+            "category": "Vitamins & Minerals",
+            "title": "Citrus Bioflavonoids",
+            "image": "shopify://shop_images/8938e01e62a3f330eae9e926185a276c2f585edc-840x1120.webp",
+            "what_it_is": "<p>Bioflavonoids are a group of plant compounds that are found in the rinds of citrus fruits.</p>",
+            "benefits": "<ul><li>Supports a healthy stress response</li><li>Promotes mood balance</li></ul>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ingredient_category_info_6HYC9p",
+        "ingredient_category_info_YCEjde",
+        "ingredient_category_info_bTnCtj",
+        "ingredient_optimized_card_c33LQb",
+        "ingredient_optimized_card_wmkEEc",
+        "ingredient_optimized_card_6RM7Mh",
+        "ingredient_optimized_card_7Nqf7M",
+        "ingredient_optimized_card_wV84cQ",
+        "ingredient_optimized_card_tYQ7Ue",
+        "ingredient_optimized_card_L3N6pq",
+        "ingredient_optimized_card_3mGARN"
+      ],
+      "name": "Ingredients Optimized",
+      "settings": {
+        "heading": "High-quality ingredients optimized for impact",
+        "description": "<p>We don’t think you should settle for questionable ingredients when it comes to your daily nutrition. AG1’s ingredients are sourced from quality partners for absorption, potency, and nutrient density.</p>",
+        "cta_text": "See Supplement Facts",
+        "cta_link": "",
+        "facts_product": "forbones-xtra-d",
+        "footer_text": "See what goes into every scoop of AG1",
+        "footer_link_text": "View Other Ingredients",
+        "footer_link": "",
+        "color_scheme": "",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "section_V8ezQk": {
+      "type": "section",
+      "blocks": {
+        "group_YU966t": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_6WzhJG": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>QUALITY SOURCING</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_ixJU6M": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Farm to Label</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_9HPPAr": {
+              "type": "text",
+              "settings": {
+                "text": "<p>We’ve always been dedicated to rigorous testing, third-party certifications, and strict sourcing standards. Now, we’re taking it a step further by creating visibility between our direct ingredients and the partners and farmers that enable our high quality and purity standards.</p>",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_6WzhJG",
+            "text_ixJU6M",
+            "text_9HPPAr"
+          ]
+        },
+        "image_3QKQUT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/9577a9e192cd9a0c5da2a0a6b01ed799a322471f-1406x1758.webp",
+            "link": "",
+            "image_ratio": "square",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "group_YU966t",
+        "image_3QKQUT"
+      ],
+      "name": "t:names.image_with_text",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "section_F3GEtG": {
+      "type": "section",
+      "blocks": {
+        "video_YdPKaL": {
+          "type": "video",
+          "name": "t:names.video",
+          "settings": {
+            "source": "url",
+            "video_url": "https://youtu.be/srY-ei7LvGg",
+            "video_autoplay": false,
+            "video_loop": true,
+            "alt": "",
+            "custom_width": 100,
+            "custom_width_mobile": 100,
+            "aspect_ratio": "16/9",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "group_7MXHyB": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 18,
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_RfKTcM": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Citrus Bioflavonoids</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_m7kk9i": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h4>Central Valley, California</h4>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_pJXGpD": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Ingredient #51 of 75+: citrus bioflavonoids from citrus proudly grown in sunny Fresno, California. AG1 takes the concentrated and potent extract of citrus bioflavonoids isolated from the most powerful – but often under-appreciated – part of the fruit: the peel. Supporting immune defense, citrus bioflavonoids are just one of the many high quality ingredients packed into every serving of AG1.</p>",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_RfKTcM",
+            "text_m7kk9i",
+            "text_pJXGpD"
+          ]
+        }
+      },
+      "block_order": [
+        "video_YdPKaL",
+        "group_7MXHyB"
+      ],
+      "name": "t:names.image_with_text",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 60,
+        "padding-block-end": 40
+      }
+    },
+    "section_7CAnUL": {
+      "type": "section",
+      "blocks": {
+        "video_WYEgVG": {
+          "type": "video",
+          "name": "t:names.video",
+          "settings": {
+            "source": "url",
+            "video_url": "https://youtu.be/ELPVIWFO8cA",
+            "video_autoplay": false,
+            "video_loop": true,
+            "alt": "",
+            "custom_width": 100,
+            "custom_width_mobile": 100,
+            "aspect_ratio": "16/9",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "group_TBUL3z": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 18,
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_TVi4Xp": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Pea Protein</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_zGGbVj": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h4>Manitoba, Canada</h4>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_4mJnGz": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Ingredient #50 of 75+: Pea protein contains essential amino acids and is used in AG1 to support digestion by helping transport nutrients across the gut barrier. In this episode, meet a family of growers behind some of the high quality pea protein that makes its way into AG1. Across multiple generations, these growers remain focused on maintaining high quality standards and a palpable sense of community pride.</p>",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_TVi4Xp",
+            "text_zGGbVj",
+            "text_4mJnGz"
+          ]
+        }
+      },
+      "block_order": [
+        "video_WYEgVG",
+        "group_TBUL3z"
+      ],
+      "name": "t:names.image_with_text",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 60,
+        "padding-block-end": 40
+      }
+    },
+    "section_Kc6by3": {
+      "type": "section",
+      "blocks": {
+        "video_dAcRJP": {
+          "type": "video",
+          "name": "t:names.video",
+          "settings": {
+            "source": "url",
+            "video_url": "https://youtu.be/APk40fyJTVs",
+            "video_autoplay": false,
+            "video_loop": true,
+            "alt": "",
+            "custom_width": 100,
+            "custom_width_mobile": 100,
+            "aspect_ratio": "16/9",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "group_czhx39": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 18,
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_cxT8Fm": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Vitamin E</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_JEnRm7": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h4>La Pampa Region, Argentina</h4>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_6LdxKK": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Ingredient #3 of 75+: In this episode, we follow Vitamin E from one of our suppliers, derived from the crushed seeds of hardy sunflowers grown in central Argentina. What many people might not realize is that vitamin E is considered an essential vitamin – meaning it needs to be consumed in the human diet, either from food or supplements because the body cannot produce it. Fortunately, sunflower seeds are an excellent natural source of vitamin E, primarily in the form of alpha-tocopherol, which is the most biologically active form for humans. This makes its antioxidant and immune-supporting properties more bioavailable.</p>",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_cxT8Fm",
+            "text_JEnRm7",
+            "text_6LdxKK"
+          ]
+        }
+      },
+      "block_order": [
+        "video_dAcRJP",
+        "group_czhx39"
+      ],
+      "name": "t:names.image_with_text",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 60,
+        "padding-block-end": 40
+      }
+    },
+    "promotional_split_EqCJVy": {
+      "type": "promotional-split",
+      "name": "Promotional Split",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "section_height": "auto",
+        "desktop_layout": "image_first",
+        "gap_size": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "left_bg_color": "#0f3d3e",
+        "left_text_color": "#ffffff",
+        "left_accent_color": "#ffffff",
+        "left_padding_top": 60,
+        "left_padding_bottom": 60,
+        "left_padding_left": 48,
+        "left_padding_right": 48,
+        "left_vertical_alignment": "center",
+        "left_horizontal_alignment": "flex-start",
+        "left_heading": "Get daily nutrition you can count on with ingredients that work with your body.",
+        "left_heading_size": 56,
+        "left_subheading": "",
+        "left_product_name": "",
+        "left_product_description": "",
+        "left_product_price": "",
+        "left_product_price_original": "",
+        "left_feature_1": "",
+        "left_feature_2": "",
+        "left_feature_3": "",
+        "left_total_label": "",
+        "left_total_amount": "",
+        "left_total_amount_original": "",
+        "left_button_text": "Try AG1 Now",
+        "left_button_link": "",
+        "left_button_bg_color": "#ffffff",
+        "left_button_text_color": "#0f3d3e",
+        "left_guarantee_1": "Update or cancel anytime",
+        "left_guarantee_2": "30 days money-back guarantee",
+        "right_bg_color": "#f5f1e8",
+        "right_text_color": "#0f3d3e",
+        "right_accent_color": "#e63946",
+        "right_image_opacity": 100,
+        "right_enable_overlay": false,
+        "right_overlay_start_color": "#000000",
+        "right_overlay_start_opacity": 60,
+        "right_overlay_end_color": "#000000",
+        "right_overlay_end_opacity": 20,
+        "right_vertical_alignment": "center",
+        "right_horizontal_alignment": "center",
+        "right_product_image": "shopify://shop_images/3ad4c64cd41f09d7d0d1accfdc398005287b2d31-1368x913.webp",
+        "right_price_strike": "87€",
+        "right_price_current": "69€",
+        "right_price_label": "FIRST TIME EVER. LIMITED TIME ONLY.",
+        "right_text_alignment": "center"
+      }
+    },
+    "image_with_text_ca4iKq": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_rcgKnT": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_iQ46Qa": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_G3LGQ6": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_wAxhzm": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "image_rcgKnT",
+        "image_iQ46Qa",
+        "image_G3LGQ6",
+        "image_wAxhzm"
+      ],
+      "name": "Image with Text Custom",
+      "settings": {
+        "layout": "text_first",
+        "section_width": "page-width",
+        "color_scheme": "scheme-2",
+        "heading": "AG1 Supplement Facts",
+        "text": "<p>AG1 is a comprehensive daily health drink formulated to deliver what your body needs in one convenient serving. From high quality vitamins and minerals, to prebiotics and probiotics, digestive enzymes, adaptogens, superfoods and more — AG1 makes it powerfully simple for you to cover your foundational nutrients for optimal gut health, immune support, energy, healthy brain and mood.<a href=\"https://drinkag1.com/about-ag1/ingredients/ctr#fdaDisclaimer\">*</a></p>",
+        "button_label": "See Supplement Facts",
+        "button_link": "#",
+        "show_arrow": true,
+        "use_image_grid": false,
+        "image": "shopify://shop_images/fa9a54a9a6ba86e7d069ef8a5b07bd2b424b9f4b-1413x1764.webp",
+        "padding-block-start": 52,
+        "padding-block-end": 52
+      }
+    },
+    "testimonials_grid_4iQUdz": {
+      "type": "testimonials-grid",
+      "blocks": {
+        "testimonial_rWPrbC": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "title": "The new formula is really great",
+            "text": "The new formula with advanced pre-and probiotics has really hit the bull's-eye for me. It has been a big difference in my digestion, and I am very happy with the product. I highly recommend it.",
+            "author": "LOUIS C.",
+            "date": "7/22/25",
+            "source": "AG1 REVIEW"
+          }
+        },
+        "testimonial_TKrMtw": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "title": "A nice sweet experience",
+            "text": "I have to say I have tried a lot of different types of greens and this is the best brand. I was excited to try the new flavor and it did not disappoint! I look forward to my greens daily and enjoy them!",
+            "author": "ASHLEY C.",
+            "date": "7/16/2025",
+            "source": "AG1 REVIEW"
+          }
+        },
+        "testimonial_fWTzCK": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "title": "I Love My AG1",
+            "text": "I continue to love the taste and feel good while drinking AG1 daily. The customer service is outstanding and the company rewards loyal customers with occasional perks. That makes me feel good too!",
+            "author": "WENDY O.",
+            "date": "3/17/25",
+            "source": "AG1 REVIEW"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_rWPrbC",
+        "testimonial_TKrMtw",
+        "testimonial_fWTzCK"
+      ],
+      "name": "Testimonials Grid",
+      "settings": {
+        "heading": "What People Are Saying",
+        "section_width": "page-width",
+        "color_scheme": "",
+        "star_color": "#794c8d",
+        "star_width": 20,
+        "padding-block-start": 64,
+        "padding-block-end": 64
+      }
+    },
+    "section_yTh4tX": {
+      "type": "section",
+      "blocks": {
+        "group_F9GAed": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_y7ajmP": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>FAQs</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h2",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_y7ajmP"
+          ]
+        },
+        "group_aF3HPc": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_ghT8Ez": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "plus",
+                "dividers": true,
+                "type_preset": "h4",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_4rqbff": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Return policy",
+                    "open_by_default": true,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_Q9nirA": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_Q9nirA"
+                  ]
+                },
+                "accordion_row_wmiMcg": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Shipping",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_6HMRaw": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_6HMRaw"
+                  ]
+                },
+                "accordion_row_KC76gF": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Manufacturing",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_HCHijd": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_HCHijd"
+                  ]
+                },
+                "accordion_row_cpHpne": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Return policy",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_BQYqBt": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_BQYqBt"
+                  ]
+                },
+                "accordion_row_ae84MD": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Manufacturing",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_z8RjJR": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_z8RjJR"
+                  ]
+                },
+                "accordion_row_pWJUyf": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Shipping",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_V6H3Qb": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_V6H3Qb"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_4rqbff",
+                "accordion_row_wmiMcg",
+                "accordion_row_KC76gF",
+                "accordion_row_cpHpne",
+                "accordion_row_ae84MD",
+                "accordion_row_pWJUyf"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_ghT8Ez"
+          ]
+        }
+      },
+      "block_order": [
+        "group_F9GAed",
+        "group_aF3HPc"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 100,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 51,
+        "padding-block-end": 51
+      }
+    },
+    "section_qNcJcy": {
+      "type": "section",
+      "blocks": {
+        "text_X4kxPg": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>More about AG1</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "group_ibUjnA": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 30,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_i8tjMJ": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 15,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "image_xKjNFk": {
+                  "type": "image",
+                  "name": "t:names.image",
+                  "settings": {
+                    "image": "shopify://shop_images/dfe5dbb75b9fd7790e0f805d3250af2fb57d4aee-1200x900.webp",
+                    "link": "",
+                    "image_ratio": "adapt",
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_mNQ9rm": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<h2>New arrivals</h2>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h4",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground-heading)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_xKjNFk",
+                "text_mNQ9rm"
+              ]
+            },
+            "group_D89pNw": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 15,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "image_RRmyW6": {
+                  "type": "image",
+                  "name": "t:names.image",
+                  "settings": {
+                    "image": "shopify://shop_images/dfe5dbb75b9fd7790e0f805d3250af2fb57d4aee-1200x900.webp",
+                    "link": "",
+                    "image_ratio": "adapt",
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_nXJQqm": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<h2>New arrivals</h2>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h4",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_RRmyW6",
+                "text_nXJQqm"
+              ]
+            }
+          },
+          "block_order": [
+            "group_i8tjMJ",
+            "group_D89pNw"
+          ]
+        }
+      },
+      "block_order": [
+        "text_X4kxPg",
+        "group_ibUjnA"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 35,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 40,
+        "padding-block-end": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ingredients_optimized_aEyWQ4",
+    "section_V8ezQk",
+    "section_F3GEtG",
+    "section_7CAnUL",
+    "section_Kc6by3",
+    "promotional_split_EqCJVy",
+    "image_with_text_ca4iKq",
+    "testimonials_grid_4iQUdz",
+    "section_yTh4tX",
+    "section_qNcJcy"
+  ]
+}

@@ -1,0 +1,64 @@
+<div
+  class="ingredient-card"
+  data-category="{{ block.settings.category }}"
+  {{ block.shopify_attributes }}
+>
+  <span class="ingredient-card__category">{{ block.settings.category }}</span>
+  <div class="ingredient-card__image-wrapper">
+    {%- if block.settings.image != blank -%}
+      {{ block.settings.image | image_url: width: 300 | image_tag: class: 'ingredient-card__image', loading: 'lazy' }}
+    {%- else -%}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+  <h3 class="ingredient-card__title">{{ block.settings.title }}</h3>
+
+  {% comment %} Hidden content for modal population {% endcomment %}
+  <div class="ingredient-data" style="display: none;">
+    <div class="modal-what">{{ block.settings.what_it_is }}</div>
+    <div class="modal-benefits">{{ block.settings.benefits }}</div>
+    <div class="modal-image-src">{{ block.settings.image | image_url: width: 600 }}</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ingredient Card",
+  "settings": [
+    {
+      "type": "text",
+      "id": "category",
+      "label": "Category",
+      "default": "Vitamins & Minerals"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Ingredient Name",
+      "default": "Citrus Bioflavonoids"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "what_it_is",
+      "label": "What it is",
+      "default": "<p>Bioflavonoids are a group of plant compounds that are found in the rinds of citrus fruits.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "benefits",
+      "label": "Benefits (Bullet Points)",
+      "default": "<ul><li>Supports a healthy stress response</li><li>Promotes mood balance</li></ul>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredient Card"
+    }
+  ]
+}
+{% endschema %}

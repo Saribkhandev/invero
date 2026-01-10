@@ -7,7 +7,7 @@
     --promo-gap: {{ section.settings.gap_size }}px;
   "
 >
-  <div class="promotional-split__container">
+  <div class="promotional-split__container {% if section.settings.desktop_layout == 'image_first' %}promotional-split__container--reverse{% endif %}">
     {% render 'promo-panel-left', settings: section.settings %}
     {% render 'promo-panel-right', settings: section.settings %}
   </div>
@@ -28,6 +28,15 @@
 
     @media screen and (min-width: 750px) {
       grid-template-columns: 1fr 1fr;
+
+      &.promotional-split__container--reverse {
+        .promo-panel--left {
+          order: 2;
+        }
+        .promo-panel--right {
+          order: 1;
+        }
+      }
     }
   }
 
@@ -420,6 +429,16 @@
         { "value": "100vh", "label": "Full Screen" }
       ],
       "default": "auto"
+    },
+    {
+      "type": "select",
+      "id": "desktop_layout",
+      "label": "Desktop Layout",
+      "options": [
+        { "value": "text_first", "label": "Text First" },
+        { "value": "image_first", "label": "Image First" }
+      ],
+      "default": "text_first"
     },
     {
       "type": "range",

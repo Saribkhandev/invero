@@ -45,13 +45,210 @@
 
   /* Navigation Tabs */
   .ingredients-optimized__nav-wrapper {
-    margin-bottom: 48px;
+    margin-bottom: 32px;
     position: sticky;
-    top: 60px;
+    top: calc(var(--header-height) - 1px);
     background: var(--color-background);
     z-index: 20;
     padding: 10px 0;
     transition: top 0.3s;
+  }
+
+  /* Handle cases where there might not be a sticky header */
+  .header-wrapper--none + main .ingredients-optimized__nav-wrapper {
+    top: 0;
+  }
+
+  .ingredients-optimized__nav {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 4px 0;
+  }
+
+  .ingredients-optimized__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ingredients-optimized__tab {
+    background: transparent;
+    border: 1px solid #dae1de;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1d3a2f;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    font-family: var(--font-body--family);
+  }
+
+  .ingredients-optimized__tab:hover {
+    border-color: #1d3a2f;
+  }
+
+  .ingredients-optimized__tab.is-active {
+    background: #cbd3d0; /* Muted Green-Grey from screenshot */
+    border-color: #cbd3d0;
+    color: #1d3a2f;
+  }
+
+  .ingredients-optimized__tab.is-active::after {
+    display: none;
+  }
+
+  /* Dynamic Category Content */
+  .ingredients-category-content {
+    margin-bottom: 64px;
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.4s ease;
+  }
+
+  .ingredients-category-content.is-visible {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  @media screen and (min-width: 900px) {
+    .ingredients-category-content.is-visible {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+  }
+
+  .ingredients-category-content__main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .ingredients-category-content__heading {
+    font-family: var(--font-body--family);
+    font-size: 40px; /* Increased from 32px */
+    line-height: 1.2;
+    color: #1d3a2f;
+    font-weight: 400;
+    margin: 0 0 24px 0;
+  }
+
+  .ingredients-category-content__heading strong {
+    color: #268eeb;
+    font-weight: 400;
+  }
+
+  .ingredients-category-content__desc {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #1d3a2f;
+  }
+
+  .ingredients-category-content__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #143126; /* Dark Green CTA */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background 0.2s;
+  }
+
+  .ingredients-category-content__cta:hover {
+    background-color: #0d211a;
+  }
+
+  .ingredients-category-content__benefits {
+    border-top: 1px solid #eee;
+    padding-top: 24px;
+  }
+
+  @media screen and (min-width: 900px) {
+    .ingredients-category-content__benefits {
+      border-top: none;
+      padding-top: 0;
+      padding-left: 48px;
+    }
+  }
+
+  .ingredients-category-content__benefits-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #1d3a2f;
+  }
+
+  .ingredients-category-content__benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ingredients-category-content__benefits-list li {
+    font-size: 20px;
+    line-height: 1.4;
+    color: #1d3a2f;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+  }
+
+  .ingredients-category-content__benefits-list li::before {
+    content: "—";
+    margin-right: 12px;
+    font-weight: 300;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Footer */
+  .ingredients-optimized__footer {
+    margin-top: 64px;
+    padding: 48px 24px;
+    background-color: #f1ede8;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+  .ingredients-optimized__footer-text {
+    font-size: 18px;
+    font-family: var(--font-body--family);
+    margin: 0 0 24px;
+    color: #1d3a2f;
+    font-weight: 500;
+  }
+
+  .ingredients-optimized__footer-btn {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: transparent;
+    border: 1px solid #1d3a2f;
+    border-radius: 50px;
+    color: #1d3a2f;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .ingredients-optimized__footer-btn:hover {
+    background-color: #1d3a2f;
+    color: white;
   }
 
   /* Handle cases where there might not be a sticky header */
@@ -102,40 +299,57 @@
     display: none;
   }
 
-  /* Grid */
-  .ingredients-optimized__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 20px;
-    row-gap: 40px;
+  /* Strip wrappers from Shopify Blocks so Flexbox works on children */
+  .ingredients-optimized__main-container > .shopify-block {
+    display: contents;
+  }
+
+  /* New Flex Layout for Mixed Blocks */
+  .ingredients-optimized__main-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0 -12px; /* Negative margin for gutter */
+  }
+
+  .ingredients-category-content {
+    width: 100%;
+    margin-bottom: 24px;
+    order: -1;
+    box-sizing: border-box;
+    padding: 0 12px;
+  }
+
+  .ingredient-card {
+    display: flex;
+    flex-direction: column;
+    width: 50%; /* Fallback */
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 12px;
+    margin-bottom: 48px;
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: left;
   }
 
   @media screen and (min-width: 750px) {
-    .ingredients-optimized__grid {
-      grid-template-columns: repeat(4, 1fr);
-      column-gap: 24px;
-      row-gap: 48px;
+    .ingredient-card {
+      width: 25%;
+      flex: 0 0 25%;
+      max-width: 25%;
     }
   }
 
   @media screen and (min-width: 1200px) {
-    .ingredients-optimized__grid {
-      grid-template-columns: repeat(6, 1fr);
+    .ingredient-card {
+      width: 25%;
+      flex: 0 0 25%;
+      max-width: 25%;
     }
-  }
-
-  /* Card */
-  .ingredient-card {
-    background: transparent;
-    border-radius: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    text-align: left;
-    box-shadow: none;
-    border: none;
   }
 
   .ingredient-card:hover {
@@ -372,6 +586,141 @@
   [data-ingredient-hidden="true"] {
     display: none;
   }
+
+  /* Supplement Facts Modal CSS */
+  .facts-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+  }
+  .facts-modal.is-active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s, visibility 0s 0s;
+  }
+  .facts-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+  }
+  .facts-modal__content {
+    position: relative;
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+  }
+  .facts-modal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .facts-modal__body {
+    overflow-y: auto;
+    padding: 20px;
+  }
+  /* Nutrition Label CSS */
+  .nutrition-label {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #000;
+    padding: 10px;
+  }
+  .nutrition-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1;
+    border-bottom: 1px solid #000;
+    padding-bottom: 4px;
+  }
+  .nutrition-product-name {
+     font-size: 24px;
+     font-weight: 700;
+     margin: 8px 0;
+     font-family: var(--font-h1--family); /* Custom match */
+  }
+  .nutrition-serving {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    border-bottom: 8px solid #000; /* Thick bar */
+    padding-bottom: 8px;
+  }
+  .nutrition-serving p { margin: 0; }
+
+  .nutrition-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nutrition-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 0;
+    font-size: 14px;
+  }
+
+  .nutrition-row.header {
+    font-weight: 700;
+    font-size: 12px;
+    align-items: flex-end;
+  }
+
+  .col-name { flex: 1; padding-right: 10px; }
+  .col-amt { width: 120px; text-align: right; }
+  .col-dv { width: 50px; text-align: right; font-weight: 700; }
+
+  .nutrition-row.indent .col-name { padding-left: 16px; }
+
+  .nutrition-divider {
+    height: 1px;
+    background: #ccc;
+  }
+  .nutrition-divider.thick {
+    height: 4px;
+    background: #000;
+    margin: 4px 0;
+  }
+
+  .nutrition-footer {
+    font-size: 10px;
+    margin-top: 8px;
+  }
+  .nutrition-footer p { margin: 2px 0; }
+
+  /* Re-add Modal Image as fallback or alternative */
+  .facts-modal__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 {%- endstyle -%}
 
 <div class="ingredients-optimized section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
@@ -380,73 +729,47 @@
       {%- if section.settings.heading != blank -%}
         <h2 class="ingredients-optimized__title">{{ section.settings.heading }}</h2>
       {%- endif -%}
-      {%- if section.settings.description != blank -%}
-        <div class="ingredients-optimized__description">{{ section.settings.description }}</div>
-      {%- endif -%}
-      {%- if section.settings.cta_text != blank -%}
-        <a href="{{ section.settings.cta_link }}" class="ingredients-optimized__cta">
-          {{ section.settings.cta_text }}
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M1 7h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      {%- endif -%}
     </div>
-
-    {%- liquid
-      assign categories = 'View All'
-      for block in section.blocks
-        unless categories contains block.settings.category
-          assign categories = categories | append: ',' | append: block.settings.category
-        endunless
-      endfor
-      assign category_array = categories | split: ','
-    -%}
 
     <div class="ingredients-optimized__nav-wrapper">
       <div class="ingredients-optimized__nav no-scrollbar">
-        {%- for cat in category_array -%}
-          <button
-            class="ingredients-optimized__tab {% if forloop.first %}is-active{% endif %}"
-            data-category="{{ cat }}"
-          >
-            {{ cat }}
-          </button>
-        {%- endfor -%}
+        <!-- Tabs injected by JS -->
       </div>
     </div>
 
-    <div class="ingredients-optimized__grid">
-      {%- for block in section.blocks -%}
-        <div
-          class="ingredient-card"
-          data-category="{{ block.settings.category }}"
-          data-index="{{ forloop.index0 }}"
-          {{ block.shopify_attributes }}
-        >
-          <span class="ingredient-card__category">{{ block.settings.category }}</span>
-          <div class="ingredient-card__image-wrapper">
-            {%- if block.settings.image != blank -%}
-              {{
-                block.settings.image
-                | image_url: width: 300
-                | image_tag: class: 'ingredient-card__image', loading: 'lazy'
-              }}
-            {%- else -%}
-              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-            {%- endif -%}
-          </div>
-          <h3 class="ingredient-card__title">{{ block.settings.title }}</h3>
-
-          {% comment %} Hidden content for modal population {% endcomment %}
-          <div class="ingredient-data" style="display: none;">
-            <div class="modal-what">{{ block.settings.what_it_is }}</div>
-            <div class="modal-benefits">{{ block.settings.benefits }}</div>
-            <div class="modal-image-src">{{ block.settings.image | image_url: width: 600 }}</div>
-          </div>
+    {% comment %} Main Container for Mix of Category Info and Cards {% endcomment %}
+    <div class="ingredients-optimized__main-container">
+      {% comment %} Default View All Content (Static) {% endcomment %}
+      <div class="ingredients-category-content is-visible" data-content-category="View All">
+        <div class="ingredients-category-content__main">
+          {%- if section.settings.description != blank -%}
+            <div class="ingredients-category-content__desc">{{ section.settings.description }}</div>
+          {%- endif -%}
+          {%- if section.settings.cta_text != blank -%}
+            <a href="{{ section.settings.cta_link }}" class="ingredients-category-content__cta">
+              {{ section.settings.cta_text }}
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M1 7h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          {%- endif -%}
         </div>
-      {%- endfor -%}
+      </div>
+
+      {% comment %} Dynamic Blocks from Theme Blocks {% endcomment %}
+      {% content_for 'blocks' %}
     </div>
+
+    {%- if section.settings.footer_text != blank -%}
+      <div class="ingredients-optimized__footer">
+        <p class="ingredients-optimized__footer-text">{{ section.settings.footer_text }}</p>
+        {%- if section.settings.footer_link_text != blank -%}
+          <a href="{{ section.settings.footer_link }}" class="ingredients-optimized__footer-btn">
+            {{ section.settings.footer_link_text }} ->
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -499,44 +822,141 @@
   </div>
 </div>
 
+{% render 'supplement-facts-modal', facts_product: section.settings.facts_product %}
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const section = document.querySelector('.ingredients-optimized');
     if (!section) return;
 
-    const tabs = section.querySelectorAll('.ingredients-optimized__tab');
+    // Synchronize CTAs from the Master (View All) to Blocks
+    const masterCta = section.querySelector(
+      '.ingredients-category-content[data-content-category="View All"] .ingredients-category-content__cta'
+    );
+    if (masterCta) {
+      const allBlockCtas = section.querySelectorAll(
+        '.ingredients-category-content:not([data-content-category="View All"]) .ingredients-category-content__cta'
+      );
+      allBlockCtas.forEach((cta) => {
+        cta.innerHTML = masterCta.innerHTML;
+        // cta.href = masterCta.getAttribute('href'); // Handled by click listener now
+        cta.style.display = ''; // Make visible
+      });
+    }
+
+    // Supplement Facts Modal Logic (Using Snippet)
+    // Find modal within this section or globally if ID matches default
+    const factsModal = document.getElementById('SupplementFactsModal') || document.querySelector('.facts-modal');
+
+    if (factsModal) {
+      const factsClose = factsModal.querySelector('.facts-modal__close');
+      const factsOverlay = factsModal.querySelector('.facts-modal__overlay');
+      const allCtas = section.querySelectorAll('.ingredients-category-content__cta');
+
+      function openFactsModal(e) {
+        e.preventDefault();
+        factsModal.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeFactsModal() {
+        factsModal.classList.remove('is-active');
+        document.body.style.overflow = '';
+      }
+
+      allCtas.forEach((btn) => btn.addEventListener('click', openFactsModal));
+      if (factsClose) factsClose.addEventListener('click', closeFactsModal);
+      if (factsOverlay) factsOverlay.addEventListener('click', closeFactsModal);
+    }
+
+    // const tabs = section.querySelectorAll('.ingredients-optimized__tab'); // Removed static tabs query
     const cards = section.querySelectorAll('.ingredient-card');
+    const contentBlocks = section.querySelectorAll('.ingredients-category-content');
     const modal = document.getElementById('IngredientsModal');
-    const modalContainer = modal.querySelector('.ingredients-modal__container');
-    const modalOverlay = modal.querySelector('.ingredients-modal__overlay');
     const closeBtn = modal.querySelector('.ingredients-modal__close');
     const prevBtn = modal.querySelector('.modal-prev');
     const nextBtn = modal.querySelector('.modal-next');
+    const counter = modal.querySelector('.ingredients-modal__counter');
+    const modalOverlay = modal.querySelector('.ingredients-modal__overlay');
 
-    let currentVisibleIndices = Array.from(cards).map((_, i) => i);
+    // Filter logic variables
+    let currentVisibleIndices = [];
     let currentModalIndex = 0;
 
-    // Filtering logic
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        const category = tab.dataset.category;
+    // --- Dynamic Tab Generation ---
+    const navContainer = section.querySelector('.ingredients-optimized__nav');
+    const categories = new Set(['View All']);
 
-        // Update tabs
-        tabs.forEach((t) => t.classList.remove('is-active'));
-        tab.classList.add('is-active');
+    // 1. Collect Categories from Cards
+    cards.forEach((card) => {
+      const cat = card.dataset.category;
+      if (cat) categories.add(cat);
+    });
 
-        // Update cards
-        currentVisibleIndices = [];
-        cards.forEach((card, index) => {
-          if (category === 'View All' || card.dataset.category === category) {
-            card.removeAttribute('data-ingredient-hidden');
-            currentVisibleIndices.push(index);
-          } else {
-            card.setAttribute('data-ingredient-hidden', 'true');
-          }
-        });
+    // 2. Collect Categories from Info Blocks
+    contentBlocks.forEach((block) => {
+      const cat = block.dataset.contentCategory;
+      if (cat) categories.add(cat);
+    });
+
+    // 3. build Tabs
+    categories.forEach((cat) => {
+      const btn = document.createElement('button');
+      btn.classList.add('ingredients-optimized__tab');
+      if (cat === 'View All') btn.classList.add('is-active');
+      btn.dataset.category = cat;
+      btn.textContent = cat;
+      navContainer.appendChild(btn);
+
+      // Add Click Listener
+      btn.addEventListener('click', () => {
+        handleTabClick(cat, btn);
       });
     });
+
+    function handleTabClick(category, clickedBtn) {
+      // Update tabs
+      const allTabs = navContainer.querySelectorAll('.ingredients-optimized__tab');
+      allTabs.forEach((t) => t.classList.remove('is-active'));
+      clickedBtn.classList.add('is-active');
+
+      // Update Dynamic Content
+      contentBlocks.forEach((block) => {
+        if (block.dataset.contentCategory === category) {
+          block.classList.add('is-visible');
+        } else {
+          block.classList.remove('is-visible');
+        }
+      });
+
+      // Update cards
+      currentVisibleIndices = [];
+      cards.forEach((card, index) => {
+        if (category === 'View All' || card.dataset.category === category) {
+          card.removeAttribute('data-ingredient-hidden');
+          card.style.display = 'flex';
+          currentVisibleIndices.push(index);
+        } else {
+          card.setAttribute('data-ingredient-hidden', 'true');
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Initial calculation
+    function initializeVisibleIndices() {
+      currentVisibleIndices = [];
+      cards.forEach((card, index) => {
+        // By default 'View All' logic or currently visible
+        if (!card.hasAttribute('data-ingredient-hidden')) {
+          currentVisibleIndices.push(index);
+        }
+      });
+    }
+    initializeVisibleIndices();
+
+    // Validating display logic for non-filtered setup
+    cards.forEach((card) => (card.style.display = 'flex'));
 
     // Modal logic
     function updateModal(visibleIndex) {
@@ -564,9 +984,7 @@
       modal.querySelector('.ingredients-modal__image').src = data.querySelector('.modal-image-src').textContent;
 
       currentModalIndex = visibleIndex;
-      modal.querySelector('.ingredients-modal__counter').textContent = `${visibleIndex + 1} of ${
-        currentVisibleIndices.length
-      }`;
+      counter.textContent = `${visibleIndex + 1} of ${currentVisibleIndices.length}`;
 
       prevBtn.disabled = visibleIndex === 0;
       nextBtn.disabled = visibleIndex === currentVisibleIndices.length - 1;
@@ -574,10 +992,13 @@
 
     cards.forEach((card, index) => {
       card.addEventListener('click', () => {
+        // Find the index of this card within the CURRENTLY VISIBLE list
         const visibleIndex = currentVisibleIndices.indexOf(index);
-        updateModal(visibleIndex);
-        modal.classList.add('is-active');
-        document.body.style.overflow = 'hidden';
+        if (visibleIndex !== -1) {
+          updateModal(visibleIndex);
+          modal.classList.add('is-active');
+          document.body.style.overflow = 'hidden';
+        }
       });
     });
 
@@ -626,19 +1047,46 @@
     {
       "type": "richtext",
       "id": "description",
-      "label": "Description",
+      "label": "Default Description (View All)",
       "default": "<p>We don’t think you should settle for questionable ingredients when it comes to your daily nutrition. AG1’s ingredients are sourced from quality partners for absorption, potency, and nutrient density.</p>"
     },
     {
       "type": "text",
       "id": "cta_text",
-      "label": "CTA Text",
-      "default": "See what goes into every scoop of AG1"
+      "label": "Default CTA Text",
+      "default": "See Supplement Facts"
     },
     {
       "type": "url",
       "id": "cta_link",
-      "label": "CTA Link"
+      "label": "Default CTA Link"
+    },
+    {
+      "type": "product",
+      "id": "facts_product",
+      "label": "Product for Supplement Facts",
+      "info": "Select the product to display facts for. If empty, uses the current product or static content."
+    },
+    {
+      "type": "header",
+      "content": "Footer Area"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "See what goes into every scoop of AG1"
+    },
+    {
+      "type": "text",
+      "id": "footer_link_text",
+      "label": "Footer Button Text",
+      "default": "View Other Ingredients"
+    },
+    {
+      "type": "url",
+      "id": "footer_link",
+      "label": "Footer Button Link"
     },
     {
       "type": "header",
@@ -677,39 +1125,13 @@
   ],
   "blocks": [
     {
-      "type": "ingredient",
-      "name": "Ingredient",
-      "settings": [
-        {
-          "type": "text",
-          "id": "category",
-          "label": "Category",
-          "default": "Vitamins & Minerals"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Ingredient Name",
-          "default": "Citrus Bioflavonoids"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "richtext",
-          "id": "what_it_is",
-          "label": "What it is",
-          "default": "<p>Bioflavonoids are a group of plant compounds that are found in the rinds of citrus fruits.</p>"
-        },
-        {
-          "type": "richtext",
-          "id": "benefits",
-          "label": "Benefits (Bullet Points)",
-          "default": "<ul><li>Supports a healthy stress response</li><li>Promotes mood balance</li></ul>"
-        }
-      ]
+      "type": "@theme"
+    },
+    {
+      "type": "_ingredient-category-info"
+    },
+    {
+      "type": "_ingredient-optimized-card"
     }
   ],
   "presets": [
@@ -717,35 +1139,44 @@
       "name": "Ingredients Optimized",
       "blocks": [
         {
-          "type": "ingredient",
+          "type": "_ingredient-category-info",
+          "settings": {
+            "category_name": "Vitamins & Minerals",
+            "heading": "<p>AG1 has the <strong>vitamins & minerals</strong> you need...</p>",
+            "benefits_list": "<ul><li>Energy production</li><li>Immune defense</li></ul>"
+          }
+        },
+        {
+          "type": "_ingredient-category-info",
+          "settings": {
+            "category_name": "Digestive Support",
+            "heading": "<p>Many supplements can be tough on the gut and hard for the body to digest. AG1 combines enzymes, demulcents, and digestive herbs to help break down whole foods and release more of their nutrients while providing <strong>digestive comfort.*</strong></p>",
+            "benefits_list": "<ul><li>Improved digestion</li><li>Soothed gut lining</li><li>Calm stomach</li><li>Nutrient absorption</li></ul>"
+          }
+        },
+        {
+          "type": "_ingredient-optimized-card",
           "settings": {
             "category": "Vitamins & Minerals",
             "title": "Vitamin E"
           }
         },
         {
-          "type": "ingredient",
-          "settings": {
-            "category": "Whole Food Sourced",
-            "title": "Pea Protein"
-          }
-        },
-        {
-          "type": "ingredient",
+          "type": "_ingredient-optimized-card",
           "settings": {
             "category": "Digestive Support",
-            "title": "Apple"
+            "title": "Bromelain"
           }
         },
         {
-          "type": "ingredient",
+          "type": "_ingredient-optimized-card",
           "settings": {
             "category": "Digestive Support",
             "title": "Inulin"
           }
         },
         {
-          "type": "ingredient",
+          "type": "_ingredient-optimized-card",
           "settings": {
             "category": "Vitamins & Minerals",
             "title": "Zinc"

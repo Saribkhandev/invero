@@ -1,0 +1,402 @@
+{{ 'section-benefits-showcase.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="benefits-showcase section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="benefits-showcase__header">
+        <h2 class="benefits-showcase__title {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+        {%- if section.settings.subheading != blank -%}
+          <div class="benefits-showcase__caption">{{ section.settings.subheading }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="benefits-showcase__container">
+      <aside class="benefits-showcase__sidebar">
+        <nav class="benefits-showcase__nav">
+          <ul class="benefits-showcase__nav-list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'benefit' -%}
+                <li class="benefits-showcase__nav-item">
+                  <a
+                    href="#benefit-{{ block.id }}"
+                    class="benefits-showcase__nav-link"
+                    data-target="benefit-{{ block.id }}"
+                  >
+                    {{ block.settings.title }}
+                  </a>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </nav>
+      </aside>
+
+      <div class="benefits-showcase__content">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'intro' -%}
+              <div class="benefits-showcase__intro" {{ block.shopify_attributes }}>
+                <div class="benefits-showcase__intro-grid">
+                  <div class="benefits-showcase__intro-item">
+                    {%- if block.settings.image_1 != blank -%}
+                      {{
+                        block.settings.image_1
+                        | image_url: width: 600
+                        | image_tag: loading: 'lazy', class: 'benefits-showcase__intro-image'
+                      }}
+                    {%- else -%}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </div>
+                  <div class="benefits-showcase__intro-item">
+                    {%- if block.settings.image_2 != blank -%}
+                      {{
+                        block.settings.image_2
+                        | image_url: width: 600
+                        | image_tag: loading: 'lazy', class: 'benefits-showcase__intro-image'
+                      }}
+                    {%- else -%}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </div>
+                  <div class="benefits-showcase__intro-item">
+                    {%- if block.settings.image_3 != blank -%}
+                      {{
+                        block.settings.image_3
+                        | image_url: width: 600
+                        | image_tag: loading: 'lazy', class: 'benefits-showcase__intro-image'
+                      }}
+                    {%- else -%}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </div>
+                </div>
+                {%- if block.settings.text != blank -%}
+                  <div class="benefits-showcase__intro-text rte">
+                    {{ block.settings.text }}
+                  </div>
+                {%- endif -%}
+              </div>
+
+            {%- when 'benefit' -%}
+              <div id="benefit-{{ block.id }}" class="benefits-showcase__block" {{ block.shopify_attributes }}>
+                <div class="benefits-showcase__block-content">
+                  {%- if block.settings.heading != blank -%}
+                    <h3 class="benefits-showcase__block-heading">{{ block.settings.heading }}</h3>
+                  {%- endif -%}
+
+                  {%- if block.settings.subtext != blank -%}
+                    <div class="benefits-showcase__block-subtext">{{ block.settings.subtext }}</div>
+                  {%- endif -%}
+
+                  {%- if block.settings.description != blank -%}
+                    <div class="benefits-showcase__block-description rte">
+                      {{ block.settings.description }}
+                    </div>
+                  {%- endif -%}
+
+                  {%- if block.settings.label != blank -%}
+                    {% render 'button', block: block, link: block.settings.button_link %}
+                  {%- endif -%}
+                </div>
+                <div class="benefits-showcase__block-image-wrapper">
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 800
+                      | image_tag: loading: 'lazy', class: 'benefits-showcase__block-image'
+                    }}
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('.section-{{ section.id }}-padding');
+    const navLinks = section.querySelectorAll('.benefits-showcase__nav-link');
+    const blocks = section.querySelectorAll('.benefits-showcase__block');
+    const nav = section.querySelector('.benefits-showcase__nav');
+
+    function activateLink(id) {
+      navLinks.forEach((link) => {
+        link.parentElement.classList.remove('is-active');
+        if (link.getAttribute('href') === '#' + id) {
+          link.parentElement.classList.add('is-active');
+        }
+      });
+    }
+
+    // Smooth scroll
+    navLinks.forEach((link) => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetBlock = document.getElementById(targetId);
+        if (targetBlock) {
+          // Offset for sticky header if needed, for now just scroll
+          const headerOffset = 100;
+          const elementPosition = targetBlock.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      });
+    });
+
+    // ScrollSpy
+    window.addEventListener('scroll', function () {
+      let current = '';
+      blocks.forEach((block) => {
+        const blockTop = block.offsetTop;
+        const blockHeight = block.clientHeight;
+        // You might need to tweak this offset value
+        if (pageYOffset >= blockTop - 300) {
+          current = block.getAttribute('id');
+        }
+      });
+
+      if (current) {
+        activateLink(current);
+      } else if (navLinks.length > 0) {
+        // Default to first if inside section but above first block
+        // Or handle generic intersection observer for the whole section
+      }
+    });
+
+    // Set first as active initially
+    if (navLinks.length > 0) {
+      navLinks[0].parentElement.classList.add('is-active');
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Benefits Showcase",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The benefits of taking AG1"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading Size"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover the benefits of taking AG1 daily to support your foundational nutrition"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "intro",
+      "name": "Intro Images",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Intro Text",
+          "default": "<p>AG1 is a foundational nutrition supplement that supports whole body health.</p>"
+        }
+      ]
+    },
+    {
+      "type": "benefit",
+      "name": "Benefit Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Navigation Title",
+          "default": "Healthy brain & mood"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Healthy brain & mood"
+        },
+        {
+          "type": "textarea",
+          "id": "subtext",
+          "label": "Subtext",
+          "default": "AG1 delivers vitamins, minerals, and antioxidants to support a healthy mood and the nervous system."
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p><strong>WHAT TO EXPECT</strong></p><ul><li>Vitamins and minerals help build the key neurotransmitters known to support mood and brain function.*</li><li>Antioxidants, like cacao biovanoids, help combat against environmental and oxidative stress.*</li></ul>"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button Label",
+          "default": "Help improve my mood"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "select",
+          "id": "style_class",
+          "label": "Button Style",
+          "options": [
+            { "value": "button", "label": "Primary" },
+            { "value": "button button--secondary", "label": "Secondary" },
+            { "value": "link", "label": "Link" }
+          ],
+          "default": "button"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_icon",
+          "label": "Show Icon",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_tab",
+          "label": "Open in new tab",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits Showcase",
+      "blocks": [
+        {
+          "type": "intro"
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Healthy brain & mood",
+            "heading": "Healthy brain & mood"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Immune defense",
+            "heading": "Immune defense"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Gut health",
+            "heading": "Gut health"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
