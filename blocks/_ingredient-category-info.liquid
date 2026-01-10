@@ -1,0 +1,60 @@
+<div
+  class="ingredients-category-content"
+  data-content-category="{{ block.settings.category_name }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ingredients-category-content__main">
+    {%- if block.settings.heading != blank -%}
+      <h3 class="ingredients-category-content__heading">{{ block.settings.heading }}</h3>
+    {%- endif -%}
+
+    {%- if block.settings.description != blank -%}
+      <div class="ingredients-category-content__desc">{{ block.settings.description }}</div>
+    {%- endif -%}
+
+    <a href="#" class="ingredients-category-content__cta" style="display: none;"></a>
+  </div>
+
+  <div class="ingredients-category-content__benefits">
+    <div class="ingredients-category-content__benefits-title">Supported Benefits:</div>
+    <div class="ingredients-category-content__benefits-list">
+      {{ block.settings.benefits_list }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Category Info",
+  "settings": [
+    {
+      "type": "text",
+      "id": "category_name",
+      "label": "Category Name (Must match)",
+      "info": "Must exactly match the category name used in Ingredient blocks (e.g., 'Vitamins & Minerals')"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>AG1 has the <strong>vitamins & minerals</strong> you need...</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "richtext",
+      "id": "benefits_list",
+      "label": "Benefits List (Bullet Points)",
+      "default": "<ul><li>Energy production</li><li>Immune defense</li></ul>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category Info"
+    }
+  ]
+}
+{% endschema %}

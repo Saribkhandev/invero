@@ -1,0 +1,1189 @@
+{%- style -%}
+  .ingredients-optimized {
+    --active-color: #1d3a2f; /* Dark green similar to AG1 */
+    --card-bg: #f9f9f9;
+    --modal-bg: #ffffff;
+    --text-muted: #666666;
+  }
+
+  .ingredients-optimized__header {
+    margin-bottom: 40px;
+    max-width: 800px;
+  }
+
+  .ingredients-optimized__title {
+    margin: 0 0 16px;
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.1;
+    font-family: var(--font-h1--family);
+    font-weight: var(--font-h1--weight);
+  }
+
+  .ingredients-optimized__description {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    max-width: 600px;
+  }
+
+  .ingredients-optimized__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: var(--active-color);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+
+  .ingredients-optimized__cta:hover {
+    opacity: 0.8;
+  }
+
+  /* Navigation Tabs */
+  .ingredients-optimized__nav-wrapper {
+    margin-bottom: 32px;
+    position: sticky;
+    top: calc(var(--header-height) - 1px);
+    background: var(--color-background);
+    z-index: 20;
+    padding: 10px 0;
+    transition: top 0.3s;
+  }
+
+  /* Handle cases where there might not be a sticky header */
+  .header-wrapper--none + main .ingredients-optimized__nav-wrapper {
+    top: 0;
+  }
+
+  .ingredients-optimized__nav {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 4px 0;
+  }
+
+  .ingredients-optimized__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ingredients-optimized__tab {
+    background: transparent;
+    border: 1px solid #dae1de;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1d3a2f;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    font-family: var(--font-body--family);
+  }
+
+  .ingredients-optimized__tab:hover {
+    border-color: #1d3a2f;
+  }
+
+  .ingredients-optimized__tab.is-active {
+    background: #cbd3d0; /* Muted Green-Grey from screenshot */
+    border-color: #cbd3d0;
+    color: #1d3a2f;
+  }
+
+  .ingredients-optimized__tab.is-active::after {
+    display: none;
+  }
+
+  /* Dynamic Category Content */
+  .ingredients-category-content {
+    margin-bottom: 64px;
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.4s ease;
+  }
+
+  .ingredients-category-content.is-visible {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  @media screen and (min-width: 900px) {
+    .ingredients-category-content.is-visible {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+  }
+
+  .ingredients-category-content__main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .ingredients-category-content__heading {
+    font-family: var(--font-body--family);
+    font-size: 40px; /* Increased from 32px */
+    line-height: 1.2;
+    color: #1d3a2f;
+    font-weight: 400;
+    margin: 0 0 24px 0;
+  }
+
+  .ingredients-category-content__heading strong {
+    color: #268eeb;
+    font-weight: 400;
+  }
+
+  .ingredients-category-content__desc {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #1d3a2f;
+  }
+
+  .ingredients-category-content__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #143126; /* Dark Green CTA */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background 0.2s;
+  }
+
+  .ingredients-category-content__cta:hover {
+    background-color: #0d211a;
+  }
+
+  .ingredients-category-content__benefits {
+    border-top: 1px solid #eee;
+    padding-top: 24px;
+  }
+
+  @media screen and (min-width: 900px) {
+    .ingredients-category-content__benefits {
+      border-top: none;
+      padding-top: 0;
+      padding-left: 48px;
+    }
+  }
+
+  .ingredients-category-content__benefits-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #1d3a2f;
+  }
+
+  .ingredients-category-content__benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ingredients-category-content__benefits-list li {
+    font-size: 20px;
+    line-height: 1.4;
+    color: #1d3a2f;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+  }
+
+  .ingredients-category-content__benefits-list li::before {
+    content: "—";
+    margin-right: 12px;
+    font-weight: 300;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Footer */
+  .ingredients-optimized__footer {
+    margin-top: 64px;
+    padding: 48px 24px;
+    background-color: #f1ede8;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+  .ingredients-optimized__footer-text {
+    font-size: 18px;
+    font-family: var(--font-body--family);
+    margin: 0 0 24px;
+    color: #1d3a2f;
+    font-weight: 500;
+  }
+
+  .ingredients-optimized__footer-btn {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: transparent;
+    border: 1px solid #1d3a2f;
+    border-radius: 50px;
+    color: #1d3a2f;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .ingredients-optimized__footer-btn:hover {
+    background-color: #1d3a2f;
+    color: white;
+  }
+
+  /* Handle cases where there might not be a sticky header */
+  .header-wrapper--none + main .ingredients-optimized__nav-wrapper {
+    top: 0;
+  }
+
+  .ingredients-optimized__nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 4px 0;
+  }
+
+  .ingredients-optimized__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ingredients-optimized__tab {
+    background: transparent;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    text-transform: capitalize;
+    font-family: var(--font-body--family);
+  }
+
+  .ingredients-optimized__tab:hover {
+    border-color: #333;
+    color: #333;
+  }
+
+  .ingredients-optimized__tab.is-active {
+    background: #1d3a2f;
+    border-color: #1d3a2f;
+    color: white;
+  }
+
+  .ingredients-optimized__tab.is-active::after {
+    display: none;
+  }
+
+  /* Strip wrappers from Shopify Blocks so Flexbox works on children */
+  .ingredients-optimized__main-container > .shopify-block {
+    display: contents;
+  }
+
+  /* New Flex Layout for Mixed Blocks */
+  .ingredients-optimized__main-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0 -12px; /* Negative margin for gutter */
+  }
+
+  .ingredients-category-content {
+    width: 100%;
+    margin-bottom: 24px;
+    order: -1;
+    box-sizing: border-box;
+    padding: 0 12px;
+  }
+
+  .ingredient-card {
+    display: flex;
+    flex-direction: column;
+    width: 50%; /* Fallback */
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 12px;
+    margin-bottom: 48px;
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ingredient-card {
+      width: 25%;
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .ingredient-card {
+      width: 25%;
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+
+  .ingredient-card:hover {
+    transform: none;
+    box-shadow: none;
+    opacity: 0.8;
+  }
+
+  .ingredient-card__image-wrapper {
+    width: 100%;
+    margin: 0 0 12px 0;
+    aspect-ratio: 0.8;
+    position: relative;
+    background-color: #f4f4f4;
+    overflow: hidden;
+  }
+
+  .ingredient-card:hover .ingredient-card__image-wrapper {
+    transform: none;
+  }
+
+  .ingredient-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ingredient-card__title {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: var(--font-body--family);
+  }
+
+  .ingredient-card__category { display: none; }
+
+  /* Side Drawer Modal */
+  .ingredients-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    visibility: hidden;
+    pointer-events: none;
+    transition: visibility 0s 0.4s;
+  }
+
+  .ingredients-modal.is-active {
+    visibility: visible;
+    pointer-events: auto;
+    transition: visibility 0s 0s;
+  }
+
+  .ingredients-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .ingredients-modal.is-active .ingredients-modal__overlay {
+    opacity: 1;
+  }
+
+  .ingredients-modal__container {
+    position: relative;
+    background: white;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+  }
+
+  .ingredients-modal.is-active .ingredients-modal__container {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ingredients-modal__container {
+      border-radius: 0;
+      flex-direction: column;
+      margin: 0;
+      height: 100%;
+    }
+  }
+
+  .ingredients-modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid transparent;
+  }
+
+  .ingredients-modal__cat {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #666;
+    font-weight: 500;
+  }
+
+  .ingredients-modal__close {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ingredients-modal__close svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .ingredients-modal__media {
+    width: 100%;
+    aspect-ratio: 1.2;
+    background: #f0f0f0;
+    position: relative;
+  }
+
+  .ingredients-modal__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ingredients-modal__content {
+    padding: 32px 24px;
+    flex: 1;
+  }
+
+  .ingredients-modal__title {
+    font-family: var(--font-h1--family);
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 0 32px 0;
+    line-height: 1.2;
+  }
+
+  .ingredients-modal__section {
+    margin-bottom: 32px;
+  }
+
+  .ingredients-modal__section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+    color: #000;
+  }
+
+  .ingredients-modal__section-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .ingredients-modal__section-text p { margin-bottom: 0.5em; }
+  .ingredients-modal__section-text ul { padding-left: 20px; margin: 0; }
+  .ingredients-modal__section-text li { margin-bottom: 8px; }
+
+  .ingredients-modal__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    border-top: 1px solid #eee;
+    background: white;
+    position: sticky;
+    bottom: 0;
+  }
+
+  .ingredients-modal__nav-controls {
+    display: flex;
+    gap: 16px;
+  }
+
+  .ingredients-modal__nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+  }
+
+  .ingredients-modal__nav-btn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+
+  .ingredients-modal__counter {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+  }
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  [data-ingredient-hidden="true"] {
+    display: none;
+  }
+
+  /* Supplement Facts Modal CSS */
+  .facts-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+  }
+  .facts-modal.is-active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s, visibility 0s 0s;
+  }
+  .facts-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+  }
+  .facts-modal__content {
+    position: relative;
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+  }
+  .facts-modal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .facts-modal__body {
+    overflow-y: auto;
+    padding: 20px;
+  }
+  /* Nutrition Label CSS */
+  .nutrition-label {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #000;
+    padding: 10px;
+  }
+  .nutrition-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1;
+    border-bottom: 1px solid #000;
+    padding-bottom: 4px;
+  }
+  .nutrition-product-name {
+     font-size: 24px;
+     font-weight: 700;
+     margin: 8px 0;
+     font-family: var(--font-h1--family); /* Custom match */
+  }
+  .nutrition-serving {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    border-bottom: 8px solid #000; /* Thick bar */
+    padding-bottom: 8px;
+  }
+  .nutrition-serving p { margin: 0; }
+
+  .nutrition-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nutrition-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 0;
+    font-size: 14px;
+  }
+
+  .nutrition-row.header {
+    font-weight: 700;
+    font-size: 12px;
+    align-items: flex-end;
+  }
+
+  .col-name { flex: 1; padding-right: 10px; }
+  .col-amt { width: 120px; text-align: right; }
+  .col-dv { width: 50px; text-align: right; font-weight: 700; }
+
+  .nutrition-row.indent .col-name { padding-left: 16px; }
+
+  .nutrition-divider {
+    height: 1px;
+    background: #ccc;
+  }
+  .nutrition-divider.thick {
+    height: 4px;
+    background: #000;
+    margin: 4px 0;
+  }
+
+  .nutrition-footer {
+    font-size: 10px;
+    margin-top: 8px;
+  }
+  .nutrition-footer p { margin: 2px 0; }
+
+  /* Re-add Modal Image as fallback or alternative */
+  .facts-modal__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+{%- endstyle -%}
+
+<div class="ingredients-optimized section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="section section--page-width">
+    <div class="ingredients-optimized__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="ingredients-optimized__title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="ingredients-optimized__nav-wrapper">
+      <div class="ingredients-optimized__nav no-scrollbar">
+        <!-- Tabs injected by JS -->
+      </div>
+    </div>
+
+    {% comment %} Main Container for Mix of Category Info and Cards {% endcomment %}
+    <div class="ingredients-optimized__main-container">
+      {% comment %} Default View All Content (Static) {% endcomment %}
+      <div class="ingredients-category-content is-visible" data-content-category="View All">
+        <div class="ingredients-category-content__main">
+          {%- if section.settings.description != blank -%}
+            <div class="ingredients-category-content__desc">{{ section.settings.description }}</div>
+          {%- endif -%}
+          {%- if section.settings.cta_text != blank -%}
+            <a href="{{ section.settings.cta_link }}" class="ingredients-category-content__cta">
+              {{ section.settings.cta_text }}
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M1 7h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {% comment %} Dynamic Blocks from Theme Blocks {% endcomment %}
+      {% content_for 'blocks' %}
+    </div>
+
+    {%- if section.settings.footer_text != blank -%}
+      <div class="ingredients-optimized__footer">
+        <p class="ingredients-optimized__footer-text">{{ section.settings.footer_text }}</p>
+        {%- if section.settings.footer_link_text != blank -%}
+          <a href="{{ section.settings.footer_link }}" class="ingredients-optimized__footer-btn">
+            {{ section.settings.footer_link_text }} ->
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% comment %} Modal Structure {% endcomment %}
+<div id="IngredientsModal" class="ingredients-modal">
+  <div class="ingredients-modal__overlay"></div>
+  <div class="ingredients-modal__container">
+    <div class="ingredients-modal__header">
+      <span class="ingredients-modal__cat"></span>
+      <button class="ingredients-modal__close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="ingredients-modal__media">
+      <img src="" alt="" class="ingredients-modal__image">
+    </div>
+
+    <div class="ingredients-modal__content">
+      <h2 class="ingredients-modal__title"></h2>
+
+      <div class="ingredients-modal__section">
+        <h4 class="ingredients-modal__section-title">What</h4>
+        <div class="ingredients-modal__section-text modal-what-text"></div>
+      </div>
+
+      <div class="ingredients-modal__section">
+        <h4 class="ingredients-modal__section-title">Benefits</h4>
+        <div class="ingredients-modal__section-text modal-benefits-text"></div>
+      </div>
+    </div>
+
+    <div class="ingredients-modal__nav">
+      <div class="ingredients-modal__nav-controls">
+        <button class="ingredients-modal__nav-btn modal-prev">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M19 12H5m0 0l7-7m-7 7l7 7"/>
+          </svg>
+        </button>
+        <button class="ingredients-modal__nav-btn modal-next">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 12h14m0 0l-7-7m7 7l-7 7"/>
+          </svg>
+        </button>
+      </div>
+      <span class="ingredients-modal__counter">1 of 4</span>
+    </div>
+  </div>
+</div>
+
+{% render 'supplement-facts-modal', facts_product: section.settings.facts_product %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('.ingredients-optimized');
+    if (!section) return;
+
+    // Synchronize CTAs from the Master (View All) to Blocks
+    const masterCta = section.querySelector(
+      '.ingredients-category-content[data-content-category="View All"] .ingredients-category-content__cta'
+    );
+    if (masterCta) {
+      const allBlockCtas = section.querySelectorAll(
+        '.ingredients-category-content:not([data-content-category="View All"]) .ingredients-category-content__cta'
+      );
+      allBlockCtas.forEach((cta) => {
+        cta.innerHTML = masterCta.innerHTML;
+        // cta.href = masterCta.getAttribute('href'); // Handled by click listener now
+        cta.style.display = ''; // Make visible
+      });
+    }
+
+    // Supplement Facts Modal Logic (Using Snippet)
+    // Find modal within this section or globally if ID matches default
+    const factsModal = document.getElementById('SupplementFactsModal') || document.querySelector('.facts-modal');
+
+    if (factsModal) {
+      const factsClose = factsModal.querySelector('.facts-modal__close');
+      const factsOverlay = factsModal.querySelector('.facts-modal__overlay');
+      const allCtas = section.querySelectorAll('.ingredients-category-content__cta');
+
+      function openFactsModal(e) {
+        e.preventDefault();
+        factsModal.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeFactsModal() {
+        factsModal.classList.remove('is-active');
+        document.body.style.overflow = '';
+      }
+
+      allCtas.forEach((btn) => btn.addEventListener('click', openFactsModal));
+      if (factsClose) factsClose.addEventListener('click', closeFactsModal);
+      if (factsOverlay) factsOverlay.addEventListener('click', closeFactsModal);
+    }
+
+    // const tabs = section.querySelectorAll('.ingredients-optimized__tab'); // Removed static tabs query
+    const cards = section.querySelectorAll('.ingredient-card');
+    const contentBlocks = section.querySelectorAll('.ingredients-category-content');
+    const modal = document.getElementById('IngredientsModal');
+    const closeBtn = modal.querySelector('.ingredients-modal__close');
+    const prevBtn = modal.querySelector('.modal-prev');
+    const nextBtn = modal.querySelector('.modal-next');
+    const counter = modal.querySelector('.ingredients-modal__counter');
+    const modalOverlay = modal.querySelector('.ingredients-modal__overlay');
+
+    // Filter logic variables
+    let currentVisibleIndices = [];
+    let currentModalIndex = 0;
+
+    // --- Dynamic Tab Generation ---
+    const navContainer = section.querySelector('.ingredients-optimized__nav');
+    const categories = new Set(['View All']);
+
+    // 1. Collect Categories from Cards
+    cards.forEach((card) => {
+      const cat = card.dataset.category;
+      if (cat) categories.add(cat);
+    });
+
+    // 2. Collect Categories from Info Blocks
+    contentBlocks.forEach((block) => {
+      const cat = block.dataset.contentCategory;
+      if (cat) categories.add(cat);
+    });
+
+    // 3. build Tabs
+    categories.forEach((cat) => {
+      const btn = document.createElement('button');
+      btn.classList.add('ingredients-optimized__tab');
+      if (cat === 'View All') btn.classList.add('is-active');
+      btn.dataset.category = cat;
+      btn.textContent = cat;
+      navContainer.appendChild(btn);
+
+      // Add Click Listener
+      btn.addEventListener('click', () => {
+        handleTabClick(cat, btn);
+      });
+    });
+
+    function handleTabClick(category, clickedBtn) {
+      // Update tabs
+      const allTabs = navContainer.querySelectorAll('.ingredients-optimized__tab');
+      allTabs.forEach((t) => t.classList.remove('is-active'));
+      clickedBtn.classList.add('is-active');
+
+      // Update Dynamic Content
+      contentBlocks.forEach((block) => {
+        if (block.dataset.contentCategory === category) {
+          block.classList.add('is-visible');
+        } else {
+          block.classList.remove('is-visible');
+        }
+      });
+
+      // Update cards
+      currentVisibleIndices = [];
+      cards.forEach((card, index) => {
+        if (category === 'View All' || card.dataset.category === category) {
+          card.removeAttribute('data-ingredient-hidden');
+          card.style.display = 'flex';
+          currentVisibleIndices.push(index);
+        } else {
+          card.setAttribute('data-ingredient-hidden', 'true');
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Initial calculation
+    function initializeVisibleIndices() {
+      currentVisibleIndices = [];
+      cards.forEach((card, index) => {
+        // By default 'View All' logic or currently visible
+        if (!card.hasAttribute('data-ingredient-hidden')) {
+          currentVisibleIndices.push(index);
+        }
+      });
+    }
+    initializeVisibleIndices();
+
+    // Validating display logic for non-filtered setup
+    cards.forEach((card) => (card.style.display = 'flex'));
+
+    // Modal logic
+    function updateModal(visibleIndex) {
+      if (visibleIndex < 0 || visibleIndex >= currentVisibleIndices.length) return;
+
+      const actualIndex = currentVisibleIndices[visibleIndex];
+      const card = cards[actualIndex];
+      const data = card.querySelector('.ingredient-data');
+
+      modal.querySelector('.ingredients-modal__cat').textContent = card.dataset.category;
+      modal.querySelector('.ingredients-modal__title').textContent =
+        card.querySelector('.ingredient-card__title').textContent;
+      modal.querySelector('.modal-what-text').innerHTML = data.querySelector('.modal-what').innerHTML;
+
+      // Handle optional benefits
+      const benefitsContent = data.querySelector('.modal-benefits').innerHTML;
+      const benefitsContainer = modal.querySelector('.modal-benefits-text').closest('.ingredients-modal__section');
+      if (benefitsContent.trim()) {
+        modal.querySelector('.modal-benefits-text').innerHTML = benefitsContent;
+        benefitsContainer.style.display = 'block';
+      } else {
+        benefitsContainer.style.display = 'none';
+      }
+
+      modal.querySelector('.ingredients-modal__image').src = data.querySelector('.modal-image-src').textContent;
+
+      currentModalIndex = visibleIndex;
+      counter.textContent = `${visibleIndex + 1} of ${currentVisibleIndices.length}`;
+
+      prevBtn.disabled = visibleIndex === 0;
+      nextBtn.disabled = visibleIndex === currentVisibleIndices.length - 1;
+    }
+
+    cards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        // Find the index of this card within the CURRENTLY VISIBLE list
+        const visibleIndex = currentVisibleIndices.indexOf(index);
+        if (visibleIndex !== -1) {
+          updateModal(visibleIndex);
+          modal.classList.add('is-active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+
+    prevBtn.addEventListener('click', () => {
+      if (currentModalIndex > 0) updateModal(currentModalIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentModalIndex < currentVisibleIndices.length - 1) updateModal(currentModalIndex + 1);
+    });
+
+    // Handle ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+        closeModal();
+      }
+      // Arrow keys
+      if (modal.classList.contains('is-active')) {
+        if (e.key === 'ArrowLeft' && currentModalIndex > 0) updateModal(currentModalIndex - 1);
+        if (e.key === 'ArrowRight' && currentModalIndex < currentVisibleIndices.length - 1)
+          updateModal(currentModalIndex + 1);
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Ingredients Optimized",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "High-quality ingredients optimized for impact"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Default Description (View All)",
+      "default": "<p>We don’t think you should settle for questionable ingredients when it comes to your daily nutrition. AG1’s ingredients are sourced from quality partners for absorption, potency, and nutrient density.</p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Default CTA Text",
+      "default": "See Supplement Facts"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Default CTA Link"
+    },
+    {
+      "type": "product",
+      "id": "facts_product",
+      "label": "Product for Supplement Facts",
+      "info": "Select the product to display facts for. If empty, uses the current product or static content."
+    },
+    {
+      "type": "header",
+      "content": "Footer Area"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "See what goes into every scoop of AG1"
+    },
+    {
+      "type": "text",
+      "id": "footer_link_text",
+      "label": "Footer Button Text",
+      "default": "View Other Ingredients"
+    },
+    {
+      "type": "url",
+      "id": "footer_link",
+      "label": "Footer Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Color Scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "_ingredient-category-info"
+    },
+    {
+      "type": "_ingredient-optimized-card"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Optimized",
+      "blocks": [
+        {
+          "type": "_ingredient-category-info",
+          "settings": {
+            "category_name": "Vitamins & Minerals",
+            "heading": "<p>AG1 has the <strong>vitamins & minerals</strong> you need...</p>",
+            "benefits_list": "<ul><li>Energy production</li><li>Immune defense</li></ul>"
+          }
+        },
+        {
+          "type": "_ingredient-category-info",
+          "settings": {
+            "category_name": "Digestive Support",
+            "heading": "<p>Many supplements can be tough on the gut and hard for the body to digest. AG1 combines enzymes, demulcents, and digestive herbs to help break down whole foods and release more of their nutrients while providing <strong>digestive comfort.*</strong></p>",
+            "benefits_list": "<ul><li>Improved digestion</li><li>Soothed gut lining</li><li>Calm stomach</li><li>Nutrient absorption</li></ul>"
+          }
+        },
+        {
+          "type": "_ingredient-optimized-card",
+          "settings": {
+            "category": "Vitamins & Minerals",
+            "title": "Vitamin E"
+          }
+        },
+        {
+          "type": "_ingredient-optimized-card",
+          "settings": {
+            "category": "Digestive Support",
+            "title": "Bromelain"
+          }
+        },
+        {
+          "type": "_ingredient-optimized-card",
+          "settings": {
+            "category": "Digestive Support",
+            "title": "Inulin"
+          }
+        },
+        {
+          "type": "_ingredient-optimized-card",
+          "settings": {
+            "category": "Vitamins & Minerals",
+            "title": "Zinc"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

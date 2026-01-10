@@ -1,0 +1,214 @@
+.benefits-showcase {
+    position: relative;
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+}
+
+.benefits-showcase__header {
+    margin-bottom: 4rem;
+}
+
+.benefits-showcase__title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.benefits-showcase__caption {
+    font-size: 1.4rem;
+    opacity: 0.8;
+    max-width: 60rem;
+}
+
+.benefits-showcase__container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+@media screen and (min-width: 990px) {
+    .benefits-showcase__container {
+        display: grid;
+        grid-template-columns: 25rem 1fr;
+        gap: 6rem;
+        align-items: flex-start;
+    }
+}
+
+/* Sidebar Nav */
+.benefits-showcase__sidebar {
+    display: none;
+}
+
+@media screen and (min-width: 990px) {
+    .benefits-showcase__sidebar {
+        display: block;
+        position: sticky;
+        top: calc(var(--header-height) + 5px);
+    }
+}
+
+.benefits-showcase__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.benefits-showcase__nav-item {
+    border-bottom: 1px solid lightgrey;
+}
+
+.benefits-showcase__nav-item:first-child {
+    border-top: 1px solid lightgrey;
+}
+
+.benefits-showcase__nav-link {
+    display: block;
+    text-decoration: none;
+    color: rgb(var(--color-foreground));
+    font-weight: 400;
+    transition: all 0.2s ease;
+    line-height: 1.3;
+    padding: 1.5rem 2rem;
+}
+
+.benefits-showcase__nav-item.is-active {
+    border-bottom: none;
+}
+
+.benefits-showcase__nav-item:first-child.is-active {
+    margin-top: 0;
+}
+
+.benefits-showcase__nav-item.is-active .benefits-showcase__nav-link {
+    background-color: #796C52;
+    color: #FFFFFF;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.benefits-showcase__intro {
+    margin-bottom: 6rem;
+}
+
+.benefits-showcase__intro-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.benefits-showcase__intro-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 2 / 3;
+    border-radius: 0.4rem;
+}
+
+.benefits-showcase__intro-text {
+    font-size: 1.13rem;
+    line-height: 1.5;
+}
+
+.benefits-showcase__block {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--color-foreground);
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 3rem;
+    border-bottom: 1px solid var(--color-foreground);
+}
+
+@media screen and (min-width: 750px) {
+    .benefits-showcase__block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        padding: 2rem 0;
+    }
+}
+
+.benefits-showcase__block:last-child {
+    border-bottom: none;
+}
+
+.benefits-showcase__block-content {
+    padding-right: 2rem;
+}
+
+.benefits-showcase__block-heading {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 2.4rem;
+    font-weight: 400;
+    font-family: var(--font-heading-family);
+    line-height: 1.2;
+}
+
+.benefits-showcase__block-subtext {
+    margin-bottom: 2rem;
+}
+
+.benefits-showcase__block-description {
+    margin-bottom: 3rem;
+    font-size: 1.12rem;
+}
+
+.benefits-showcase__block-description strong {
+    display: block;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.benefits-showcase__block-description ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.benefits-showcase__block-description li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.benefits-showcase__block-description li::before {
+    content: "—";
+    /* Dash bullet */
+    position: absolute;
+    left: 0;
+    color: rgb(var(--color-foreground));
+    opacity: 0.6;
+}
+
+.benefits-showcase__block-button {
+    border-radius: 3rem;
+    font-size: 1.8rem;
+    padding: 1.2rem 3rem;
+    font-weight: 600;
+}
+
+.benefits-showcase__block-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    /* Square or portrait? Image looks portrait */
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 0.4rem;
+}
+
+.benefits-showcase__block-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.benefits-showcase__block:hover .benefits-showcase__block-image {
+    transform: scale(1.03);
+}

@@ -1,0 +1,244 @@
+{% comment %}
+  Renders a Supplement Facts modal with a nutrition label table.
+  Accepts:
+  - facts_product: {Object} The product object to display facts for. Defaults to the global 'product'.
+  - modal_id: {String} Optional unique ID for the modal.
+
+  Usage:
+  {% render 'supplement-facts-modal', facts_product: section.settings.facts_product %}
+{% endcomment %}
+
+{%- assign product_to_use = facts_product | default: product -%}
+{%- assign unique_id = modal_id | default: 'SupplementFactsModal' -%}
+
+<style>
+  /* Supplement Facts Modal CSS */
+  .facts-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+  }
+  .facts-modal.is-active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s, visibility 0s 0s;
+  }
+  .facts-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+  }
+  .facts-modal__content {
+    position: relative;
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    text-align: left;
+  }
+  .facts-modal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .facts-modal__body {
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  /* Nutrition Label CSS */
+  .nutrition-label {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #000;
+    padding: 10px;
+  }
+  .nutrition-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1;
+    border-bottom: 1px solid #000;
+    padding-bottom: 4px;
+  }
+  .nutrition-product-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 8px 0;
+    /* font-family: var(--font-h1--family); Optional theme integration */
+  }
+  .nutrition-serving {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    border-bottom: 8px solid #000; /* Thick bar */
+    padding-bottom: 8px;
+  }
+  .nutrition-serving p {
+    margin: 0;
+  }
+
+  .nutrition-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nutrition-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 0;
+    font-size: 14px;
+  }
+
+  .nutrition-row.header {
+    font-weight: 700;
+    font-size: 12px;
+    align-items: flex-end;
+  }
+
+  .col-name {
+    flex: 1;
+    padding-right: 10px;
+  }
+  .col-amt {
+    width: 120px;
+    text-align: right;
+  }
+  .col-dv {
+    width: 50px;
+    text-align: right;
+    font-weight: 700;
+  }
+
+  .nutrition-row.indent .col-name {
+    padding-left: 16px;
+  }
+
+  .nutrition-divider {
+    height: 1px;
+    background: #ccc;
+  }
+  .nutrition-divider.thick {
+    height: 4px;
+    background: #000;
+    margin: 4px 0;
+  }
+
+  .nutrition-footer {
+    font-size: 10px;
+    margin-top: 8px;
+  }
+  .nutrition-footer p {
+    margin: 2px 0;
+  }
+
+  .nutrition-description {
+    font-size: 11px;
+    line-height: 1.3;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  .nutrition-description p {
+    margin: 0;
+  }
+</style>
+
+<div id="{{ unique_id }}" class="facts-modal">
+  <div class="facts-modal__overlay"></div>
+  <div class="facts-modal__content">
+    <button class="facts-modal__close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12" />
+      </svg>
+    </button>
+    <div class="facts-modal__body">
+      <div class="nutrition-label">
+        <h1 class="nutrition-title">Supplement Facts</h1>
+        <h2 class="nutrition-product-name">{{ product_to_use.title | default: 'AG1 Next Gen' }}</h2>
+
+        <div class="nutrition-serving">
+          <p>Serving Size: {{ product_to_use.metafields.custom.serving_size | default: '1 Scoop (12g)' }}</p>
+          <p>Servings Per Container: {{ product_to_use.metafields.custom.servings_per_container | default: '30' }}</p>
+        </div>
+
+        <div class="nutrition-grid">
+          <div class="nutrition-row header">
+            <span class="col-name"></span>
+            <span class="col-amt">Amount Per Serving</span>
+            <span class="col-dv">% DV</span>
+          </div>
+
+          <div class="nutrition-divider thick"></div>
+
+          {%- if product_to_use.metafields.custom.supplement_facts_rows.value != blank -%}
+            {%- for item in product_to_use.metafields.custom.supplement_facts_rows.value -%}
+              <div class="nutrition-item-wrapper">
+                <div class="nutrition-row {% if item.is_indented %}indent{% endif %}">
+                  <span class="col-name">{{ item.name }}</span>
+                  <span class="col-amt">{{ item.amount }}</span>
+                  <span class="col-dv">{{ item.daily_value }}</span>
+                </div>
+
+                {%- if item.description != blank -%}
+                  <div class="nutrition-description">
+                    {{ item.description | metafield_tag }}
+                  </div>
+                {%- endif -%}
+
+                {%- assign style = item.divider_style | downcase -%}
+                {%- if style == 'thick' -%}
+                  <div class="nutrition-divider thick"></div>
+                {%- elsif style == 'none' -%}
+                  {%- comment -%} No divider {%- endcomment -%}
+                {%- else -%}
+                  <div class="nutrition-divider"></div>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            <div style="padding: 20px 0; text-align: center; color: #666;">
+              <p>
+                No supplement facts found for <strong>{{ product_to_use.title }}</strong>.
+              </p>
+              <p style="font-size: 11px;">
+                Please populate the <code>custom.supplement_facts</code> metafield list in Shopify Admin.
+              </p>
+            </div>
+          {%- endif -%}
+
+          <div class="nutrition-footer">
+            {%- if product_to_use.metafields.custom.supplement_facts_footer != blank -%}
+              {{ product_to_use.metafields.custom.supplement_facts_footer | metafield_tag }}
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

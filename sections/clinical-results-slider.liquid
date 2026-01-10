@@ -1,0 +1,489 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding-block-start | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding-block-end | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding-block-start }}px;
+      padding-bottom: {{ section.settings.padding-block-end }}px;
+    }
+  }
+
+  .clinical-slider {
+    position: relative;
+    background-color: var(--color-background);
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .clinical-slider__bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .clinical-slider__bg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right bottom;
+  }
+
+  .clinical-slider__container {
+    width: 100%;
+    max-width: var(--page-width, 1400px);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .clinical-slider__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 990px) {
+    .clinical-slider__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+  }
+
+  .clinical-slider__content {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+  }
+
+  .clinical-slider__heading {
+    margin: 0 0 50px 0;
+    line-height: 1;
+    font-weight: 500;
+    color: var(--color-foreground);
+  }
+
+  .clinical-slider__description {
+    margin: 0 0 40px 0;
+    max-width: 480px;
+    font-family: var(--font-body--family);
+    font-size: 18px;
+    color: var(--color-foreground);
+  }
+
+  .clinical-slider__card {
+    background: {{ section.settings.card_bg_color | default: 'var(--color-background)' }};
+    border-radius: 4px;
+    padding: 24px 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(var(--color-foreground), 0.05);
+    position: relative;
+    max-width: 480px;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(var(--color-foreground), 0.1);
+  }
+
+  .clinical-slider__card-eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
+    color: var(--color-foreground);
+    font-family: var(--font-body--family);
+    font-weight: 600;
+  }
+
+  .clinical-slider__items {
+    position: relative;
+    flex-grow: 1;
+  }
+
+  .clinical-slider__item {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .clinical-slider__item.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .clinical-slider__value {
+    font-size: 96px;
+    line-height: 1;
+    font-weight: 500;
+    margin: 10px 0;
+    letter-spacing: var(--letter-spacing--heading-tight);
+    color: var(--color-foreground);
+    font-family: var(--font-heading--family);
+  }
+
+  .clinical-slider__item-text {
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 500;
+    max-width: 250px;
+    color: var(--color-foreground);
+    font-family: var(--font-body--family);
+  }
+
+  .clinical-slider__pagination {
+    position: absolute;
+    bottom: 24px;
+    right: 30px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .clinical-slider__dot {
+    width: 7px;
+    height: 7px;
+    background: rgba(0,0,0, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .clinical-slider__dot.active {
+    width: 36px;
+    height: 7px;
+    border-radius: 3px;
+    background: rgba(0,0,0, 1);
+  }
+
+  .clinical-slider__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: var(--color-primary-button-background);
+    border-radius: 3px;
+  }
+
+  .clinical-slider__button {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    background-color: var(--color-primary-button-background);
+    color: var(--color-primary-button-text);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    width: fit-content;
+    font-family: var(--font-body--family);
+    text-transform: var(--button-text-case, none);
+  }
+
+  .clinical-slider__button:hover {
+    background-color: #00261c;
+  }
+
+  @media screen and (max-width: 989px) {
+    .clinical-slider {
+        min-height: auto;
+    }
+    .clinical-slider__heading {
+      margin-bottom: 30px;
+    }
+    .clinical-slider__card {
+      max-width: 100%;
+    }
+    .clinical-slider__bg-image img {
+        object-position: 70% bottom; /* Adjust to show scoop better on mobile */
+    }
+  }
+{%- endstyle -%}
+
+<section class="clinical-slider section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  {%- if section.settings.image != blank -%}
+    <div class="clinical-slider__bg-image">
+      {{
+        section.settings.image
+        | image_url: width: 3000
+        | image_tag: widths: '375, 550, 750, 1100, 1500, 2200, 3000', loading: 'lazy'
+      }}
+    </div>
+  {%- endif -%}
+
+  <div class="clinical-slider__container">
+    <div class="clinical-slider__grid">
+      <div class="clinical-slider__content">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="clinical-slider__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="clinical-slider__description">{{ section.settings.text }}</div>
+        {%- endif -%}
+
+        <div class="clinical-slider__card">
+          {%- if section.blocks.size > 0 -%}
+            <span class="clinical-slider__card-eyebrow" id="clinical-eyebrow-{{ section.id }}">
+              {{ section.blocks.first.settings.eyebrow }}
+            </span>
+            <div class="clinical-slider__items">
+              {%- for block in section.blocks -%}
+                <div
+                  class="clinical-slider__item {% if forloop.first %}active{% endif %}"
+                  data-index="{{ forloop.index0 }}"
+                  data-eyebrow="{{ block.settings.eyebrow }}"
+                  {{ block.shopify_attributes }}
+                >
+                  <div class="clinical-slider__value">{{ block.settings.value }}</div>
+                  <div class="clinical-slider__item-text">{{ block.settings.description }}</div>
+                </div>
+              {%- endfor -%}
+            </div>
+
+            <div class="clinical-slider__pagination">
+              {%- for block in section.blocks -%}
+                <div
+                  class="clinical-slider__dot {% if forloop.first %}active{% endif %}"
+                  data-index="{{ forloop.index0 }}"
+                >
+                  {%- if forloop.first -%}
+                    <div class="clinical-slider__progress"></div>
+                  {%- endif -%}
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: '#' }}" class="clinical-slider__button">
+            {{ section.settings.button_label }}
+          </a>
+        {%- endif -%}
+      </div>
+      <div class="clinical-slider__empty-column"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.querySelector('.section-{{ section.id }}-padding');
+    if (!section) return;
+
+    const items = section.querySelectorAll('.clinical-slider__item');
+    const dots = section.querySelectorAll('.clinical-slider__dot');
+    const eyebrow = section.querySelector('#clinical-eyebrow-{{ section.id }}');
+    const autoplaySpeed = {{ section.settings.autoplay_speed | default: 5 }} * 1000;
+
+    let currentIndex = 0;
+    let progressInterval;
+    let paused = false;
+    let progress = 0; // Current progress percentage (0 to 100)
+    let lastTick = Date.now();
+
+    function updateSlider(index) {
+      items.forEach(item => item.classList.remove('active'));
+      dots.forEach(dot => {
+        dot.classList.remove('active');
+        dot.innerHTML = '';
+      });
+
+      currentIndex = index;
+      items[currentIndex].classList.add('active');
+      dots[currentIndex].classList.add('active');
+
+      const progressEl = document.createElement('div');
+      progressEl.className = 'clinical-slider__progress';
+      dots[currentIndex].appendChild(progressEl);
+
+      if (eyebrow) {
+        eyebrow.textContent = items[currentIndex].getAttribute('data-eyebrow');
+      }
+
+      progress = 0;
+      lastTick = Date.now();
+      startProgress();
+    }
+
+    function startProgress() {
+      if (progressInterval) clearInterval(progressInterval);
+
+      progressInterval = setInterval(() => {
+        const now = Date.now();
+        const delta = now - lastTick;
+        lastTick = now;
+
+        progress += (delta / autoplaySpeed) * 100;
+
+        const progressLine = dots[currentIndex].querySelector('.clinical-slider__progress');
+        if (progressLine) {
+          progressLine.style.width = Math.min(progress, 100) + '%';
+        }
+
+        if (progress >= 100) {
+          clearInterval(progressInterval);
+          const nextIndex = (currentIndex + 1) % items.length;
+          updateSlider(nextIndex);
+        }
+      }, 16); // ~60fps
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        updateSlider(index);
+      });
+    });
+
+    updateSlider(0);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Clinical Results Slider",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "4x clinically-backed. Trusted and verified."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Description",
+      "default": "<p>Most supplements aren’t clinically studied—but AG1 Next Gen is different. With an ongoing commitment to discovery research, we’re committed to ensuring the benefits of our products aren’t just experienced, they’re measurable.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Section Image"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "View All Ingredients"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay Speed",
+      "default": 5
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow Text",
+          "default": "IMPROVES KEY NUTRIENT LEVELS WITHIN 3 MONTHS¹"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Main Value",
+          "default": "73%"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "of subjects saw an increase in vitamin C levels"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clinical Results Slider",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "IMPROVES KEY NUTRIENT LEVELS WITHIN 3 MONTHS¹",
+            "value": "73%",
+            "description": "of subjects saw an increase in vitamin C levels"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "CLINICALLY SHOWN TO ENRICH THE GUT MICROBIOME†",
+            "value": "10x",
+            "description": "increase in healthy bacteria in the gut†"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

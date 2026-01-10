@@ -1,0 +1,615 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .our-team {
+    font-family: var(--font-body--family);
+  }
+
+  .our-team__container {
+    max-width: var(--page-width, 1400px);
+    margin: 0 auto;
+    padding: 0 5rem;
+  }
+
+  @media screen and (max-width: 750px) {
+    .our-team__container {
+      padding: 0 1.5rem;
+    }
+  }
+
+  .our-team__header {
+    margin-bottom: 60px;
+    max-width: 800px;
+  }
+
+  .our-team__eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: block;
+    color: rgb(var(--color-foreground));
+    opacity: 0.7;
+  }
+
+  .our-team__heading {
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.1;
+    margin: 0 0 24px 0;
+    font-weight: 500;
+    color: rgb(var(--color-foreground));
+    font-family: var(--font-heading--family);
+  }
+
+  .our-team__description {
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgb(var(--color-foreground));
+    opacity: 0.8;
+  }
+
+  .our-team__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px 20px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .our-team__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+    .our-team__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .our-team__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px 15px;
+    }
+  }
+
+  .team-member-card {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    transition: opacity 0.3s ease;
+  }
+
+  .team-member-card:hover {
+    opacity: 0.8;
+  }
+
+  .team-member-card__image-wrapper {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #d9d9d9;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  .team-member-card__image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .team-member-card__name {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    color: rgb(var(--color-foreground));
+    line-height: 1.2;
+  }
+
+  .team-member-card__role {
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgb(var(--color-foreground));
+    opacity: 0.6;
+    font-style: italic;
+    margin: 0;
+  }
+
+  /* Team Drawer Styles */
+  .team-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 696px;
+    height: 100%;
+    background-color: #ffffff !important;
+    color: #000;
+    z-index: 2147483647 !important;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+    box-shadow: -20px 0 60px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+  }
+
+  .team-drawer.is-open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  @media screen and (max-width: 750px) {
+    .team-drawer {
+      max-width: 100%;
+    }
+  }
+
+  .team-drawer__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(112, 113, 112, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 2147483646 !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out;
+    cursor: pointer;
+  }
+
+  .team-drawer__overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .team-drawer__header {
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+  }
+
+  .team-drawer__eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #707170;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .team-drawer__close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #707170;
+    transition: transform 0.3s ease;
+  }
+
+  .team-drawer__close:hover {
+    transform: scale(1.1);
+  }
+
+  .team-drawer__main {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0px 80px 40px 80px;
+  }
+
+  @media screen and (max-width: 750px) {
+    .team-drawer__main {
+        padding: 20px 30px 40px 30px;
+    }
+  }
+
+  .team-drawer__image-wrapper {
+    margin-bottom: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #f4f4f4;
+    max-width: 440px;
+  }
+
+  .team-drawer__image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+  }
+
+  .team-drawer__image-wrapper img.is-loaded {
+    opacity: 1;
+  }
+
+  .team-drawer__name {
+    font-size: 40px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    font-family: var(--font-heading--family);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    color: #000;
+  }
+
+  .team-drawer__role {
+    font-size: 16px;
+    font-style: italic;
+    color: #0f2e2f;
+    opacity: 1;
+    margin-bottom: 32px;
+    line-height: 1.4;
+  }
+
+  .team-drawer__bio {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    max-width: 540px;
+  }
+
+  .team-drawer__bio p {
+    margin-bottom: 20px;
+  }
+
+  .team-drawer__footer {
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    background: #fff;
+  }
+
+  .team-drawer__nav {
+    display: flex;
+    gap: 30px;
+  }
+
+  .team-drawer__nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #707170;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .team-drawer__nav-btn:hover:not(:disabled) {
+    transform: translateX(2px);
+  }
+
+  .team-drawer__nav-btn.team-drawer__prev:hover:not(:disabled) {
+    transform: translateX(-2px);
+  }
+
+  .team-drawer__nav-btn:disabled {
+    opacity: 0.15;
+    cursor: not-allowed;
+  }
+
+  .team-drawer__counter {
+    font-size: 14px;
+    color: #707170;
+    letter-spacing: 0.05em;
+  }
+{%- endstyle -%}
+
+<section
+  class="our-team section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient"
+  id="our-team-{{ section.id }}"
+>
+  <div class="our-team__container">
+    <div class="our-team__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="our-team__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="our-team__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <div class="our-team__description">{{ section.settings.description }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="our-team__grid">
+      {%- for block in section.blocks -%}
+        <button class="team-member-card" type="button" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <div class="team-member-card__image-wrapper">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '200, 400, 600' }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+          <h3 class="team-member-card__name">{{ block.settings.name }}</h3>
+          <p class="team-member-card__role">{{ block.settings.role }}</p>
+        </button>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div class="team-drawer__overlay" id="team-overlay-{{ section.id }}"></div>
+
+  <div class="team-drawer" id="team-drawer-{{ section.id }}">
+    <div class="team-drawer__header">
+      <p class="team-drawer__eyebrow">OUR RESEARCH TEAM</p>
+      <button class="team-drawer__close" type="button" aria-label="Close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="team-drawer__main" id="team-drawer-content-{{ section.id }}">
+      {% comment %} Content is dynamically injected here {% endcomment %}
+    </div>
+
+    <div class="team-drawer__footer">
+      <div class="team-drawer__nav">
+        <button class="team-drawer__nav-btn team-drawer__prev" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="team-drawer__nav-btn team-drawer__next" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="team-drawer__counter">
+        <span class="current">1</span> of <span class="total">{{ section.blocks.size }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} Hidden source for block data {% endcomment %}
+<template id="team-data-{{ section.id }}">
+  {%- for block in section.blocks -%}
+    <div
+      class="team-data-item"
+      data-index="{{ forloop.index0 }}"
+      data-name="{{ block.settings.name | escape }}"
+      data-role="{{ block.settings.role | escape }}"
+      data-bio="{{ block.settings.bio | escape | newline_to_br }}"
+      data-image="{{ block.settings.image | image_url: width: 800 }}"
+    ></div>
+  {%- endfor -%}
+</template>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('#our-team-{{ section.id }}');
+    if (!section) return;
+
+    const cards = section.querySelectorAll('.team-member-card');
+    const drawer = section.querySelector('.team-drawer');
+    const overlay = section.querySelector('.team-drawer__overlay');
+    const closeBtn = section.querySelector('.team-drawer__close');
+    const drawerMain = section.querySelector('#team-drawer-content-{{ section.id }}');
+
+    const prevBtn = section.querySelector('.team-drawer__prev');
+    const nextBtn = section.querySelector('.team-drawer__next');
+    const currentSpan = section.querySelector('.team-drawer__counter .current');
+
+    const dataTemplate = document.querySelector('#team-data-{{ section.id }}');
+    const teamData = Array.from(dataTemplate.content.querySelectorAll('.team-data-item')).map((item) => ({
+      name: item.dataset.name,
+      role: item.dataset.role,
+      bio: item.dataset.bio,
+      image: item.dataset.image,
+    }));
+
+    let currentIndex = 0;
+
+    function updateDrawerContent(index) {
+      currentIndex = parseInt(index);
+      const data = teamData[currentIndex];
+
+      drawerMain.innerHTML = `
+            <div class="team-drawer__image-wrapper">
+                <img src="${data.image}" alt="${data.name}" fetchpriority="high" onload="this.classList.add('is-loaded')">
+            </div>
+            <h2 class="team-drawer__name">${data.name}</h2>
+            <p class="team-drawer__role">${data.role}</p>
+            <div class="team-drawer__bio">${data.bio}</div>
+        `;
+
+      currentSpan.textContent = currentIndex + 1;
+
+      // Update nav buttons
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === teamData.length - 1;
+
+      // Prefetch adjacent images
+      if (currentIndex > 0) {
+        const prevImg = new Image();
+        prevImg.src = teamData[currentIndex - 1].image;
+      }
+      if (currentIndex < teamData.length - 1) {
+        const nextImg = new Image();
+        nextImg.src = teamData[currentIndex + 1].image;
+      }
+    }
+
+    function openDrawer(index) {
+      updateDrawerContent(index);
+      drawer.classList.add('is-open');
+      overlay.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      overlay.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }
+
+    cards.forEach((card) => {
+      card.addEventListener(
+        'mouseenter',
+        () => {
+          const index = card.dataset.index;
+          const data = teamData[index];
+          if (data && data.image) {
+            const img = new Image();
+            img.src = data.image;
+          }
+        },
+        { once: true }
+      );
+
+      card.addEventListener('click', () => {
+        openDrawer(card.dataset.index);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) updateDrawerContent(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < teamData.length - 1) updateDrawerContent(currentIndex + 1);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeDrawer();
+      if (drawer.classList.contains('is-open')) {
+        if (e.key === 'ArrowLeft' && currentIndex > 0) updateDrawerContent(currentIndex - 1);
+        if (e.key === 'ArrowRight' && currentIndex < teamData.length - 1) updateDrawerContent(currentIndex + 1);
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Our Team Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "OUR TEAM"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our research team"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Our in-house team of clinicians and scientists bring diverse expertise across nutrition, metabolism, microbiome, and related fields. We also collaborate with independent experts, academic institutions, and clinical partners to advance research and expand our understanding with cutting-edge technology.</p>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Member Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Dr. Ralph Esposito"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role",
+          "default": "ND, LAc — Functional Medicine"
+        },
+        {
+          "type": "textarea",
+          "id": "bio",
+          "label": "Biography",
+          "default": "Dr. Esposito is a licensed naturopathic physician focused on optimizing healthspan and lifespan through preventive and lifestyle practices. He completed his training as a medical intern in Urology at NYU Langone, holds a clinical Masters in Acupuncture and Chinese Medicine, and is a certified Functional Medicine doctor."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Team Grid",
+      "blocks": [
+        { "type": "member" },
+        { "type": "member" },
+        { "type": "member" },
+        { "type": "member" },
+        { "type": "member" },
+        { "type": "member" }
+      ]
+    }
+  ]
+}
+{% endschema %}

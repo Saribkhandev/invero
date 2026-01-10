@@ -1,0 +1,736 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "section_PU9itB": {
+      "type": "section",
+      "blocks": {
+        "image_hDkc6e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/62cc80abeade23f8e019b4b24b7822d4fa660fe8-1800x1800_1.webp",
+            "link": "",
+            "image_ratio": "square",
+            "width": "custom",
+            "custom_width": 50,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "group_Cxca4a": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "custom",
+            "custom_width": 50,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 30,
+            "padding-block-end": 30,
+            "padding-inline-start": 32,
+            "padding-inline-end": 76
+          },
+          "blocks": {
+            "text_mbHDHV": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>RESEARCH STUDIES</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h5",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_WhWkwE": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h1>The next generation of AG1 is clinically backed.</h1>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h2",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_RVipmD": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Our innovation is driven by our ongoing investments in research and clinical discovery. We ensure the benefits of our products are thoroughly researched and any claims are substantiated by multiple bodies of research on ingredients and the finished formula. The impact of AG1 Next Gen is not just experienced, it's measurable.<a href=\"https://drinkag1.com/learn/research/scientific-research#fdaDisclaimer\">*</a>1-4</p>",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_mbHDHV",
+            "text_WhWkwE",
+            "text_RVipmD"
+          ]
+        }
+      },
+      "block_order": [
+        "image_hDkc6e",
+        "group_Cxca4a"
+      ],
+      "name": "t:names.image_with_text",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 60,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "clinical_trials_tabs_WcgU7y": {
+      "type": "clinical-trials-tabs",
+      "blocks": {
+        "trial_jQb9KT": {
+          "type": "trial",
+          "settings": {
+            "tab_title": "Nutrient Biomarkers",
+            "modal_heading": "Nutrient Biomarkers",
+            "modal_content": "<p>Nutrient biomarkers are measurable substances in the body—such as levels of vitamins, minerals, or metabolites in biological tissue that indicate a person's nutritional status. AG1 Next Gen was studied in a 12-week, triple-blind, randomized, placebo-controlled clinical trial with 105 healthy adults aged 20-59, all following a Standard American Diet. The study aimed to assess how daily intake of AG1 Next Gen influenced nutrient biomarkers, microbiome changes, and markers related to overall well-being. The study used a parallel design to compare outcomes between the AG1 Next Gen and placebo groups.</p>"
+          }
+        },
+        "trial_Q73HHR": {
+          "type": "trial",
+          "settings": {
+            "tab_title": "Nutrient Gaps",
+            "modal_heading": "Nutrient Gaps",
+            "modal_content": "<p>Nutrient gaps refer to the difference between the amount of nutrients people consume and the amount they need for optimal health. AG1 Next Gen is designed to help close these gaps by providing a comprehensive blend of vitamins, minerals, and whole-food sourced ingredients.</p>"
+          }
+        },
+        "trial_4FhRaU": {
+          "type": "trial",
+          "settings": {
+            "tab_title": "Microbiome Changes",
+            "modal_heading": "Microbiome Changes",
+            "modal_content": "<p>The gut microbiome is a complex ecosystem of trillions of microorganisms that play a crucial role in our health. Clinical studies on AG1 Next Gen have observed positive changes in the composition and diversity of the gut microbiome, supporting better digestive health and overall well-being.</p>"
+          }
+        },
+        "trial_taiMFK": {
+          "type": "trial",
+          "settings": {
+            "tab_title": "Nutrient Absorption & Bioavailability",
+            "modal_heading": "Nutrient Absorption & Bioavailability",
+            "modal_content": "<p>Bioavailability refers to the extent and rate at which the active moiety is absorbed from a pharmaceutical form and becomes available at the site of action. AG1 Next Gen uses highly bioavailable forms of nutrients to ensure your body can actually use what you're consuming.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "trial_jQb9KT",
+        "trial_Q73HHR",
+        "trial_4FhRaU",
+        "trial_taiMFK"
+      ],
+      "name": "Clinical Trials Tabs",
+      "settings": {
+        "heading": "One product, four gold-standard clinical trials.",
+        "description": "<p>AG1 Next Gen has been put to the test in multiple gold-standard clinical trials, consistently showing its efficacy in closing nutrient gaps and supporting gut health across diverse populations and study designs.*¹-⁴</p>",
+        "product_image": "shopify://shop_images/ca3fa1ace8dbb92653082134eab78dab8c958904-916x1941.webp",
+        "color_scheme": "",
+        "tab_bg_color": "#00261c",
+        "tab_text_color": "#ffffff",
+        "tab_accent_color": "#39e600",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "our_team_grid_BkbrTp": {
+      "type": "our-team-grid",
+      "blocks": {
+        "member_x9qGfX": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/ffc0bb3308b03a9cdc8b41705b8ac931bf376f00-1260x1575.webp",
+            "name": "Dr. Ralph Esposito",
+            "role": "ND, LAc — Functional Medicine",
+            "bio": "Dr. Esposito is a licensed naturopathic physician focused on optimizing healthspan and lifespan through preventive and lifestyle practices. He completed his training as a medical intern in Urology at NYU Langone, holds a clinical Masters in Acupuncture and Chinese Medicine, and is a certified Functional Medicine doctor."
+          }
+        },
+        "member_M7rTtm": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/44efe16f19ed02be7a2f1c70ff6e4925e3746132-210x264.webp",
+            "name": "Dr. Ralph Esposito",
+            "role": "ND, LAc — Functional Medicine",
+            "bio": "Dr. Esposito is a licensed naturopathic physician focused on optimizing healthspan and lifespan through preventive and lifestyle practices. He completed his training as a medical intern in Urology at NYU Langone, holds a clinical Masters in Acupuncture and Chinese Medicine, and is a certified Functional Medicine doctor."
+          }
+        },
+        "member_rhRwkc": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/ffc0bb3308b03a9cdc8b41705b8ac931bf376f00-1260x1575.webp",
+            "name": "Dr. Ralph Esposito",
+            "role": "ND, LAc — Functional Medicine",
+            "bio": "Dr. Esposito is a licensed naturopathic physician focused on optimizing healthspan and lifespan through preventive and lifestyle practices. He completed his training as a medical intern in Urology at NYU Langone, holds a clinical Masters in Acupuncture and Chinese Medicine, and is a certified Functional Medicine doctor."
+          }
+        },
+        "member_dkMFg7": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/44efe16f19ed02be7a2f1c70ff6e4925e3746132-210x264.webp",
+            "name": "Dr. Ralph Esposito",
+            "role": "ND, LAc — Functional Medicine",
+            "bio": "Dr. Esposito is a licensed naturopathic physician focused on optimizing healthspan and lifespan through preventive and lifestyle practices. He completed his training as a medical intern in Urology at NYU Langone, holds a clinical Masters in Acupuncture and Chinese Medicine, and is a certified Functional Medicine doctor."
+          }
+        },
+        "member_4Eiwbp": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/ffc0bb3308b03a9cdc8b41705b8ac931bf376f00-1260x1575.webp",
+            "name": "Dr. Ralph Esposito",
+            "role": "ND, LAc — Functional Medicine",
+            "bio": "Dr. Esposito is a licensed naturopathic physician focused on optimizing healthspan and lifespan through preventive and lifestyle practices. He completed his training as a medical intern in Urology at NYU Langone, holds a clinical Masters in Acupuncture and Chinese Medicine, and is a certified Functional Medicine doctor."
+          }
+        },
+        "member_BjPyb4": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/44efe16f19ed02be7a2f1c70ff6e4925e3746132-210x264.webp",
+            "name": "Dr. Ralph Esposito",
+            "role": "ND, LAc — Functional Medicine",
+            "bio": "Dr. Esposito is a licensed naturopathic physician focused on optimizing healthspan and lifespan through preventive and lifestyle practices. He completed his training as a medical intern in Urology at NYU Langone, holds a clinical Masters in Acupuncture and Chinese Medicine, and is a certified Functional Medicine doctor."
+          }
+        }
+      },
+      "block_order": [
+        "member_x9qGfX",
+        "member_M7rTtm",
+        "member_rhRwkc",
+        "member_dkMFg7",
+        "member_4Eiwbp",
+        "member_BjPyb4"
+      ],
+      "name": "Our Team Grid",
+      "settings": {
+        "eyebrow": "OUR TEAM",
+        "heading": "Our research team",
+        "description": "<p>Our in-house team of clinicians and scientists bring diverse expertise across nutrition, metabolism, microbiome, and related fields. We also collaborate with independent experts, academic institutions, and clinical partners to advance research and expand our understanding with cutting-edge technology.</p>",
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "peer_reviewed_research_h4mJNp": {
+      "type": "peer-reviewed-research",
+      "blocks": {
+        "research_paper_PEn6iY": {
+          "type": "research_paper",
+          "settings": {
+            "journal": "JOURNAL OF THE INTERNATIONAL SOCIETY OF SPORTS NUTRITION",
+            "title": "The effects of AG1® supplementation on the gut microbiome of healthy adults: a randomized, double-blind, placebo-controlled clinical trial",
+            "abstract": "<p>This study investigated the effects of AG1® supplementation on the gut microbiome, GI tolerability, and clinical safety markers in healthy adults. After four weeks, AG1® enriched beneficial probiotic taxa, showed a potential improvement in digestive quality of life, and did not negatively impact stool consistency, bowel frequency, or clinical safety markers, demonstrating its safety for daily use.</p>",
+            "link_url": "https://example.com"
+          }
+        },
+        "research_paper_YgHKgb": {
+          "type": "research_paper",
+          "settings": {
+            "journal": "NUTRIENTS",
+            "title": "Foundational Nutrition: Implications for Human Health",
+            "abstract": "<p>Human nutrition, and what can be considered \"ideal\" nutrition, is a complex, multi-faceted topic which many researchers and practitioners deliberate. While some attest that basic human nutrition is relatively understood, it is undeniable that a global nutritional problem persists.</p>",
+            "link_url": "https://example.com"
+          }
+        }
+      },
+      "block_order": [
+        "research_paper_PEn6iY",
+        "research_paper_YgHKgb"
+      ],
+      "name": "Peer-reviewed Research",
+      "settings": {
+        "heading": "Peer-reviewed research",
+        "description": "<p>At AG1, science is at the heart of everything we do. Our commitment to research goes beyond any single formulation - we invest in rigorous, ongoing clinical studies to explore the role of foundational nutrition in overall health.</p><p>Beyond sharing our findings, we work with leading researchers to prepare and submit study manuscripts to peer-reviewed scientific journals—contributing to the broader scientific dialogue on the vital role of nutrition and the microbiome in overall health.</p>",
+        "link_text": "Read paper"
+      }
+    },
+    "research_lifecycle_JkEpc3": {
+      "type": "research-lifecycle",
+      "blocks": {
+        "accordion_item_VCabed": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "How the trials were conducted",
+            "content": "<ul><li>AG1's diverse team of clinicians, researchers, and PhDs work together to build initial studies.</li><li>The team conducted pre-clinical trials to inform the clinical trials. Pre-clinical studies were intentionally conducted to better understand the biological activity and mechanisms of AG1 Next Gen — an approach that's both common and foundational in the development of nutrition research. These early insights help inform the design of human clinical trials, enhancing scientific rigor and ensuring that future studies are strategically and effectively guided. Pre-clinical trials and their results can take upwards of 8-10 months to design, implement and analyze the results.</li><li>We then partnered with independent contract research organizations (CROs) and academic institutions to ensure data collection and analysis were objective and professionally managed.</li><li>To ensure scientific integrity and ethical compliance, each human study protocol was submitted for review and approval by an independent Institutional Review Board (IRB) prior to participant recruitment. IRB approval is a critical regulatory step that ensures the rights, safety, and well-being of study participants are protected, and that the research is conducted according to Good Clinical Practice (GCP) and applicable regulations. No human study began without formal IRB approval.</li><li>We then created detailed protocols with third-party scientists (also known as principal scientists) outlining specific criteria including the study population, endpoints, duration, measurements, and statistical plan. The research partners then recruited participants according to inclusion and exclusion criteria outlined in each of the individual study designs to ensure the most objective outcome for each study. Participants and the third-party researchers in the trials were \"blinded,\" meaning they did not know whether they were receiving AG1 Next Gen or the placebo. Blinded studies reduce bias and are the gold standard for high-quality clinical research.</li></ul>"
+          }
+        },
+        "accordion_item_c7ireA": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "After the trials were completed",
+            "content": "<ul><li>Once all data was collected, the data was then \"unblinded\" for researchers and statistical analysis was performed. Analysis can take 4–6 months to complete.</li><li>Abstracts summarizing the key findings were then submitted to leading scientific conferences to share the data with the academic community.</li><li>Findings were shared with the AG1 community and published here on our website.</li></ul>"
+          }
+        },
+        "accordion_item_pdrwgB": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "What happens next",
+            "content": "<ul><li>Full study manuscripts are being developed to be submitted to peer-reviewed scientific journals. The peer-review process ensures that independent scientists in the field have thoroughly reviewed and validated the study's design, methodology, and conclusions. This is a vital step in maintaining the highest standards of scientific integrity and transparency and can take 6–12 months or longer.</li><li>Once published in a peer-reviewed journal, we will share the full results and links to the publications.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_VCabed",
+        "accordion_item_c7ireA",
+        "accordion_item_pdrwgB"
+      ],
+      "name": "Research Lifecycle",
+      "settings": {
+        "heading": "The clinical research lifecycle",
+        "description": "<p>We're proud to share that four clinical studies – rigorously designed, randomized, placebo-controlled trials – on the AG1 Next Gen formula have been completed. This is a major milestone in our scientific journey and one that underscores our long-standing commitment to evidence-based innovation.</p><p>Just like the trials themselves, the clinical research lifecycle is also rigorous, and it can be lengthy. Here's a bit more about what we've done and where we stand.</p>"
+      }
+    },
+    "scientific_conferences_HYj3YU": {
+      "type": "scientific-conferences",
+      "blocks": {
+        "conference_row_GbrfFD": {
+          "type": "conference_row",
+          "settings": {
+            "title": "The Synbiotic AG1 Outcompetes A Comparative Multi-strain Probiotic In The SHIME Model",
+            "conference": "2025 American Physiology Society (APS) Summit",
+            "details": "Presented: April 24th–27th in Baltimore, MA\nAbstract published in May issue of The Journal of Physiology, one of the peer-reviewed journals of the American Physiological Society.",
+            "link_url": "",
+            "link_text": "HERE"
+          }
+        },
+        "conference_row_tLNMnM": {
+          "type": "conference_row",
+          "settings": {
+            "title": "AG1®, a foundational nutrition supplement, closes nutrient gaps in healthy adults: A randomized controlled trial",
+            "conference": "2025 American Society of Nutrition (ASN)",
+            "details": "May 31st – June 3rd in Orlando, FL\nAbstract published in Current Developments in Nutrition (CDN), a peer-reviewed journal of the American Society for Nutrition.",
+            "link_url": "",
+            "link_text": "HERE"
+          }
+        },
+        "conference_row_XXa3Fd": {
+          "type": "conference_row",
+          "settings": {
+            "title": "AG1® improves biomarkers of nutrient status: A randomized controlled trial",
+            "conference": "2025 American Society of Nutrition (ASN)",
+            "details": "May 31st – June 3rd in Orlando, FL\nAbstract published in Current Developments in Nutrition (CDN), a peer-reviewed journal of the American Society for Nutrition.",
+            "link_url": "",
+            "link_text": "HERE"
+          }
+        }
+      },
+      "block_order": [
+        "conference_row_GbrfFD",
+        "conference_row_tLNMnM",
+        "conference_row_XXa3Fd"
+      ],
+      "name": "Scientific Conferences",
+      "settings": {
+        "heading": "AG1 at scientific conferences",
+        "subtext": "The following abstracts have been accepted and are being presented.",
+        "col1_label": "Title",
+        "col2_label": "Conference, Date, & Location"
+      }
+    },
+    "research_findings_9qzUKT": {
+      "type": "research-findings",
+      "blocks": {
+        "image_block_Xg4yit": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/svgviewer-png-output_6eceec0a-f01a-4b4a-ae76-64b572e0e4a1.png",
+            "custom_svg": ""
+          }
+        },
+        "content_block_LpiNF6": {
+          "type": "content_block",
+          "settings": {
+            "label": "WHY THIS MATTERS",
+            "text": "<p>In four randomized, placebo-controlled trials—meeting strict and widely accepted standards for clinical research—AG1 Next Gen demonstrated a statistically significant and positive impact on closing common nutrient gaps. These studies included participants with diverse diets, backgrounds, ages, and activity levels.¹⁻⁴</p>",
+            "icon_svg": "",
+            "bg_color": "#002b28",
+            "text_color": "#ffffff",
+            "icon_bg_color": "#ffffff1a"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_Xg4yit",
+        "content_block_LpiNF6"
+      ],
+      "name": "Research Findings",
+      "settings": {
+        "eyebrow": "RESEARCH FINDINGS",
+        "title": "AG1 Next Gen is clinically shown to fill common nutrient gaps even in healthy eaters.¹⁻⁴",
+        "button_label": "",
+        "button_link": "",
+        "drawer_btn_label": "What This Means",
+        "drawer_title": "What this means",
+        "drawer_content": "<p>We believe in taking a food-first approach to nutrition, but even healthy eaters have gaps in their diets. Nutrient requirements are based on estimates of what most people need and they don't account for specific genetics, gut health, or the bioavailability of nutrients.</p>",
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "research_findings_G36UVz": {
+      "type": "research-findings",
+      "blocks": {
+        "finding_header_c74mG6": {
+          "type": "finding_header",
+          "settings": {
+            "heading": "7 in 10",
+            "subtext": "<p>subjects drinking AG1 Next Gen had an increase in RBC folate.</p>"
+          }
+        },
+        "image_block_8pYkt4": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/svgviewer-png-output_1.png",
+            "custom_svg": ""
+          }
+        },
+        "content_block_xfx3KL": {
+          "type": "content_block",
+          "settings": {
+            "label": "WHY THIS MATTERS",
+            "text": "<p>Adequate micronutrients are needed to support the body in the production of energy, building proteins, and metabolizing food. They act as co-factors and individual building blocks. Maintaining consistent intake is key for overall health.*</p>",
+            "icon_svg": "",
+            "bg_color": "#002b28",
+            "text_color": "#ffffff",
+            "icon_bg_color": "#ffffff1a"
+          }
+        }
+      },
+      "block_order": [
+        "finding_header_c74mG6",
+        "image_block_8pYkt4",
+        "content_block_xfx3KL"
+      ],
+      "name": "Research Findings",
+      "settings": {
+        "eyebrow": "RESEARCH FINDINGS",
+        "title": "AG1 Next Gen is clinically shown to fill common nutrient gaps even in healthy eaters.¹⁻⁴",
+        "button_label": "",
+        "button_link": "",
+        "drawer_btn_label": "What This Means",
+        "drawer_title": "What this means",
+        "drawer_content": "<p>We believe in taking a food-first approach to nutrition, but even healthy eaters have gaps in their diets. Nutrient requirements are based on estimates of what most people need and they don't account for specific genetics, gut health, or the bioavailability of nutrients.</p>",
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "research_findings_VGnL9w": {
+      "type": "research-findings",
+      "blocks": {
+        "finding_header_Ffz7eA": {
+          "type": "finding_header",
+          "settings": {
+            "heading": "33%",
+            "subtext": "<p>increase in Vitamin C levels1</p>"
+          }
+        },
+        "image_block_VE6p7f": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/svgviewer-png-output_2.png",
+            "custom_svg": ""
+          }
+        },
+        "content_block_Lb6wRM": {
+          "type": "content_block",
+          "settings": {
+            "label": "WHY THIS MATTERS",
+            "text": "<p>Adequate micronutrients are needed to support the body in the production of energy, building proteins, and metabolizing food. They act as co-factors and individual building blocks. Maintaining consistent intake is key for overall health.*</p>",
+            "icon_svg": "",
+            "bg_color": "#002b28",
+            "text_color": "#ffffff",
+            "icon_bg_color": "#ffffff1a"
+          }
+        }
+      },
+      "block_order": [
+        "finding_header_Ffz7eA",
+        "image_block_VE6p7f",
+        "content_block_Lb6wRM"
+      ],
+      "name": "Research Findings",
+      "settings": {
+        "eyebrow": "RESEARCH FINDINGS",
+        "title": "AG1 Next Gen improves key nutrient levels within 3 months.¹",
+        "button_label": "",
+        "button_link": "",
+        "drawer_btn_label": "What This Means",
+        "drawer_title": "What this means",
+        "drawer_content": "<p>We believe in taking a food-first approach to nutrition, but even healthy eaters have gaps in their diets. Nutrient requirements are based on estimates of what most people need and they don't account for specific genetics, gut health, or the bioavailability of nutrients.</p>",
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "research_findings_XRGXky": {
+      "type": "research-findings",
+      "blocks": {
+        "finding_header_VbDgjm": {
+          "type": "finding_header",
+          "settings": {
+            "heading": "Over 10x",
+            "subtext": "<p>Average increase in healthy bacteria in the gut1-3</p>"
+          }
+        },
+        "image_block_UBcke9": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/svgviewer-png-output_3.png",
+            "custom_svg": ""
+          }
+        },
+        "content_block_hMLtU3": {
+          "type": "content_block",
+          "settings": {
+            "label": "WHY THIS MATTERS",
+            "text": "<p>Beneficial bacteria—such as the probiotic strains in AG1 Next Gen—are important for maintaining a healthy microbiome and play a key role in supporting overall gut health.*</p>",
+            "icon_svg": "",
+            "bg_color": "#002b28",
+            "text_color": "#ffffff",
+            "icon_bg_color": "#ffffff1a"
+          }
+        }
+      },
+      "block_order": [
+        "finding_header_VbDgjm",
+        "image_block_UBcke9",
+        "content_block_hMLtU3"
+      ],
+      "name": "Research Findings",
+      "settings": {
+        "eyebrow": "RESEARCH FINDINGS",
+        "title": "AG1 Next Gen improves key nutrient levels within 3 months.¹",
+        "button_label": "",
+        "button_link": "",
+        "drawer_btn_label": "What This Means",
+        "drawer_title": "What this means",
+        "drawer_content": "<p>We believe in taking a food-first approach to nutrition, but even healthy eaters have gaps in their diets. Nutrient requirements are based on estimates of what most people need and they don't account for specific genetics, gut health, or the bioavailability of nutrients.</p>",
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "research_findings_hMgWxm": {
+      "type": "research-findings",
+      "blocks": {
+        "finding_header_CyqpWd": {
+          "type": "finding_header",
+          "settings": {
+            "heading": "Over 10x",
+            "subtext": "<p>Average increase in healthy bacteria in the gut1-3</p>"
+          }
+        },
+        "image_block_Lg8jfm": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/svgviewer-png-output_4.png",
+            "custom_svg": ""
+          }
+        },
+        "content_block_8qCi7q": {
+          "type": "content_block",
+          "settings": {
+            "label": "WHY THIS MATTERS",
+            "text": "<p>AG1 Next Gen delivers key nutrients like folate, vitamin C, and zinc—in bioavailable forms the body can easily and readily utilize, maximizing their potential benefits.*</p>",
+            "icon_svg": "",
+            "bg_color": "#002b28",
+            "text_color": "#ffffff",
+            "icon_bg_color": "#ffffff1a"
+          }
+        }
+      },
+      "block_order": [
+        "finding_header_CyqpWd",
+        "image_block_Lg8jfm",
+        "content_block_8qCi7q"
+      ],
+      "name": "Research Findings",
+      "settings": {
+        "eyebrow": "BIOAVILABILITY",
+        "title": "Key nutrients in AG1 Next Gen were shown to be quickly and easily absorbed into the body.⁴",
+        "button_label": "",
+        "button_link": "",
+        "drawer_btn_label": "What This Means",
+        "drawer_title": "What this means",
+        "drawer_content": "<p>We believe in taking a food-first approach to nutrition, but even healthy eaters have gaps in their diets. Nutrient requirements are based on estimates of what most people need and they don't account for specific genetics, gut health, or the bioavailability of nutrients.</p>",
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_PU9itB",
+    "clinical_trials_tabs_WcgU7y",
+    "our_team_grid_BkbrTp",
+    "peer_reviewed_research_h4mJNp",
+    "research_lifecycle_JkEpc3",
+    "scientific_conferences_HYj3YU",
+    "research_findings_9qzUKT",
+    "research_findings_G36UVz",
+    "research_findings_VGnL9w",
+    "research_findings_XRGXky",
+    "research_findings_hMgWxm"
+  ]
+}
