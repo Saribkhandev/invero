@@ -1,0 +1,198 @@
+.nutritional-tabs {
+    position: relative;
+    overflow: hidden;
+}
+
+.nutritional-tabs__header {
+    margin-bottom: 40px;
+    max-width: 800px;
+}
+
+.nutritional-tabs__heading {
+    margin: 0 0 16px;
+    color: rgb(var(--color-foreground));
+    line-height: 1.1;
+}
+
+.nutritional-tabs__subheading {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: rgba(var(--color-foreground), 0.8);
+}
+
+/* Tabs Navigation */
+.nutritional-tabs__nav-wrapper {
+    margin-bottom: 60px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    /* Space for potential scrollbar interaction or shadow */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.nutritional-tabs__nav-wrapper::-webkit-scrollbar {
+    display: none;
+    /* Safari/Chrome */
+}
+
+.nutritional-tabs__nav {
+    display: flex;
+    gap: 16px;
+    min-width: max-content;
+}
+
+.nutritional-tabs__tab-btn {
+    appearance: none;
+    background: rgba(var(--color-foreground), 0.05);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 24px;
+    min-width: 200px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    color: rgb(var(--color-foreground));
+    height: 140px;
+    justify-content: space-between;
+}
+
+.nutritional-tabs__tab-btn:hover {
+    background: rgba(var(--color-foreground), 0.1);
+}
+
+.nutritional-tabs__tab-btn.is-active {
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
+    border-color: rgb(var(--color-foreground));
+}
+
+.nutritional-tabs__tab-number {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.nutritional-tabs__tab-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    display: block;
+}
+
+/* Tab Panels */
+.nutritional-tabs__panel {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.nutritional-tabs__panel.is-active {
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nutritional-tabs__panel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+@media screen and (max-width: 990px) {
+    .nutritional-tabs__panel-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* Panel Info */
+.nutritional-tabs__info {
+    max-width: 500px;
+}
+
+.nutritional-tabs__panel-desc {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    color: rgb(var(--color-foreground));
+}
+
+.nutritional-tabs__details {
+    border-top: 1px solid rgba(var(--color-foreground), 0.2);
+}
+
+.nutritional-tabs__detail-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.2);
+}
+
+.nutritional-tabs__detail-label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: rgb(var(--color-foreground));
+}
+
+.nutritional-tabs__detail-content {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(var(--color-foreground), 0.9);
+}
+
+.nutritional-tabs__detail-content p {
+    margin: 0;
+}
+
+.nutritional-tabs__detail-content p+p {
+    margin-top: 8px;
+}
+
+/* Image */
+.nutritional-tabs__image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.nutritional-tabs__image {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+}
+
+@media screen and (max-width: 750px) {
+    .nutritional-tabs__detail-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .nutritional-tabs__nav {
+        gap: 12px;
+    }
+
+    .nutritional-tabs__tab-btn {
+        min-width: 160px;
+        height: 120px;
+        padding: 16px;
+    }
+}

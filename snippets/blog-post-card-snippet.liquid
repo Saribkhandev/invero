@@ -1,0 +1,61 @@
+{% comment %}
+  Renders a blog post card
+  Accepts:
+  - article: {Object} Article Liquid object
+  - section: {Object} Section settings
+  - blog_title: {String} Title of the blog (optional)
+  - class: {String} Optional extra classes
+{% endcomment %}
+
+<div class="blog-article-card {% if article.image == blank %}blog-article-card--no-image{% endif %} {{ class }}">
+  {%- if article.image -%}
+    <div class="article-card__image-wrapper" style="padding-bottom: {{ section.settings.image_ratio }}%;">
+      <a href="{{ article.url }}" class="article-card__image-link" aria-label="{{ article.title | escape }}">
+        {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+        <img
+          srcset="
+            {%- if article.image.width >= 165 -%}{{ article.image | image_url: width: 165 }} 165w,{%- endif -%}
+            {%- if article.image.width >= 360 -%}{{ article.image | image_url: width: 360 }} 360w,{%- endif -%}
+            {%- if article.image.width >= 535 -%}{{ article.image | image_url: width: 535 }} 535w,{%- endif -%}
+            {%- if article.image.width >= 750 -%}{{ article.image | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if article.image.width >= 1000 -%}{{ article.image | image_url: width: 1000 }} 1000w,{%- endif -%}
+            {%- if article.image.width >= 1500 -%}{{ article.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {{ article.image | image_url }} {{ article.image.width }}w
+          "
+          src="{{ article.image | image_url: width: 750 }}"
+          alt="{{ article.image.alt | escape }}"
+          class="article-card__image"
+          loading="lazy"
+          width="{{ article.image.width }}"
+          height="{{ article.image.height }}"
+        >
+      </a>
+    </div>
+  {%- endif -%}
+
+  <div class="article-card__content">
+    <h4 class="article-card__title">
+      <a href="{{ article.url }}">{{ article.title | escape }}</a>
+    </h4>
+
+    {%- if section.settings.show_blog_label -%}
+      <div class="article-card__meta">
+        <span class="article-card__tag">
+          {%- if blog_title != blank -%}
+            {{ blog_title }}
+          {%- endif -%}
+        </span>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_excerpt -%}
+      <div class="article-card__excerpt">
+        {%- if article.excerpt.size > 0 -%}
+          {{ article.excerpt | strip_html | truncatewords: 25 }}
+        {%- else -%}
+          {{ article.content | strip_html | truncatewords: 25 }}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>

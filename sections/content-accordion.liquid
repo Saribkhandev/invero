@@ -1,0 +1,364 @@
+<style>
+  .content-accordion {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .content-accordion {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .content-accordion__heading {
+    margin: 0 0 40px;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: rgb(var(--color-foreground-rgb));
+    max-width: 800px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .content-accordion__heading {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+  }
+
+  .content-accordion__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  @media screen and (min-width: 990px) {
+    .content-accordion__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+    }
+  }
+
+  .content-accordion__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .content-accordion__icon-wrapper {
+    margin-bottom: 24px;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .content-accordion__icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .content-accordion__item-title {
+    margin: 0 0 16px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: rgb(var(--color-foreground-rgb));
+  }
+
+  .content-accordion__item-text {
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(var(--color-foreground-rgb), 0.75);
+  }
+
+  .content-accordion__item-text p {
+    margin: 0;
+  }
+
+  .content-accordion__details {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-out;
+    visibility: hidden;
+  }
+
+  .content-accordion__details.is-open {
+    visibility: visible;
+  }
+
+  .content-accordion__details-content {
+    padding-top: 16px;
+    padding-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(var(--color-foreground-rgb), 0.75);
+    border-top: 1px solid var(--color-foreground);
+  }
+
+  .content-accordion__details-content p {
+    margin-bottom: 16px;
+  }
+
+  .content-accordion__details-content ul {
+    margin: 0 0 16px;
+    padding-left: 20px;
+    list-style: disc;
+  }
+
+  .content-accordion__toggle-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-top: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(var(--color-foreground-rgb), 0.6);
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .content-accordion__toggle-btn:hover {
+    color: rgb(var(--color-foreground-rgb));
+  }
+
+  .content-toggle-text {
+    margin-right: 4px;
+  }
+
+  .content-toggle-icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+  }
+
+  .content-toggle-icon-wrapper svg {
+    display: block;
+  }
+
+  .content-accordion__toggle-btn[aria-expanded="false"] .icon-minus {
+    display: none;
+  }
+
+  .content-accordion__toggle-btn[aria-expanded="true"] .icon-plus {
+    display: none;
+  }
+</style>
+
+<div class="content-accordion section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="content-accordion__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="content-accordion__grid">
+      {%- for block in section.blocks -%}
+        <div class="content-accordion__item" {{ block.shopify_attributes }}>
+          <div class="content-accordion__icon-wrapper">
+            {%- if block.settings.custom_icon != blank -%}
+              {{
+                block.settings.custom_icon
+                | image_url: width: 120
+                | image_tag: class: 'content-accordion__icon', loading: 'lazy'
+              }}
+            {%- else -%}
+              <!-- Fallback placeholder or SVGs based on index/type if needed, or just blank -->
+              {{ 'image' | placeholder_svg_tag: 'content-accordion__icon placeholder-svg' }}
+            {%- endif -%}
+          </div>
+
+          <h2 class="content-accordion__item-title">{{ block.settings.title }}</h2>
+
+          <div class="content-accordion__item-text">
+            {{ block.settings.text }}
+          </div>
+
+          {%- if block.settings.expandable_content != blank -%}
+            <div id="details-{{ block.id }}" class="content-accordion__details">
+              <div class="content-accordion__details-content rte">
+                {{ block.settings.expandable_content }}
+              </div>
+            </div>
+            <button
+              class="content-accordion__toggle-btn"
+              type="button"
+              aria-expanded="false"
+              data-target="details-{{ block.id }}"
+            >
+              <span class="content-toggle-text">Learn more</span>
+              <span class="content-toggle-icon-wrapper">
+                <svg
+                  class="icon-plus"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <svg
+                  class="icon-minus"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path d="M1.99998 8.04004H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+            </button>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggles = document.querySelectorAll('.content-accordion__toggle-btn');
+
+    toggles.forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const targetId = this.dataset.target;
+        const targetContent = document.getElementById(targetId);
+        const labelText = this.querySelector('.content-toggle-text');
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+        if (isExpanded) {
+          // Collapse
+          targetContent.style.maxHeight = null;
+          targetContent.classList.remove('is-open');
+          this.setAttribute('aria-expanded', 'false');
+          if (labelText) labelText.textContent = 'Learn more';
+        } else {
+          // Expand
+          targetContent.classList.add('is-open');
+          targetContent.style.maxHeight = targetContent.scrollHeight + 'px';
+          this.setAttribute('aria-expanded', 'true');
+          if (labelText) labelText.textContent = 'Collapse';
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Content with Accordion",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The building blocks of Foundational Nutrition"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_item",
+      "name": "Accordion Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Micronutrients"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Intro Text",
+          "default": "Micronutrients, from vitamins and minerals, energize and support the cells of the brain, gut, and immune systems.*"
+        },
+        {
+          "type": "richtext",
+          "id": "expandable_content",
+          "label": "Expanded Content",
+          "default": "<p>Micronutrients are as important to life as macronutrients — they're just needed in smaller amounts (hence micro). These nutrients are a key part of Foundational Nutrition as they act as individual building blocks in the body and are required for cellular turnover.</p><ul><li>Vitamins</li><li>Minerals</li></ul>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Content with Accordion",
+      "blocks": [
+        {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Micronutrients",
+            "text": "Micronutrients, from vitamins and minerals, energize and support the cells of the brain, gut, and immune systems.*",
+            "expandable_content": "<p>Micronutrients are as important to life as macronutrients — they're just needed in smaller amounts (hence micro). These nutrients are a key part of Foundational Nutrition as they act as individual building blocks in the body and are required for cellular turnover. Without them, we couldn't produce energy, build proteins, metabolize food, or other vital processes.*</p><ul><li>Vitamins</li><li>Minerals</li></ul>"
+          }
+        },
+        {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Phytonutrients",
+            "text": "Phytonutrients, found in whole foods, help balance the body and maintain key processes between all of our health systems.*",
+            "expandable_content": "<p>Phytonutrients are natural compounds found in plant foods such as vegetables, fruit, whole grain products and legumes. These plant compounds have beneficial effects working with other essential nutrients to promote good health.</p>"
+          }
+        },
+        {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Synbiotics",
+            "text": "Pre and probiotics, known as synbiotics, optimize the gut to unlock nutrient access and enhance absorption.*",
+            "expandable_content": "<p>Synbiotics act as a fertilizer for your inner garden. They help good bacteria flourish in your gut, which improves digestion, nutrient absorption, and overall health.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
